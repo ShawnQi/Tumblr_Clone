@@ -2,10 +2,14 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.13'
 gem 'bcrypt-ruby', require: 'bcrypt'
+gem 'sqlite3'
 gem 'pg'
 gem 'backbone-on-rails'
 gem 'jquery-rails'
 gem 'ejs'
+
+gem 'newrelic_rpm'
+gem 'figaro'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
