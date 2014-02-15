@@ -2,7 +2,6 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.13'
 gem 'bcrypt-ruby', require: 'bcrypt'
-gem 'sqlite3'
 gem 'pg'
 gem 'backbone-on-rails'
 gem 'jquery-rails'
