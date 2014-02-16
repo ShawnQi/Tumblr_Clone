@@ -11,7 +11,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140216183425) do
+ActiveRecord::Schema.define(:version => 20140216215324) do
+
+  create_table "activs", :force => true do |t|
+    t.string   "sent_title"
+    t.integer  "sent_user_id"
+    t.string   "got_title"
+    t.integer  "got_user_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  add_index "activs", ["got_user_id"], :name => "index_activs_on_got_user_id"
+  add_index "activs", ["sent_user_id"], :name => "index_activs_on_sent_user_id"
 
   create_table "posts", :force => true do |t|
     t.string   "title"

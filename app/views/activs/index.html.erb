@@ -1,0 +1,12 @@
+<h3>Activity</h3>
+
+<% if @activs %>
+	<ul><hr>
+	<% @activs.each do |activ| %>
+		<li>
+			<%= activ.sent_user_id == current_user.id ? activ.sent_title : activ.got_title %><br>
+			<%= activ.created_at %><hr>
+		</li>
+	<% end %>
+	</ul>
+<% end %>
