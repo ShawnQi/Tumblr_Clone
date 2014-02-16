@@ -7,6 +7,7 @@ gem 'backbone-on-rails'
 gem 'jquery-rails'
 gem 'ejs'
 gem 'letter_opener'
+gem 'annotate'
 
 gem 'newrelic_rpm'
 gem 'figaro'
