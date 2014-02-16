@@ -24,6 +24,8 @@ class User < ActiveRecord::Base
   validates :email, uniqueness: true
   validates :password, length: 4..15, allow_nil: true
   
+  has_many :posts
+  
   
   def password=(password)
     @password = password
