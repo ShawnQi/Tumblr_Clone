@@ -7,6 +7,8 @@
 			Title: <%= draft.title %><br>
 			Body: <%= draft.body %><br>
 			<a href="<%= publish_url(draft.id) %>">Publish</a>
+			<a href="<%= edit_post_url(draft.id) %>">Edit</a>
+			<%= button_to 'Delete', post_url(draft.id), method: "delete" %>
 		</li>
 	<% end %>
 	</ul>

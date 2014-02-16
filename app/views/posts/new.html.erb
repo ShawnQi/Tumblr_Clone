@@ -1,1 +1,23 @@
 <h3>New Post</h3>
+
+<form action="<%= posts_url %>" method="post">
+	<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+	
+	<input type="text" name="post[title]" value="<%= @post.title %>" placeholder="Title"><br>
+	
+	<textarea name="post[body]" placeholder="Body"><%= @post.body %></textarea><br>
+	
+	<input type="checkbox" name="post[draft]" value="true">Save as draft?<br>
+	
+	<% if flash.now[:errors] %>
+		<% history = [] %>
+		<% flash.now[:errors].each do |key, val| %>
+			<% unless history.include?(key) %>
+				<div class="auth_error"><%= key.capitalize %> <%= val.first %></div>
+				<% history << key %>
+			<% end %>
+		<% end %>
+	<% end %>
+
+	<input type="submit" value="Post">
+</form>

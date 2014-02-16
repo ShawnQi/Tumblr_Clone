@@ -7,7 +7,7 @@ TumblrClone::Application.routes.draw do
   
   resources :users, only: [:new, :create, :show]
   
-  resources :posts, only: [:index, :edit, :update, :destroy]
+  resources :posts, except: [:show]
   get 'drafts', to: 'posts#drafts', as: 'drafts'
   get 'posts/:id/publish', to: 'posts#publish', as: 'publish'
 end

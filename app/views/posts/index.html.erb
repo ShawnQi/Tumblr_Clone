@@ -5,7 +5,9 @@
 	<% @posts.each do |post| %>
 		<li>
 			Title: <%= post.title %><br>
-			Body: <%= post.body %>
+			Body: <%= post.body %><br>
+			<a href="<%= edit_post_url(post.id) %>">Edit</a>
+			<%= button_to 'Delete', post_url(post.id), method: "delete" %>
 		</li>
 	<% end %>
 	</ul>
