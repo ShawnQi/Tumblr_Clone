@@ -9,6 +9,21 @@ class PostsController < ApplicationController
     @drafts = current_user.posts.where(draft: true)
   end
   
+  def new
+  end
+  
+  def create
+    @post = current_user.posts.new(params[:post])
+    
+    if @post.save
+      flash[:main] = "Your post has been saved"
+      redirect_to root_url
+    else
+      flash.now[:errors] = @post.errors.messages
+      render :new
+    end
+  end
+  
   def edit
     @post = current_user.posts.find(params[:id])
   end
