@@ -1,0 +1,12 @@
+<h3>Drafts</h3>
+
+<% if @drafts %>
+	<ul>
+	<% @drafts.each do |draft| %>
+		<li>
+			Title: <%= draft.title %><br>
+			Body: <%= draft.body %>
+		</li>
+	<% end %>
+	</ul>
+<% end %>

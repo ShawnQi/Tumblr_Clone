@@ -1,0 +1,12 @@
+<h3>Posts</h3>
+
+<% if @posts %>
+	<ul>
+	<% @posts.each do |post| %>
+		<li>
+			Title: <%= post.title %><br>
+			Body: <%= post.body %>
+		</li>
+	<% end %>
+	</ul>
+<% end %>
