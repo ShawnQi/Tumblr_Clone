@@ -11,3 +11,89 @@
  *= require_self
  *= require_tree .
  */
+
+body, h1, h2, h3, h3, h4, h5, h6,
+p, div, input, button, a {
+	padding: 0;
+	margin: 0;
+	border: 0;
+	text-decoration: none;
+	font: 16px Helvetica;
+	-webkit-font-smoothing: antialiased;
+}
+
+.clearfix {
+	display: block;
+	clear: both;
+	content: "";
+}
+
+.auth_bg {
+	background: url('auth_bg1.jpg') no-repeat center center fixed;
+	background-color: #375876;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+	
+  min-height: 100%;
+  min-width: 1024px;
+  width: 100%;
+  height: auto;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.logo {
+	font-family: Helvetica serif;
+	font-weight: bold;
+	font-size: 60px;
+	color: white;
+	margin-top: 120px;
+	text-align: center;
+}
+
+.auth_input {
+	border-radius: 2px;
+	border-bottom: 1px solid lightgrey;
+	outline: none;
+  width: 260px;
+  padding: 14px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.auth_action {
+	background-color: #4D9ECD;
+	color: white;
+	margin: 10px 0;
+}
+
+.bottom {
+	position: absolute;
+	bottom: 46px;
+	left: 20px;
+	background: rgba(255,255,255,0.3);
+	color: white;
+  width: auto;
+}
+
+.center {
+	width: 262px;
+	margin: 0 auto;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.text {
+	text-align: center;
+	color: white;
+	width: 340px;
+	position: relative;
+	left: -40px;
+	margin-bottom: 20px;
+	line-height: 24px;
+}

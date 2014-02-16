@@ -1,25 +1,41 @@
-<p>Follow the blogs you've been hearing about.
-Share the things you love.</p>
+<div class="auth_bg">
+		
+		<div class="center">
+		
+			<div class="logo">tumblr.</div>
+			
+			
+			<div class="text">Follow the blogs you've been hearing about.<br>
+			Share the things you love.</div>
 
-<form action="<%= users_url %>" method="post">
-	<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+			<form action="<%= users_url %>" method="post">
+				<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
 	
-	<input type="text" name="user[email]"  placeholder="Email" value="<%= @user && @user.email %>"><br>
-	<input type="text" name="user[password]"  placeholder="Password" value="<%= @user && @user.password %>"><br>
-	<input type="text" name="user[username]"  placeholder="Username" value="<%= @user && @user.username %>"><br>
-	<input type="text" name="user[blog_name]"  placeholder="Blog name" value="<%= @user && @user.blog_name %>"><br>
+				<input type="text" class="auth_input" name="user[email]"  placeholder="Email" value="<%= @user && @user.email %>"><br>
+				<input type="text" class="auth_input" name="user[password]"  placeholder="Password" value="<%= @user && @user.password %>"><br>
+				<input type="text" class="auth_input" name="user[username]"  placeholder="Username" value="<%= @user && @user.username %>"><br>
+				<input type="text" class="auth_input" name="user[blog_name]"  placeholder="Blog name" value="<%= @user && @user.blog_name %>"><br>
 	
-	<% if flash.now[:errors] %>
-		<% history = [] %>
-		<% flash.now[:errors].each do |key, val| %>
-			<% unless history.include?(key) %>
-				<div class="auth_error"><%= key.capitalize %> <%= val.first %></div>
-				<% history << key %>
-			<% end %>
-		<% end %>
-	<% end %>
+				<% if flash.now[:errors] %>
+					<% history = [] %>
+					<% flash.now[:errors].each do |key, val| %>
+						<% unless history.include?(key) %>
+							<div class="auth_error"><%= key.capitalize %> <%= val.first %></div>
+							<% history << key %>
+						<% end %>
+					<% end %>
+				<% end %>
 
-	<input type="submit" value="Sign up">
-</form>
+				<input class="auth_input auth_action" type="submit" value="Sign up">
+			</form>
+			
+			
+	</div>
+	
+				<a class="auth_input bottom" href="<%= login_url %>">Sign in</a>
+</div>
 
-<a href="<%= login_url %>">Sign in</a>
+
+
+
+
