@@ -61,5 +61,6 @@ module TumblrClone
     
     config.assets.initialize_on_precompile = false
     # config.serve_static_assets = true
+    # config.assets.precompile = ['application.js', 'application.css', 'auth.css']
   end
 end
