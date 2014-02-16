@@ -1,2 +1,24 @@
 <h3>Edit post/draft</h3>
 
+<form action="<%= post_url(@post.id) %>" method="post">
+	<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+	<input type="hidden" name="_method" value="put">
+	
+	<input type="text" name="post[title]" value="<%= @post.title %>" placeholder="Title"><br>
+	
+	<textarea name="post[body]" placeholder="Body"><%= @post.body %></textarea><br>
+	
+	<input type="checkbox" name="post[draft]" value="true" <%= "checked" if @post.draft %>>Draft<br>
+	
+	<% if flash.now[:errors] %>
+		<% history = [] %>
+		<% flash.now[:errors].each do |key, val| %>
+			<% unless history.include?(key) %>
+				<div class="auth_error"><%= key.capitalize %> <%= val.first %></div>
+				<% history << key %>
+			<% end %>
+		<% end %>
+	<% end %>
+
+	<input type="submit" value="Save">
+</form>

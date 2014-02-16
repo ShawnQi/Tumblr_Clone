@@ -10,6 +10,7 @@ class PostsController < ApplicationController
   end
   
   def new
+    @post = Post.new
   end
   
   def create
@@ -30,6 +31,7 @@ class PostsController < ApplicationController
   
   def update
     @post = current_user.posts.find(params[:id])
+    @post.draft = false unless params[:post][:draft]
     
     if @post.update_attributes(params[:post])
       flash[:main] = "Your post has been updated"
