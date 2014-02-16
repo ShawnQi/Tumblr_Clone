@@ -1,7 +1,16 @@
 <h3>Sign In</h3>
 
 <form action="<%= signin_url %>" method="post">
+	<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+		
+	<input type="text" name="user[username]"><br>
+	<input type="text" name="user[password]"><br>
 	
+	<% if flash.now[:errors] %>
+				<div class="auth_error"><%= flash.now[:errors] %></div>
+	<% end %>
 
 	<input type="submit" value="Log in">
 </form>
+
+<a href="<%= new_user_url %>">Sign up</a>
