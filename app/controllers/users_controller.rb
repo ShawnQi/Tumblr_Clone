@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_filter :require_current_user!, only: [:show]
+  layout "auth", only: :new
   
   def new
   end
