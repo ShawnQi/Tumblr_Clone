@@ -4,10 +4,10 @@ Share the things you love.</p>
 <form action="<%= users_url %>" method="post">
 	<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
 	
-	<input type="text" name="user[email]" value="<%= @user && @user.email %>"><br>
-	<input type="text" name="user[password]" value="<%= @user && @user.password %>"><br>
-	<input type="text" name="user[username]" value="<%= @user && @user.username %>"><br>
-	<input type="text" name="user[blog_name]" value="<%= @user && @user.blog_name %>"><br>
+	<input type="text" name="user[email]"  placeholder="Email" value="<%= @user && @user.email %>"><br>
+	<input type="text" name="user[password]"  placeholder="Password" value="<%= @user && @user.password %>"><br>
+	<input type="text" name="user[username]"  placeholder="Username" value="<%= @user && @user.username %>"><br>
+	<input type="text" name="user[blog_name]"  placeholder="Blog name" value="<%= @user && @user.blog_name %>"><br>
 	
 	<% if flash.now[:errors] %>
 		<% history = [] %>

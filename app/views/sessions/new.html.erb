@@ -3,8 +3,8 @@
 <form action="<%= signin_url %>" method="post">
 	<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
 		
-	<input type="text" name="user[username]"><br>
-	<input type="text" name="user[password]"><br>
+	<input type="text" name="user[email]" placeholder="Email"><br>
+	<input type="text" name="user[password]" placeholder="Password"><br>
 	
 	<% if flash.now[:errors] %>
 				<div class="auth_error"><%= flash.now[:errors] %></div>

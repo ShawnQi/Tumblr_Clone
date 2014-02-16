@@ -30,8 +30,8 @@ class User < ActiveRecord::Base
     self.password_digest = BCrypt::Password.create(password)
   end
   
-  def self.find_by_credentials(username, password)
-    user = User.find_by_username(username)
+  def self.find_by_credentials(email, password)
+    user = User.find_by_email(email)
     return nil unless user
     BCrypt::Password.new(user.password_digest).is_password?(password) ? user : nil
   end
