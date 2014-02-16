@@ -7,6 +7,10 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+	
+<%= flash[:main] %>
+
+<a href="<%= root_url %>">Dashboard</a>
 
 <%= yield %>
 

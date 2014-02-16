@@ -5,7 +5,8 @@
 	<% @drafts.each do |draft| %>
 		<li>
 			Title: <%= draft.title %><br>
-			Body: <%= draft.body %>
+			Body: <%= draft.body %><br>
+			<a href="<%= publish_url(draft.id) %>">Publish</a>
 		</li>
 	<% end %>
 	</ul>
