@@ -6,6 +6,8 @@ TumblrClone::Application.routes.draw do
   delete 'signout', to: 'sessions#destroy', as: 'signout'
   
   resources :users
+  
   resources :posts
   get 'drafts', to: 'posts#drafts', as: 'drafts'
+  get 'posts/:id/publish', to: 'posts#publish', as: 'publish'
 end
