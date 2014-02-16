@@ -1,16 +1,23 @@
-<h3>Sign In</h3>
-
-<form action="<%= signin_url %>" method="post">
-	<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-		
-	<input type="text" name="user[email]" placeholder="Email"><br>
-	<input type="text" name="user[password]" placeholder="Password"><br>
+<div class="auth_bg">
 	
-	<% if flash.now[:errors] %>
-				<div class="auth_error"><%= flash.now[:errors] %></div>
-	<% end %>
+	<div class="center">
+	
+		<div class="logo">tumblr.</div>
 
-	<input type="submit" value="Log in">
-</form>
+		<form action="<%= signin_url %>" method="post">
+			<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+		
+			<input class="auth_input" type="text" name="user[email]" placeholder="Email"><br>
+			<input class="auth_input" type="text" name="user[password]" placeholder="Password"><br>
+	
+			<% if flash.now[:errors] %>
+						<div class="auth_error"><%= flash.now[:errors] %></div>
+			<% end %>
 
-<a href="<%= new_user_url %>">Sign up</a>
+			<input class="auth_input auth_action" type="submit" value="Log in">
+		</form>
+	
+	</div>
+
+	<a class="auth_input bottom" href="<%= new_user_url %>">Sign up</a>
+</div>
