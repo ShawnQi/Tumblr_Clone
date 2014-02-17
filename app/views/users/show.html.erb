@@ -7,12 +7,15 @@
 	<ul>
 		<% @posts.each do |post| %>
 			<li>
+				<!-- POST INFO -->
 				User: <%= post.user.username %><br>
 				Title: <%= post.title %><br>
 				Body: <%= post.body %><br>
 				
-				<% if post.user.id != current_user.id %>
-						<% if current_user.likes.pluck("post_id").include?(post.id) %>
+				<% if post.user != current_user %>
+				
+						<% if post.user.liked_posts.include?(post) %>
+						
 						<!-- UNLIKE BUTTON -->
 						<form action="unlike" method="post">
 							<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
@@ -32,7 +35,10 @@
 					
 					<% else %>
 					
+					<!-- EDIT BUTTON -->
 					<a href="<%= edit_post_url(post.id) %>">Edit</a>
+					
+					<!-- DELETE BUTTON -->
 					<%= button_to 'Delete', post_url(post.id), method: "delete" %>
 					
 				<% end %>
@@ -43,6 +49,7 @@
 	</ul>
 <% end %>
 
+<!-- NAVIGATION -->
 <a href="<%= new_post_url %>">New Post</a><br>
 <a href="<%= posts_url %>">Posts</a><br>
 <a href="<%= drafts_url %>">Drafts</a><br>
