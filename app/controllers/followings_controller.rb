@@ -2,8 +2,8 @@ class FollowingsController < ApplicationController
   before_filter :require_current_user!
   
   def followers
-    # @followings = current_user.followers
-    @followers = current_user.followers_users
+    @followings = current_user.following_users
+    @followers  = current_user.followers_users
   end
   
   def following
@@ -12,18 +12,18 @@ class FollowingsController < ApplicationController
   end
   
   def create
-    followed_id = params[following][user_id]
+    follower_id = params[:follower_id]
     following = Following.new({follower_id: current_user.id,
-                               followed_id: followed_id})
+                               followed_id: follower_id})
     
     if following.save
       Activ.create({sent_title: "You started following the user", sent_user_id: current_user.id,
-                    got_title:  "You are followed by this user",  got_user_id:  followed_id})
+                    got_title:  "You are followed by this user",  got_user_id:  follower_id})
       flash[:main] = "You started following this user"
-      redirect_to following_url
+      redirect_to root_url
     else
       flash[:main] = "Error in trying to follow a user"
-      redirect_to following_url
+      redirect_to root_url
     end
   end
   

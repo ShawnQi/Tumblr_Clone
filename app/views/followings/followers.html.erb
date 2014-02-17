@@ -8,6 +8,14 @@
 			<li>
 				<%= follower.username %>
 				
+				<% unless @followings.include?(follower) %>
+					<form action="follow" method="post">
+						<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+						<input type="hidden" name="follower_id" value="<%= follower.id %>">
+						<input type="submit" value="Follow">
+					</form>
+				<% end %>
+				
 				<form action="unfollow" method="post">
 					<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
 					<input type="hidden" name="follower_id" value="<%= follower.id %>">
