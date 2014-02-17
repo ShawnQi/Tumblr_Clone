@@ -19,5 +19,9 @@ class UsersController < ApplicationController
   end
   
   def show
+    @posts = Post.where("draft=false AND (user_id=? OR user_id IN (?))",
+                        current_user.id,
+                        current_user.following_users)
+                        .includes(:user)
   end
 end

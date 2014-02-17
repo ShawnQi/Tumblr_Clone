@@ -1,6 +1,35 @@
 <h3>Dashboard</h3>
 
 <%= button_to 'Sign out', signout_url, method: "delete" %><br>
+
+<hr>
+<% if @posts %>
+	<ul>
+		<% @posts.each do |post| %>
+			<li>
+				User: <%= post.user.username %><br>
+				Title: <%= post.title %><br>
+				Body: <%= post.body %><br>
+				
+				<% if post.user.id != current_user.id %>
+				<form action="like" method="post">
+					<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+					<input type="hidden" name="post_id" value="<%= post.id %>">
+					<input type="submit" value="Like">
+				</form>
+				<% end %>
+				
+				<hr>
+			</li>
+		<% end %>
+	</ul>
+<% end %>
+
+
+
+
+
+
 <a href="<%= new_post_url %>">New Post</a><br>
 <a href="<%= posts_url %>">Posts</a><br>
 <a href="<%= drafts_url %>">Drafts</a><br>
