@@ -14,7 +14,9 @@
 class Post < ActiveRecord::Base
   attr_accessible :body, :draft, :title, :user_id
   
-  belongs_to :user
-  
   validates :title, :body, presence: true
+  
+  belongs_to :user
+  has_many :likes, dependent: :destroy
+  
 end
