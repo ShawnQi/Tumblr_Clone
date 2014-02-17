@@ -15,6 +15,6 @@ TumblrClone::Application.routes.draw do
   
   get 'followers', to: 'followings#followers', as: 'followers'
   get 'following', to: 'followings#following', as: 'following'
-  post 'follow',    to: 'followings#create',    as: 'follow'
-  delete 'followings/:id/unfollow', to: 'followings#destroy', as: 'unfollow'
+  post 'follow',   to: 'followings#create',    as: 'follow'
+  post 'unfollow', to: 'followings#destroy',   as: 'unfollow'
 end
