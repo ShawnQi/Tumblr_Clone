@@ -45,3 +45,9 @@ Post.create!({title: "Draft from demo_user3", body: "Body", draft: true,  user_i
 Following.create!({follower_id: 2, followed_id: 1})
 Following.create!({follower_id: 3, followed_id: 1})
 Following.create!({follower_id: 1, followed_id: 2})
+
+
+# LIKES
+Like.create!({user_id: 1, post_id: 5})
+Like.create!({user_id: 1, post_id: 8})
+Like.create!({user_id: 2, post_id: 1})
