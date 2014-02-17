@@ -2,23 +2,25 @@ class FollowingsController < ApplicationController
   before_filter :require_current_user!
   
   def followers
-    @followers = current_user.followers
+    @followers = current_user.followers_users
   end
   
   def following
-    @following = current_user.following
+    @following = current_user.following_users
   end
   
   def create
-    following = Follow.new({follower_id: current_user.id,
-                            followed_id: params[follow][user_id]})
+    followed_id = params[following][user_id]
+    following = Following.new({follower_id: current_user.id,
+                               followed_id: followed_id})
     
-    if following.create
-      Activ.create({sent_title: "You published a new post", sent_user_id: current_user.id})
-      flash[:main] = "Added to your following"
+    if following.save
+      Activ.create({sent_title: "You started following the user", sent_user_id: current_user.id,
+                    got_title:  "You are followed by this user",  got_user_id:  followed_id})
+      flash[:main] = "You started following this user"
       redirect_to following_url
     else
-      flash[:main] = "Error in following a user"
+      flash[:main] = "Error in trying to follow a user"
       redirect_to following_url
     end
   end
@@ -27,10 +29,10 @@ class FollowingsController < ApplicationController
     following = Following.find(params[:id])
     
     if following.destroy
-      flash[:main] = "You started following the user"
+      flash[:main] = "You unfollowed this user"
       redirect_to following_url
     else
-      flash[:main] = "Error in trying to unfollow the user"
+      flash[:main] = "Error in trying to unfollow this user"
       redirect_to following_url
     end
   end

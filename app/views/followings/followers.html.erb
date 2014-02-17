@@ -1,0 +1,13 @@
+<h3>Followers</h3>
+
+<p><%= @followers.count %> users follow you</p>
+
+<% if @followers %>
+	<ul>
+		<% @followers.each do |follower| %>
+			<li>
+				<%= follower.username %>
+			</li>
+		<% end %>
+	</ul>
+<% end %>
