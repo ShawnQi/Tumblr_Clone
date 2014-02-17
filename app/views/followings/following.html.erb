@@ -7,6 +7,13 @@
 		<% @following.each do |following| %>
 			<li>
 				<%= following.username %>
+				
+				<form action="unfollow" method="post">
+					<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+					<input type="hidden" name="followed_id" value="<%= following.id %>">
+					<input type="submit" value="Unfollow">
+				</form>
+				
 			</li>
 		<% end %>
 	</ul>
