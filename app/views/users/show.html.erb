@@ -12,11 +12,29 @@
 				Body: <%= post.body %><br>
 				
 				<% if post.user.id != current_user.id %>
-				<form action="like" method="post">
-					<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-					<input type="hidden" name="post_id" value="<%= post.id %>">
-					<input type="submit" value="Like">
-				</form>
+						<% if current_user.likes.pluck("post_id").include?(post.id) %>
+						<!-- UNLIKE BUTTON -->
+						<form action="unlike" method="post">
+							<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+							<input type="hidden" name="post_id" value="<%= post.id %>">
+							<input type="submit" value="Unlike">
+						</form>
+					
+						<% else %>
+						<!-- LIKE BUTTON -->
+						<form action="like" method="post">
+							<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+							<input type="hidden" name="post_id" value="<%= post.id %>">
+							<input type="submit" value="Like">
+						</form>
+					
+						<% end %>
+					
+					<% else %>
+					
+					<a href="<%= edit_post_url(post.id) %>">Edit</a>
+					<%= button_to 'Delete', post_url(post.id), method: "delete" %>
+					
 				<% end %>
 				
 				<hr>
@@ -24,11 +42,6 @@
 		<% end %>
 	</ul>
 <% end %>
-
-
-
-
-
 
 <a href="<%= new_post_url %>">New Post</a><br>
 <a href="<%= posts_url %>">Posts</a><br>
