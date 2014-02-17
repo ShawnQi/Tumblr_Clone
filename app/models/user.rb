@@ -27,6 +27,9 @@ class User < ActiveRecord::Base
   has_many :posts, dependent: :destroy
   has_many :sent_activs, class_name: "Activ", foreign_key: "sent_user_id", dependent: :destroy
   has_many :got_activs,  class_name: "Activ", foreign_key: "got_user_id",  dependent: :destroy
+  has_many :followers, class_name: "Following", foreign_key: "followed_id", dependent: :destroy
+  has_many :following, class_name: "Following", foreign_key: "follower_id", dependent: :destroy
+  
   
   def password=(password)
     @password = password
