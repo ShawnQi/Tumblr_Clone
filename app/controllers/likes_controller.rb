@@ -6,10 +6,26 @@ class LikesController < ApplicationController
   end
   
   def create
-    @like = nil
+    like = Like.new({user_id: current_user.id, post_id: params[:post_id]})
+    
+    if like.save
+      flash[:main] = "You liked this post"
+      redirect_to likes_url
+    else
+      flash[:main] = "Error in trying to like this post"
+      redirect_to likes_url
+    end
   end
   
   def destroy
+    like = Like.where("user_id=? AND post_id=?", current_user.id, params[:post_id]).first
     
+    if like.destroy
+      flash[:main] = "You unliked this post"
+      redirect_to likes_url
+    else
+      flash[:main] = "Error in trying to unlike this post"
+      redirect_to likes_url
+    end
   end
 end

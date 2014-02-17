@@ -1,0 +1,19 @@
+<h3>Liked Posts</h3>
+
+<% if @liked_posts %>
+	<ul>
+	<% @liked_posts.each do |post| %>
+		<li>
+			Title: <%= post.title %><br>
+			Body: <%= post.body %><br>
+			
+			<form action="unlike" method="post">
+				<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+				<input type="hidden" name="post_id" value="<%= post.id %>">
+				<input type="submit" value="Unlike">
+			</form>
+			
+		</li>
+	<% end %>
+	</ul>
+<% end %>
