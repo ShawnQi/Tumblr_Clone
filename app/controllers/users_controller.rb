@@ -22,7 +22,7 @@ class UsersController < ApplicationController
     @posts = Post.where("draft=false AND (user_id=? OR user_id IN (?))",
                         current_user.id,
                         current_user.following_users)
-                        .includes(:user)
+                        .includes(user: :liked_posts)
                         .order("created_at DESC")
   end
 end
