@@ -12,4 +12,9 @@ TumblrClone::Application.routes.draw do
   get 'posts/:id/publish', to: 'posts#publish', as: 'publish'
   
   resources :activs, only: [:index]
+  
+  get 'followers', to: 'followings#followers', as: 'followers'
+  get 'following', to: 'followings#following', as: 'following'
+  get 'follow',    to: 'followings#create',    as: 'follow'
+  get 'followings/:id/unfollow', to: 'followings#destroy', as: 'unfollow'
 end
