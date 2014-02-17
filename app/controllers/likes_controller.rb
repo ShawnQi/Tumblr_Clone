@@ -10,10 +10,10 @@ class LikesController < ApplicationController
     
     if like.save
       flash[:main] = "You liked this post"
-      redirect_to likes_url
+      redirect_to root_url
     else
       flash[:main] = "Error in trying to like this post"
-      redirect_to likes_url
+      redirect_to root_url
     end
   end
   
@@ -22,10 +22,10 @@ class LikesController < ApplicationController
     
     if like.destroy
       flash[:main] = "You unliked this post"
-      redirect_to likes_url
+      redirect_to root_url
     else
       flash[:main] = "Error in trying to unlike this post"
-      redirect_to likes_url
+      redirect_to root_url
     end
   end
 end

@@ -61,10 +61,10 @@ class PostsController < ApplicationController
     if @draft
       @draft.update_attributes({draft: false})
       flash[:main] = "Your draft has been published"
-      redirect_to posts_url
+      redirect_to root_url
     else
       flash[:main] = "There was an error in trying to publish your draft"
-      redirect_to drafts_url
+      redirect_to root_url
     end
   end
 end

@@ -23,5 +23,6 @@ class UsersController < ApplicationController
                         current_user.id,
                         current_user.following_users)
                         .includes(:user)
+                        .order("created_at DESC")
   end
 end
