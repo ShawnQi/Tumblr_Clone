@@ -13,8 +13,7 @@
 				Body: <%= post.body %><br>
 				
 				<% if post.user != current_user %>
-				
-						<% if post.user.liked_posts.include?(post) %>
+						<% if @liked_posts.include?(post.id) %>
 						
 						<!-- UNLIKE BUTTON -->
 						<form action="unlike" method="post">
@@ -24,6 +23,7 @@
 						</form>
 					
 						<% else %>
+						
 						<!-- LIKE BUTTON -->
 						<form action="like" method="post">
 							<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
