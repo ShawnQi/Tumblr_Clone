@@ -35,7 +35,6 @@ body {
 	width: 900px;
 	margin: 0 auto;
 	padding: 0 30px;
-	border: 1px solid lightblue;
 }
 
 #header {
@@ -76,4 +75,15 @@ nav img:hover {
 
 .low_opacity {
 	opacity: 0.2;
+}
+
+#content {
+	background-color: #2A4763;
+	width: 860px;
+	padding: 20px;
+	border-radius: 15px;
+}
+
+#left_column {
+	width: 625px;
 }
