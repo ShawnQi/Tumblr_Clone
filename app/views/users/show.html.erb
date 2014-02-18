@@ -1,8 +1,12 @@
+<div class="relative"><div class="post_avatar_top"></div></div>
+<div class="new_post_menu"></div>
+
 <% if @posts %>
 	<ul>
 		<% @posts.each_with_index do |post, i| %>
 			<li class="<%= i==0 ? "first_post" : "post" %>">
 				
+				<!-- POSTS'S AVATAR -->
 				<div class="relative"><div class="post_avatar"></div></div>
 				
 				<!-- POST INFO -->
