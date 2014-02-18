@@ -63,6 +63,7 @@ p, div, input, button, a {
 	background-color: #4D9ECD;
 	color: white;
 	margin: 10px 0;
+	cursor: pointer;
 }
 
 .bottom {
