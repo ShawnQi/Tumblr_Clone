@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_filter :require_current_user!
+  before_filter :get_recommended
   
   def index
     @posts = current_user.posts.where(draft: false)
