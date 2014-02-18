@@ -11,7 +11,6 @@
  *= require_self
 */
 
-
 body, h1, h2, h3, h3, h4, h5, h6,
 p, div, input, button, a {
 	padding: 0;
@@ -19,11 +18,16 @@ p, div, input, button, a {
 	border: 0;
 	text-decoration: none;
 	font: 16px Helvetica;
+	font-weight: bold;
 	-webkit-font-smoothing: antialiased;
 }
 
+.clearfix {
+	clear: both;
+}
+
 .auth_bg {
-	background: url('auth_bg1.jpg') no-repeat center center fixed;
+	background: url('auth_bg2.gif') no-repeat center center fixed;
 	background-color: #375876;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -40,12 +44,8 @@ p, div, input, button, a {
 }
 
 .logo {
-	font-family: Helvetica serif;
-	font-weight: bold;
-	font-size: 60px;
-	color: white;
-	margin-top: 120px;
-	text-align: center;
+	width: 232px;
+	margin: 170px auto 10px auto;
 }
 
 .auth_input {
