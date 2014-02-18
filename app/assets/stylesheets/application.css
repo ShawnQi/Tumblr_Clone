@@ -18,7 +18,7 @@ p, div, a, img, ul, li, nav {
 	border: 0;
 	text-decoration: none;
 	font: normal 14px/1.4 "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, sans-serif;
-	color: #444;
+	color: #94A2B0;
 /*	-webkit-font-smoothing: antialiased;*/
 	list-style: none;
 }
@@ -128,4 +128,25 @@ nav img:hover {
 
 .menu li a:hover {
 	background-color: #2F4B66;
+}
+
+#user_blog_info {
+	color: #94A2B0;
+	padding: 0 13px 7px 13px;
+	white-space: nowrap;
+	max-width: 160px;
+	overflow: hidden;
+}
+
+#blog_name_top {
+	line-height: 17px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+#username_top {
+	color: #697D91;
+	font-size: 13px;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
