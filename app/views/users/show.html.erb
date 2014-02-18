@@ -1,12 +1,7 @@
-<h3>Dashboard</h3>
-
-<%= button_to 'Sign out', signout_url, method: "delete" %><br>
-
-<hr>
 <% if @posts %>
 	<ul>
 		<% @posts.each do |post| %>
-			<li>
+			<li class="post">
 				<!-- POST INFO -->
 				User: <%= post.user.username %><br>
 				Title: <%= post.title %><br>
@@ -42,8 +37,6 @@
 					<%= button_to 'Delete', post_url(post.id), method: "delete" %>
 					
 				<% end %>
-				
-				<hr>
 			</li>
 		<% end %>
 	</ul>
