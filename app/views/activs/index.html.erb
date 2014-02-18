@@ -4,8 +4,8 @@
 	<ul><hr>
 	<% @activs.each do |activ| %>
 		<li>
-			<%= activ.sent_user_id == current_user.id ? activ.sent_title : activ.got_title %><br>
-			<%= activ.created_at %><hr>
+			<%= time_ago_in_words(activ.created_at) %> ago | <%= activ.created_at.to_time.strftime('%A, %B %e ') %><br>
+			<%= activ.sent_user_id == current_user.id ? activ.sent_title : activ.got_title %><hr>
 		</li>
 	<% end %>
 	</ul>

@@ -11,6 +11,14 @@ User.create!({email: "user3@demo.com",
               password: "password",
               username: "demo_user3",
               blog_name: "demo_blog3"})
+User.create!({email: "user4@demo.com",
+              password: "password",
+              username: "demo_user4",
+              blog_name: "demo_blog4"})
+User.create!({email: "user5@demo.com",
+              password: "password",
+              username: "demo_user5",
+              blog_name: "demo_blog5"})
 
 
 

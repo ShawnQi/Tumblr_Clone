@@ -1,0 +1,19 @@
+<h3>Find Blogs</h3>
+
+<p><a href="<%= findblogs_url %>">Generate random</a></p>
+
+<ul>
+<% @blogs.each do |blog| %>
+	<li>
+		User: <%= blog.username %><br>
+		Blog: <%= blog.blog_name %><br>
+		
+		<form action="follow" method="post">
+			<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+			<input type="hidden" name="follower_id" value="<%= blog.id %>">
+			<input type="submit" value="Follow">
+		</form>
+		
+	</li>
+<% end %>
+</ul>

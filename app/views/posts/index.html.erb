@@ -4,6 +4,7 @@
 	<ul>
 	<% @posts.each do |post| %>
 		<li>
+			User: <%= current_user.username %><br>
 			Title: <%= post.title %><br>
 			Body: <%= post.body %><br>
 			<a href="<%= edit_post_url(post.id) %>">Edit</a>
