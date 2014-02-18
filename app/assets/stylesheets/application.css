@@ -87,3 +87,16 @@ nav img:hover {
 #left_column {
 	width: 625px;
 }
+
+#posts {
+	width: 540px;
+	margin-left: 85px;
+}
+
+.post {
+	width: 540px;
+	padding: 15px 0;
+	margin: 20px 0;
+	background: #fff;
+	border-radius: 6px;
+}
