@@ -19,7 +19,6 @@ p, div, a, img, ul, li, nav, form {
 	text-decoration: none;
 	font: normal 14px/1.4 "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, sans-serif;
 	color: #94A2B0;
-/*	-webkit-font-smoothing: antialiased;*/
 	list-style: none;
 }
 
@@ -200,4 +199,72 @@ nav img:hover {
 	background: #6a4676;
 	border-radius: 3px;
 	margin: 8px 10px;
+}
+
+.post_username {
+	color: #A7A7A7;
+	font-size: 13px;
+	line-height: 20px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	vertical-align: middle;
+	width: 500px;
+	margin: -3px 20px 13px 20px;
+	white-space: nowrap;
+}
+
+.post_title {
+	color: #444444;
+	font-size: 22px;
+	font-weight: bold;
+	line-height: 1.3;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	vertical-align: middle;
+	width: 500px;
+	margin: 0 20px 10px 20px;
+	white-space: nowrap;
+}
+
+.post_body {
+	color: #444444;
+	width: 500px;
+	margin: 0 20px;
+}
+
+.post_footer {
+	position: relative;
+	bottom: -15px;
+	border-radius: 5px;
+	background-color: #F4F4F4;
+	height: 45px;
+	line-height: 45px;
+}
+
+.like_unlike {
+	position: absolute;
+	top: 13px;
+	right: 20px;
+}
+
+.float_left {
+	float: left;
+}
+
+.float_right {
+	float: right;
+}
+
+.relative {
+	position: relative;
+}
+
+.post_avatar {
+	width: 64px;
+	height: 64px;
+	background-color: #694777;
+	position: absolute;
+	left: -84px;
+	top: -15px;
+	border-radius: 6px;
 }
