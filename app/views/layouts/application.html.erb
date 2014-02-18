@@ -104,16 +104,25 @@
 
 			<ul>
 			<% @recommended.each do |user| %>
-				<li>
-					User: <%= user.username %><br>
-					Blog: <%= user.blog_name %><br>
-		
-					<form action="follow" method="post">
+				<li class="menu_has_follow_button">
+					
+					<div class="recommended_avatar"></div>
+					
+					<!-- BLOG INFO -->
+					<div class="recommended_blogs">
+						<%= user.username %><br>
+						<%= user.blog_name %>
+					</div>
+
+					<!-- FOLLOW BUTTON " + " -->
+					<form class="follow_button" action="follow" method="post">
 						<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
 						<input type="hidden" name="follower_id" value="<%= user.id %>">
-						<input type="submit" value="Follow">
+						<!-- <input type="submit" value="Follow"> -->
+						<button type="submit">+</button>
 					</form>
-		
+					
+					<div class="clearfix"></div>
 				</li>
 			<% end %>
 			</ul>

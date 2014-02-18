@@ -12,7 +12,7 @@
 */
 
 body, h1, h2, h3, h3, h4, h5, h6,
-p, div, a, img, ul, li, nav {
+p, div, a, img, ul, li, nav, form {
 	padding: 0;
 	margin: 0;
 	border: 0;
@@ -163,4 +163,41 @@ nav img:hover {
 	margin-top: 26px;
 	padding: 0 12px;
 	line-height: 27px;
+}
+
+.recommended_blogs {
+	float: left;
+	width: 125px;
+	margin: 8px 0;
+}
+
+.menu_has_follow_button form {
+	float: left;
+}
+
+.follow_button button {
+	width: 25px;
+	height: 25px;
+	border-radius: 5px;
+	border: 0;
+	font-size: 15px;
+	font-weight: bold;
+	color: #2A4763;
+	margin-top: 15px;
+	background-color: #556B82;
+}
+
+.follow_button button:hover {
+	background-color: #509FCB;
+	color: #fff;
+	cursor: pointer;
+}
+
+.recommended_avatar {
+	float: left;
+	height: 37px;
+	width: 37px;
+	background: #6a4676;
+	border-radius: 3px;
+	margin: 8px 10px;
 }
