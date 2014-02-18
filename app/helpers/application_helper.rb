@@ -16,4 +16,9 @@ module ApplicationHelper
   def require_current_user!
     redirect_to login_url unless current_user
   end
+  
+  def get_recommended
+    except = [current_user.id].concat(current_user.following_users)
+    @recommended = User.where("id NOT IN (?)", except).order("RANDOM()").limit(3)
+  end
 end

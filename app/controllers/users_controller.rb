@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_filter :require_current_user!, only: [:show]
+  before_filter :get_recommended
   layout "auth", only: :new
   
   def new
@@ -25,9 +26,6 @@ class UsersController < ApplicationController
                         .includes(:user)
                         .order("created_at DESC")
     @liked_posts = current_user.liked_posts.pluck(:id)
-    
-    except = [current_user.id].concat(current_user.following_users)
-    @recommended = User.where("id NOT IN (?)", except).order("RANDOM()").limit(3)
   end
   
   def findblogs

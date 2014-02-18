@@ -1,5 +1,6 @@
 class LikesController < ApplicationController
   before_filter :require_current_user!
+  before_filter :get_recommended
   
   def index
     @liked_posts = current_user.liked_posts.includes(:user)
