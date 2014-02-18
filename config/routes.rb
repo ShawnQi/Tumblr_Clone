@@ -8,7 +8,6 @@ TumblrClone::Application.routes.draw do
   resources :users, only: [:new, :create, :show]
   get 'dashboard', to: 'users#show', as: 'home'
   get 'findblogs', to: 'users#findblogs', as: 'findblogs'
-  get 'recommended', to: 'users#recommended', as: 'recommended'
   
   resources :posts, except: [:show]
   get 'drafts', to: 'posts#drafts', as: 'drafts'
