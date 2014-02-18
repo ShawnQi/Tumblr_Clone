@@ -193,10 +193,11 @@ nav img:hover {
 }
 
 .recommended_avatar {
+	background-image: url('avatar_37_default1.png');
 	float: left;
 	height: 37px;
 	width: 37px;
-	background: #6a4676;
+	background-color: #6a4676;
 	border-radius: 3px;
 	margin: 8px 10px;
 }
@@ -260,6 +261,7 @@ nav img:hover {
 }
 
 .post_avatar {
+	background-image: url('avatar_64_default1.png');
 	width: 64px;
 	height: 64px;
 	background-color: #694777;
@@ -270,6 +272,7 @@ nav img:hover {
 }
 
 .post_avatar_top {
+	background-image: url('avatar_64_me.png');
 	width: 64px;
 	height: 64px;
 	background-color: #694777;
@@ -284,4 +287,25 @@ nav img:hover {
 	margin-bottom: 20px;
 	background-color: #fff;
 	border-radius: 6px;
+}
+
+.new_post_menu li {
+	position: relative;
+	float: left;
+	width: 74px;
+	height: 20px;
+	padding: 61px 1px 18px 0;
+	border-left: 1px solid #F8F8F8;
+	text-align: center;
+	opacity: 0.5;
+}
+
+.new_post_menu img {
+	position: absolute;
+	top: -48px;
+	left: 13px;
+}
+
+.new_post_menu img:hover {
+	top: -55px;
 }
