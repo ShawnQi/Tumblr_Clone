@@ -117,6 +117,7 @@ nav img:hover {
 
 .menu li {
 	color: #94A2B0;
+	border-top: 1px solid #465E76;
 }
 
 .menu li a {
@@ -134,12 +135,14 @@ nav img:hover {
 	color: #94A2B0;
 	padding: 0 13px 7px 13px;
 	white-space: nowrap;
-	max-width: 160px;
+
 	overflow: hidden;
+	border-bottom: 1px solid #465E76;
 }
 
 #blog_name_top {
 	line-height: 17px;
+	max-width: 160px;
 	overflow: hidden;
 	text-overflow: ellipsis;
 }
@@ -147,6 +150,17 @@ nav img:hover {
 #username_top {
 	color: #697D91;
 	font-size: 13px;
+	max-width: 160px;
 	overflow: hidden;
 	text-overflow: ellipsis;
+}
+
+.menu_divider {
+	font-size: 12px;
+	font-weight: bold;
+	color: #697D91;
+	text-transform: uppercase;
+	margin-top: 26px;
+	padding: 0 12px;
+	line-height: 27px;
 }
