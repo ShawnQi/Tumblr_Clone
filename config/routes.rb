@@ -3,7 +3,7 @@ TumblrClone::Application.routes.draw do
   
   get 'login', to: 'sessions#new', as: 'login'
   post 'signin', to: 'sessions#create', as: 'signin'
-  delete 'signout', to: 'sessions#destroy', as: 'signout'
+  get 'signout', to: 'sessions#destroy', as: 'signout'
   
   resources :users, only: [:new, :create, :show]
   get 'dashboard', to: 'users#show', as: 'home'
