@@ -268,3 +268,20 @@ nav img:hover {
 	top: -15px;
 	border-radius: 6px;
 }
+
+.post_avatar_top {
+	width: 64px;
+	height: 64px;
+	background-color: #694777;
+	position: absolute;
+	left: -84px;
+	border-radius: 6px;
+}
+
+.new_post_menu {
+	width: 540px;
+	height: 99px;
+	margin-bottom: 20px;
+	background-color: #fff;
+	border-radius: 6px;
+}
