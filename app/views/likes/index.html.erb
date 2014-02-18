@@ -4,6 +4,7 @@
 	<ul>
 	<% @liked_posts.each do |post| %>
 		<li>
+			User: <%= post.user.username %><br>
 			Title: <%= post.title %><br>
 			Body: <%= post.body %><br>
 			

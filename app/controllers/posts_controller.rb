@@ -17,7 +17,6 @@ class PostsController < ApplicationController
     @post = current_user.posts.new(params[:post])
     
     if @post.save
-      Activ.create({sent_title: "You published a new post", sent_user_id: current_user.id})
       flash[:main] = "Your post has been saved"
       redirect_to root_url
     else

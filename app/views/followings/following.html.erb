@@ -6,7 +6,11 @@
 	<ul>
 		<% @following.each do |following| %>
 			<li>
-				<%= following.username %>
+				User: <%= following.username %><br>
+				
+				<% if following.posts.last %>
+					Updated <%= time_ago_in_words(following.posts.last.created_at) %> ago<br>
+				<% end %>
 				
 				<form action="unfollow" method="post">
 					<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">

@@ -7,8 +7,7 @@ class FollowingsController < ApplicationController
   end
   
   def following
-    # @followings = current_user.following
-    @following = current_user.following_users
+    @following = current_user.following_users.includes(:posts)
   end
   
   def create
@@ -17,8 +16,7 @@ class FollowingsController < ApplicationController
                                followed_id: follower_id})
     
     if following.save
-      Activ.create({sent_title: "You started following the user", sent_user_id: current_user.id,
-                    got_title:  "You are followed by this user",  got_user_id:  follower_id})
+      Activ.create({got_title: "#{current_user.username} started following you", got_user_id: follower_id})
       flash[:main] = "You started following this user"
       redirect_to root_url
     else

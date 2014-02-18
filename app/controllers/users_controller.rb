@@ -26,4 +26,10 @@ class UsersController < ApplicationController
                         .order("created_at DESC")
     @liked_posts = current_user.liked_posts.pluck(:id)
   end
+  
+  def findblogs
+    @blogs = User.where("id != ? AND id NOT IN (?)",
+                        current_user.id, current_user.following_users)
+                        .order("RANDOM()").limit(20)
+  end
 end

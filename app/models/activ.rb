@@ -14,6 +14,6 @@
 class Activ < ActiveRecord::Base
   attr_accessible :sent_title, :sent_user_id, :got_title, :got_user_id
   
-  belongs_to :sent_user, class_name: "User", dependent: :destroy
-  belongs_to :got_user,  class_name: "User", dependent: :destroy
+  belongs_to :sent_user, class_name: "User"
+  belongs_to :got_user,  class_name: "User"
 end
