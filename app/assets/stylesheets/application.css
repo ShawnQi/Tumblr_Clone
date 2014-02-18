@@ -10,3 +10,24 @@
  *
  *= require_self
 */
+
+body, h1, h2, h3, h3, h4, h5, h6,
+p, div, a {
+	padding: 0;
+	margin: 0;
+	border: 0;
+	text-decoration: none;
+	font: normal 14px/1.4 "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, sans-serif;
+	color: #444;
+	-webkit-font-smoothing: antialiased;
+}
+
+.clearfix {
+	clear: both;
+}
+
+.container {
+	width: 900px;
+	margin: auto;
+	padding: 0 30px;
+}
