@@ -27,7 +27,7 @@ class UsersController < ApplicationController
     @liked_posts = current_user.liked_posts.pluck(:id)
     @recommended = User.where("id != ? AND id NOT IN (?)",
                         current_user.id, current_user.following_users)
-                        .includes(:posts => :likes)
+                        .order("RANDOM()").limit(3)
   end
   
   def findblogs

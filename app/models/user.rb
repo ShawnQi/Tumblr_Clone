@@ -34,7 +34,6 @@ class User < ActiveRecord::Base
   has_many :likes, dependent: :destroy
   has_many :liked_posts, through: :likes, source: :post
   
-  
   def password=(password)
     @password = password
     self.password_digest = BCrypt::Password.create(password)

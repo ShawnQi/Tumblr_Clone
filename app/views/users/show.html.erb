@@ -62,3 +62,19 @@ Account<br>
 <a href="<%= findblogs_url %>">Find blogs</a><br>
 <hr>
 Recommended blogs<br>
+
+<ul>
+<% @recommended.each do |user| %>
+	<li>
+		User: <%= user.username %><br>
+		Blog: <%= user.blog_name %><br>
+		
+		<form action="follow" method="post">
+			<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+			<input type="hidden" name="follower_id" value="<%= user.id %>">
+			<input type="submit" value="Follow">
+		</form>
+		
+	</li>
+<% end %>
+</ul>
