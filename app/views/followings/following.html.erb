@@ -1,24 +1,35 @@
-<h3>Following</h3>
+<div id="white_pane">
+	<div class="title_and_controls">Following <%= @following.count %> people</div>
 
-<p>You follow <%= @following.count %> users</p>
+	<% if @following %>
+		<ul>
+			<% @following.each_with_index do |following, i| %>
+				<li class="following_list_items<%= " follower_list_darker_bg" if i%2 != 0 %>">
+					
+					<div class="float_left">
+						<div class="avatar_40 float_left"></div>
+						
+						<div class="float_left" style="margin-left: 12px;">
+							<div class="following_username float_left"><%= following.username %></div>
+							<% if following.posts.last %>
+								<div class="updated_info">
+									Updated <%= time_ago_in_words(following.posts.last.created_at) %> ago
+								</div>
+							<% end %>
+						</div>
+					</div>
+					
 
-<% if @following %>
-	<ul>
-		<% @following.each do |following| %>
-			<li>
-				User: <%= following.username %><br>
-				
-				<% if following.posts.last %>
-					Updated <%= time_ago_in_words(following.posts.last.created_at) %> ago<br>
-				<% end %>
-				
-				<form action="unfollow" method="post">
-					<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-					<input type="hidden" name="followed_id" value="<%= following.id %>">
-					<input type="submit" value="Unfollow">
-				</form>
-				
-			</li>
-		<% end %>
-	</ul>
-<% end %>
+					<div class="float_right">
+							<form action="unfollow" method="post" style="line-height: 40px">
+								<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+								<input type="hidden" name="follower_id" value="<%= following.id %>">
+								<input class="button_unfollow_big" type="submit" value="Unfollow">
+							</form>
+					</div>
+
+				</li>
+			<% end %>
+		</ul>
+	<% end %>
+</div>

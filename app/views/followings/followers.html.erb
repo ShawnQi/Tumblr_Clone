@@ -1,28 +1,38 @@
-<h3>Followers</h3>
+<div id="white_pane">
+	<div class="title_and_controls"><%= @followers.count %> people follow you</div>
 
-<p><%= @followers.count %> users follow you</p>
+	<% if @followers %>
+		<ul>
+			<% @followers.each_with_index do |follower, i| %>
+				<li class="following_list_items<%= " follower_list_darker_bg" if i%2 != 0 %>">
+					
+					<div class="float_left">
+						<div class="avatar_40 float_left"></div>
+						
+						<div class="float_left" style="margin-left: 12px;">
+							<div class="following_username float_left"><%= follower.username %></div>
 
-<% if @followers %>
-	<ul>
-		<% @followers.each do |follower| %>
-			<li>
-				<%= follower.username %>
-				
-				<% unless @followings.include?(follower) %>
-					<form action="follow" method="post">
-						<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-						<input type="hidden" name="follower_id" value="<%= follower.id %>">
-						<input type="submit" value="Follow">
-					</form>
-				<% end %>
-				
-				<form action="unfollow" method="post">
-					<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-					<input type="hidden" name="follower_id" value="<%= follower.id %>">
-					<input type="submit" value="Ignore">
-				</form>
-				
-			</li>
-		<% end %>
-	</ul>
-<% end %>
+							<form action="unfollow" method="post">
+								<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+								<input type="hidden" name="follower_id" value="<%= follower.id %>">
+								<input class="input_to_link ignore_link" type="submit" value="ignore">
+							</form>
+						</div>
+					</div>
+					
+
+					<div class="float_right">
+						<% unless @followings.include?(follower) %>
+								<form action="follow" method="post" style="line-height: 40px">
+									<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+									<input type="hidden" name="follower_id" value="<%= follower.id %>">
+									<input class="button_follow_blue_big" type="submit" value="Follow">
+								</form>
+						<% end %>
+					</div>
+
+				</li>
+			<% end %>
+		</ul>
+	<% end %>
+</div>
