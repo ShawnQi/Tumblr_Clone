@@ -1,20 +1,39 @@
-<h3>Liked Posts</h3>
-
-<% if @liked_posts %>
+<% if @posts %>
 	<ul>
-	<% @liked_posts.each do |post| %>
-		<li>
-			User: <%= post.user.username %><br>
-			Title: <%= post.title %><br>
-			Body: <%= post.body %><br>
-			
-			<form action="unlike" method="post">
-				<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-				<input type="hidden" name="post_id" value="<%= post.id %>">
-				<input type="submit" value="Unlike">
-			</form>
-			
-		</li>
-	<% end %>
+		<% @posts.each_with_index do |post, i| %>
+			<li class="<%= i==0 ? "first_post" : "post" %>">
+				
+				<!-- POSTS'S AVATAR -->
+				<div class="relative"><div class="post_avatar"></div></div>
+				
+				<!-- POST INFO -->
+				<div class="post_username">
+					<%= post.user.username %>
+				</div>
+				<div class="post_title">
+					<%= post.title %><br>
+				</div>
+				
+				<div class="post_body">
+					<%= post.body %>
+				</div>
+				
+				<div class="post_footer">
+					
+					<div class="float_right">
+
+							<!-- UNLIKE BUTTON -->
+							<div class="float_left">
+								<form class="like_unlike" action="unlike" method="post">
+									<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+									<input type="hidden" name="post_id" value="<%= post.id %>">
+									<button type="submit">Unlike</button>
+								</form>
+							</div>					
+					
+					</div>
+				</div>
+			</li>
+		<% end %>
 	</ul>
 <% end %>

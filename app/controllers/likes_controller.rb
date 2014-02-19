@@ -3,7 +3,7 @@ class LikesController < ApplicationController
   before_filter :get_recommended
   
   def index
-    @liked_posts = current_user.liked_posts.includes(:user)
+    @posts = current_user.liked_posts.includes(:user)
   end
   
   def create

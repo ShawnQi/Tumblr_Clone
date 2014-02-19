@@ -1,15 +1,90 @@
-<h3>Drafts</h3>
-
-<% if @drafts %>
+<div class="relative"><div class="post_avatar_top"><!-- <img src="assets/avatar_64_me.png"> --></div></div>
+<div class="new_post_menu">
 	<ul>
-	<% @drafts.each do |draft| %>
+		<a href="<%= new_post_url %>">
+			<li style="border-left:0; margin-left:6px; opacity:1;">
+				<div class="relative"><img src="assets/top_text.png"></div>
+				Text
+			</li>
+		</a>
+		
 		<li>
-			Title: <%= draft.title %><br>
-			Body: <%= draft.body %><br>
-			<a href="<%= publish_url(draft.id) %>">Publish</a>
-			<a href="<%= edit_post_url(draft.id) %>">Edit</a>
-			<%= button_to 'Delete', post_url(draft.id), method: "delete" %>
+			<div class="relative"><img src="assets/top_photo.png"></div>
+			Photo
 		</li>
-	<% end %>
+		
+		<li>
+			<div class="relative"><img src="assets/top_quote.png"></div>
+			Quote
+		</li>
+		
+		<li>
+			<div class="relative"><img src="assets/top_link.png"></div>
+			Link
+		</li>
+		
+		<li>
+			<div class="relative"><img src="assets/top_chat.png"></div>
+			Chat
+		</li>
+		
+		<li>
+			<div class="relative"><img src="assets/top_audio.png"></div>
+			Audio
+		</li>
+		
+		<li>
+			<div class="relative"><img src="assets/top_video.png"></div>
+			Video
+		</li>
+	</ul>
+</div>
+
+
+<% if @posts %>
+	<ul>
+		<% @posts.each_with_index do |post, i| %>
+			<li class="<%= i==0 ? "first_post" : "post" %>">
+				
+				<!-- POSTS'S AVATAR -->
+				<div class="relative"><div class="post_my_avatar"></div></div>
+				
+				<!-- POST INFO -->
+				<div class="post_username">
+					<%= current_user.username %>
+				</div>
+				<div class="post_title">
+					<%= post.title %><br>
+				</div>
+				
+				<div class="post_body">
+					<%= post.body %>
+				</div>
+				
+				<div class="post_footer">
+					
+					<div class="float_right">
+						
+						<!-- PUBLISH BUTTON -->
+						<div class="float_left"><a href="<%= publish_url(post.id) %>">Publish</a></div>
+				
+						<!-- EDIT BUTTON -->
+						<div class="float_left"><a href="<%= edit_post_url(post.id) %>">Edit</a></div>
+				
+						<!-- DELETE BUTTON -->
+						<div class="float_left">
+							<form action="<%= post_url(post.id) %>" method="post">
+								<input type="hidden" name="_method" value="delete">
+								<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+								<button type="submit">Delete</button>
+							</form>
+							<%#= button_to 'Delete', post_url(post.id), method: "delete" %>
+						</div>
+					
+					
+					</div>
+				</div>
+			</li>
+		<% end %>
 	</ul>
 <% end %>
