@@ -130,7 +130,7 @@
 		
 		<div id="left_column">
 			
-			<% if %w[/posts /drafts /likes].include?(request.path) %>
+			<% if %w[/posts /drafts /likes /dashboard].include?(request.path) %>
 				<div id="posts">
 					<%= yield %>
 				</div>

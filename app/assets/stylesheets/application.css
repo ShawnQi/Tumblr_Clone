@@ -169,6 +169,9 @@ nav img:hover {
 	float: left;
 	width: 125px;
 	margin: 8px 0;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
 }
 
 .menu_has_follow_button form {
