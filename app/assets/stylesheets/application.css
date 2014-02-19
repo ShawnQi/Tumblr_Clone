@@ -13,7 +13,7 @@
 */
 
 body, h1, h2, h3, h3, h4, h5, h6,
-p, div, a, img, ul, li, nav, form, input {
+p, div, a, img, ul, li, nav, form, input, button {
 	padding: 0;
 	margin: 0;
 	border: 0;
@@ -301,6 +301,63 @@ nav img:hover {
 	opacity: 1;
 }
 
+.button_options {
+	background-image: url('icon_options_black.png');
+	opacity: 0.3;
+	height: 20px;
+	width: 20px;
+	border: 0;
+	background-color: transparent;
+	cursor: pointer;
+	position: absolute;
+	right: 20px;
+	top: 13px;
+}
+
+.button_options:hover {
+	opacity: 0.5;
+}
+
+.options_menu {
+	width: 128px;
+	height: 66px;
+	padding: 4px 0;
+	position: absolute;
+	top: 50px;
+	right: -35px;
+	background-color: #fff;
+	border: 1px solid #ADADAD;
+	border-radius: 6px;
+  box-shadow: 5px 5px 20px 0 #222;
+}
+
+a.option_menu_list_item {
+	line-height: 32px;
+	padding: 9px 85px 9px 14px;
+	font-size: 15px;
+	color: #444;
+	font-weight: bold;
+	font-size: 15px;
+}
+
+input.option_menu_list_item {
+	line-height: 35px;	
+	height: 35px;
+	width: 128px;
+	padding: 0 85px 10px 14px;
+/*	padding: 5px 25px 5px 14px;*/
+	margin: 0;
+	font-weight: bold;
+	font-size: 15px;
+	color: #444;
+	cursor: pointer;
+	background: transparent;
+	text-align: left;
+}
+
+.option_menu_list_item:hover {
+	background-color: #E6EFF7;
+}
 
 
 
@@ -315,6 +372,10 @@ nav img:hover {
 
 .relative {
 	position: relative;
+}
+
+.hidden {
+	display: none;
 }
 
 .post_avatar {
