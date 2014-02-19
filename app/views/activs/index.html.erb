@@ -1,12 +1,30 @@
-<h3>Activity</h3>
+<div id="white_pane">
+	<div class="latest_notes">Latest notes</div>
 
-<% if @activs %>
-	<ul><hr>
-	<% @activs.each do |activ| %>
-		<li>
-			<%= time_ago_in_words(activ.created_at) %> ago | <%= activ.created_at.to_time.strftime('%A, %B %e ') %><br>
-			<%= activ.sent_user_id == current_user.id ? activ.sent_title : activ.got_title %><hr>
-		</li>
+	<% if @activs %>
+		<ul>
+			<% @activs.each do |activ| %>
+				<li>
+					
+					<div class="activity_time">
+						<div class="float_left activity_time_text">
+							<%= time_ago_in_words(activ.created_at) %> ago
+						</div>
+					
+						<div class="float_right activity_time_text">
+							<%= activ.created_at.to_time.strftime('%A, %B %e ') %>
+						</div>
+					</div>
+					
+					<div class="activity_info">
+						<div class="avatar_25 float_left"></div>
+						<div class="activity_info_text float_left">
+							<%= activ.sent_user_id == current_user.id ? activ.sent_title : activ.got_title %>
+						</div>
+					</div>
+
+				</li>
+			<% end %>
+		</ul>
 	<% end %>
-	</ul>
-<% end %>
+</div>
