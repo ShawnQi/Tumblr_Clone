@@ -118,18 +118,27 @@ nav img:hover {
 .menu li {
 	color: #94A2B0;
 	border-top: 1px solid #465E76;
+	position: relative;
+}
+
+.menu li a img {
+	position: absolute;
+	top: 8px;
+	left: 10px;
 }
 
 .menu li a {
-	color: #94A2B0;
+	color: #fff;
+	opacity: 0.5;
 	display: block;
 	padding: 0 13px 0 40px;
 	line-height: 36px;
+	position: relative;
 }
 
 .menu li a:hover {
 	background-color: #2F4B66;
-	color: #fff;
+	opacity: 1;
 }
 
 #user_blog_info {
