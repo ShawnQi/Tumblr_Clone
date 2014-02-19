@@ -90,3 +90,18 @@
 	font-weight: normal;
 	font-size: 12px;
 }
+
+.button_generate {
+	width: 87px;
+	height: 30px;
+	padding: 9px 10px;
+	margin: 0 2px;
+	border-radius: 3px;
+	background-color: #4dcd7c;
+	color: white;
+	border: 0;
+	font-weight: bold;
+	font-size: 13px;
+	cursor: pointer;
+	-webkit-font-smoothing: antialiased;
+}

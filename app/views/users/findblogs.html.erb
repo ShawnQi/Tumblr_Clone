@@ -1,19 +1,33 @@
-<h3>Find Blogs</h3>
+<div id="white_pane">
+	<div class="title_and_controls">
+		<a class="button_generate" href="<%= findblogs_url %>">Generate random</a>
+	</div>
 
-<p><a href="<%= findblogs_url %>">Generate random</a></p>
+	<% if @blogs %>
+		<ul>
+			<% @blogs.each_with_index do |blog, i| %>
+				<li class="following_list_items<%= " follower_list_darker_bg" if i%2 != 0 %>">
+					
+					<div class="float_left">
+						<div class="avatar_40 float_left"></div>
+						
+						<div class="float_left" style="margin-left: 12px;">
+							<div class="following_username"><%= blog.username %></div>
+							<div class="following_username"><%= blog.blog_name %></div>
+						</div>
+					</div>
+					
 
-<ul>
-<% @blogs.each do |blog| %>
-	<li>
-		User: <%= blog.username %><br>
-		Blog: <%= blog.blog_name %><br>
-		
-		<form action="follow" method="post">
-			<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-			<input type="hidden" name="follower_id" value="<%= blog.id %>">
-			<input type="submit" value="Follow">
-		</form>
-		
-	</li>
-<% end %>
-</ul>
+					<div class="float_right">
+							<form action="follow" method="post" style="line-height: 40px">
+								<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+								<input type="hidden" name="follower_id" value="<%= blog.id %>">
+								<input class="button_follow_blue_big" type="submit" value="Follow">
+							</form>
+					</div>
+
+				</li>
+			<% end %>
+		</ul>
+	<% end %>
+</div>
