@@ -128,6 +128,7 @@ nav img:hover {
 
 .menu li a:hover {
 	background-color: #2F4B66;
+	color: #fff;
 }
 
 #user_blog_info {
@@ -262,6 +263,17 @@ nav img:hover {
 
 .post_avatar {
 	background-image: url('avatar_64_default1.png');
+	width: 64px;
+	height: 64px;
+	background-color: #694777;
+	position: absolute;
+	left: -84px;
+	top: -15px;
+	border-radius: 6px;
+}
+
+.post_my_avatar {
+	background-image: url('avatar_64_me.png');
 	width: 64px;
 	height: 64px;
 	background-color: #694777;

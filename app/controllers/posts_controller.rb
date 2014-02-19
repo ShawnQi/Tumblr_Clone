@@ -7,7 +7,7 @@ class PostsController < ApplicationController
   end
   
   def drafts
-    @drafts = current_user.posts.where(draft: true)
+    @posts = current_user.posts.where(draft: true)
   end
   
   def new

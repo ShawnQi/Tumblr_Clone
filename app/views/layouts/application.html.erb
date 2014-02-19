@@ -129,9 +129,16 @@
 		</div>
 		
 		<div id="left_column">
-			<div id="posts">
+			
+			<% if %w[/posts /drafts /likes].include?(request.path) %>
+				<div id="posts">
+					<%= yield %>
+				</div>
+			<% else %>
 				<%= yield %>
-			</div>
+			<% end %>
+			
+
 		</div>
 		
 		<div class="clearfix"></div>
