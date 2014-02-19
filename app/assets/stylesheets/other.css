@@ -105,3 +105,48 @@
 	cursor: pointer;
 	-webkit-font-smoothing: antialiased;
 }
+
+.latest_notes {
+	width: 575px;
+	height: 36px;
+	padding-left: 10px;
+	font-size: 12px;
+	font-weight: bold;
+	text-transform: uppercase;
+	color: #444;
+	-webkit-font-smoothing: antialiased;
+}
+
+.activity_time {
+	width: 565px;
+	height: 22px;
+	padding: 0 10px;
+	margin-bottom: 1px;
+	border-top: 1px solid #E0E0E0;
+	border-bottom: 1px solid #E0E0E0;
+}
+
+.activity_time_text {
+	font-size: 11px;
+	color: #6D6D6D;
+	line-height: 22px;
+}
+
+.activity_info {
+	width: 585px;
+	height: 45px;
+}
+
+.activity_info_text {
+	font-size: 13px;
+	line-height: 45px;
+	color: #444;
+}
+
+.avatar_25 {
+	width: 25px;
+	height: 25px;
+	margin: 10px;
+	background-image: url('avatar_37_default1.png');
+	border-radius: 3px;
+}
