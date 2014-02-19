@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_filter :require_current_user!, only: [:show]
-  before_filter :get_recommended
-  layout "auth", only: :new
+  before_filter :get_recommended, only: [:show, :findblogs]
+  layout "auth", only: [:new, :create]
   
   def new
   end
