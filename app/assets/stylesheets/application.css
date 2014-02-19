@@ -109,6 +109,11 @@ nav img:hover {
 	border-radius: 6px;
 }
 
+.active_sidebar {
+	background-color: #2F4B66;
+	opacity: 1;
+}
+
 .menu {
 	float: right;
 	width: 215px;
