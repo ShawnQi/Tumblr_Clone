@@ -174,7 +174,7 @@
 		<div id="left_column">
 			
 			<% found = false %>
-			<% %w[/posts /posts/ /drafts /likes /dashboard].each do |route| %>
+			<% %w[/posts /posts/ /drafts /likes /dashboard /public].each do |route| %>
 				<% found = true if (request.path).include?(route) %>
 			<% end %>
 			

@@ -28,8 +28,7 @@ p, div, a, img, ul, li, nav, form, input, button {
 }
 
 body {
-/*	background-color: #375876;*/
-	background: #2c4762 url('gradient_bg.png') top repeat-x;
+	background: #284764 url('gradient_bg.png') top repeat-x;
 }
 
 .clearfix {

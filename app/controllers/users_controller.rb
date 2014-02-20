@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  before_filter :require_current_user!, only: [:show]
-  before_filter :get_recommended, only: [:show, :findblogs]
+  before_filter :require_current_user!, except: [:new, :create]
+  before_filter :get_recommended, except: [:new, :create]
   layout "auth", only: [:new, :create]
   
   def new
@@ -20,16 +20,25 @@ class UsersController < ApplicationController
   end
   
   def show
-    @posts = Post.where("draft=false AND (user_id=? OR user_id IN (?))",
-                        current_user.id,
-                        current_user.following_users)
-                        .includes(:user)
-                        .order("created_at DESC")
+    users = [].push(current_user).concat(current_user.following_users)
+    @posts = Post.where("draft=? AND user_id IN (?)", false, users)
+                 .includes(:user)
+                 .order("created_at DESC")
+                        
     @liked_posts = current_user.liked_posts.pluck(:id)
   end
   
   def findblogs
     except = [current_user.id].concat(current_user.following_users)
     @blogs = User.where("id NOT IN (?)", except).order("RANDOM()").limit(20)
+  end
+  
+  def public
+    user = User.find(params[:id])
+    @posts = Post.where("draft=? AND user_id=?", false, user)
+                 .includes(:user)
+                 .order("created_at DESC")
+    
+    @liked_posts = current_user.liked_posts.pluck(:id)
   end
 end
