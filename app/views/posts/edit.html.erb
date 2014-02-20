@@ -1,24 +1,45 @@
-<h3>Edit post/draft</h3>
+<div class="relative"><div class="post_my_avatar" style="top: 1px"><div class="selector_left"></div></div></div>
 
-<form action="<%= post_url(@post.id) %>" method="post">
-	<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-	<input type="hidden" name="_method" value="put">
+<div class="new_post_container">
 	
-	<input type="text" name="post[title]" value="<%= @post.title %>" placeholder="Title"><br>
+	<div class="new_post_top_info"><%= current_user.username %></div>
+
+	<form class="new_post_form" action="<%= post_url(@post.id) %>" method="post">
+		<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+		<input type="hidden" name="_method" value="put">
 	
-	<textarea name="post[body]" placeholder="Body"><%= @post.body %></textarea><br>
+		<input type="text" name="post[title]" value="<%= @post.title %>" placeholder="Title">
 	
-	<input type="checkbox" name="post[draft]" value="true" <%= "checked" if @post.draft %>>Draft<br>
+		<textarea name="post[body]" placeholder="Body"><%= @post.body %></textarea>
 	
-	<% if flash.now[:errors] %>
-		<% history = [] %>
-		<% flash.now[:errors].each do |key, val| %>
-			<% unless history.include?(key) %>
-				<div class="auth_error"><%= key.capitalize %> <%= val.first %></div>
-				<% history << key %>
+		<div style="height: 30px">
+			<div class="new_post_form_checkbox">
+				<input type="checkbox" name="post[draft]" value="true" <%= "checked" if @post.draft %>>
+			</div>
+			<div class="word_draft_center">Draft</div>
+
+			<% if flash.now[:errors] %>
+				<% history = [] %>
+				<% flash.now[:errors].each do |key, val| %>
+					<% unless history.include?(key) %>
+						<div class="new_post_error"><%= key.capitalize %> <%= val.first %></div>
+						<% break %>
+						<% history << key %>
+					<% end %>
+				<% end %>
 			<% end %>
-		<% end %>
-	<% end %>
+			<div class="clearfix"></div>
+		</div>
 
-	<input type="submit" value="Save">
-</form>
+		<div style="background-color: red">
+			<div class="float_left">
+				<input type="submit" value="Save">
+			</div>
+			<div>
+				<a class="float_right new_post_cancel" href="<%= home_url %>">Cancel</a>
+			</div>
+		</div>
+		
+	</form>
+
+</div>

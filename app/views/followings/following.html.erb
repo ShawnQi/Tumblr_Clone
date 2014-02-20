@@ -23,7 +23,7 @@
 					<div class="float_right">
 							<form action="unfollow" method="post" style="line-height: 40px">
 								<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-								<input type="hidden" name="follower_id" value="<%= following.id %>">
+								<input type="hidden" name="followed_id" value="<%= following.id %>">
 								<input class="button_unfollow_big" type="submit" value="Unfollow">
 							</form>
 					</div>

@@ -11,6 +11,9 @@
  *= require_self
  *= require other
 */
+html {
+    height: 102%;
+}
 
 body, h1, h2, h3, h3, h4, h5, h6,
 p, div, a, img, ul, li, nav, form, input, button {
@@ -63,6 +66,7 @@ nav li {
 	padding: 0 9px;
 	float: left;
 	text-align: center;
+	position: relative;
 }
 
 nav img {
@@ -437,4 +441,115 @@ input.option_menu_list_item {
 
 .new_post_menu img:hover {
 	top: -55px;
+}
+
+.new_post_container {
+	height: 270px;
+	width: 500px;
+	padding: 20px;
+	background: #fff;
+	border-radius: 10px;
+}
+
+.new_post_top_info {
+	font-size: 13px;
+	color: #B1B1B1;
+	font-weight: bold;
+	margin-bottom: 20px;
+	-webkit-font-smoothing: antialiased;
+}
+
+.new_post_form > input,
+.new_post_form > textarea {
+	padding: 10px 12px;
+	width: 475px;
+	border: 1px solid #E3E3E3;
+	border-radius: 3px;
+	font-size: 13px;
+	color: #444;
+	-webkit-font-smoothing: antialiased;
+	outline: none;
+}
+
+.new_post_form > input {
+	height: 18px;
+}
+
+.new_post_form > textarea {
+	height: 100px;
+}
+
+.new_post_form_checkbox {
+	width: 20px;
+	height: 30px;
+	line-height: 30px;
+	float: left;
+}
+
+.word_draft_center {
+	line-height: 30px;
+	color: #444;
+	font-weight: bold;
+	float: left;
+	-webkit-font-smoothing: antialiased;
+}
+
+.new_post_form input[type="submit"] {
+	width: 70px;
+	height: 32px;
+	background-color: #4D9ECD;
+	color: #fff;
+	border-radius: 5px;
+	font-weight: bold;
+	-webkit-font-smoothing: antialiased;
+	cursor: pointer;
+	margin-top: 5px;
+}
+
+.new_post_cancel {
+	width: 70px;
+	height: 32px;
+	line-height: 32px;
+	margin-top: 5px;
+	background-color: #9DA6AF;
+	color: #fff;
+	text-align: center;
+	border-radius: 5px;
+	font-weight: bold;
+	-webkit-font-smoothing: antialiased;
+}
+
+.selector_left {
+	background-image: url('selector_white_left.png');
+	width: 9px;
+	height: 16px;
+	top: 24px;
+	left: 75px;
+	position: absolute;
+}
+
+.selector_top {
+	background-image: url('selector_blue_up.png');
+	width: 24px;
+	height: 11px;
+	top: 45px;
+	left: 15px;
+	position: absolute;
+}
+
+.button_publish {
+	padding: 6px 0;
+	line-height: 45px;
+	font-size: 13px;
+	font-weight: bold;
+	-webkit-font-smoothing: antialiased;
+	position: relative;
+	right: 60px;
+}
+
+.new_post_error {
+	float: left;
+	line-height: 30px;
+	padding-left: 20px;
+	color: salmon;
 }

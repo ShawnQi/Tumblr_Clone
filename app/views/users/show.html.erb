@@ -1,40 +1,40 @@
-<div class="relative"><div class="post_avatar_top"><!-- <img src="assets/avatar_64_me.png"> --></div></div>
+<div class="relative"><div class="post_avatar_top"><div class="selector_left"></div></div></div>
 <div class="new_post_menu">
 	<ul>
 		<a href="<%= new_post_url %>">
 			<li style="border-left:0; margin-left:6px; opacity:1;">
-				<div class="relative"><img src="assets/top_text.png"></div>
+				<div class="relative"><img src="/assets/top_text.png"></div>
 				Text
 			</li>
 		</a>
 		
 		<li>
-			<div class="relative"><img src="assets/top_photo.png"></div>
+			<div class="relative"><img src="/assets/top_photo.png"></div>
 			Photo
 		</li>
 		
 		<li>
-			<div class="relative"><img src="assets/top_quote.png"></div>
+			<div class="relative"><img src="/assets/top_quote.png"></div>
 			Quote
 		</li>
 		
 		<li>
-			<div class="relative"><img src="assets/top_link.png"></div>
+			<div class="relative"><img src="/assets/top_link.png"></div>
 			Link
 		</li>
 		
 		<li>
-			<div class="relative"><img src="assets/top_chat.png"></div>
+			<div class="relative"><img src="/assets/top_chat.png"></div>
 			Chat
 		</li>
 		
 		<li>
-			<div class="relative"><img src="assets/top_audio.png"></div>
+			<div class="relative"><img src="/assets/top_audio.png"></div>
 			Audio
 		</li>
 		
 		<li>
-			<div class="relative"><img src="assets/top_video.png"></div>
+			<div class="relative"><img src="/assets/top_video.png"></div>
 			Video
 		</li>
 	</ul>
@@ -46,7 +46,7 @@
 			<li class="<%= i==0 ? "first_post" : "post" %>">
 				
 				<!-- POSTS'S AVATAR -->
-				<div class="relative"><div class="post_avatar"></div></div>
+				<div class="relative"><div class="post_avatar"><div class="selector_left"></div></div></div>
 				
 				<!-- POST INFO -->
 				<div class="post_username">
@@ -116,11 +116,3 @@
 		<% end %>
 	</ul>
 <% end %>
-
-<script>
-	$( document ).ready(function() {
-		$('.button_options').on('click', function() {
-			$(this).next('.options_menu').toggleClass('hidden');
-		})
-	});
-</script>

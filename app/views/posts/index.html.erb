@@ -1,59 +1,44 @@
-<div class="relative"><div class="post_avatar_top"><!-- <img src="assets/avatar_64_me.png"> --></div></div>
+<div class="relative"><div class="post_avatar_top"><div class="selector_left"></div></div></div>
 <div class="new_post_menu">
 	<ul>
 		<a href="<%= new_post_url %>">
 			<li style="border-left:0; margin-left:6px; opacity:1;">
-				<div class="relative"><img src="assets/top_text.png"></div>
+				<div class="relative"><img src="/assets/top_text.png"></div>
 				Text
 			</li>
 		</a>
 		
 		<li>
-			<div class="relative"><img src="assets/top_photo.png"></div>
+			<div class="relative"><img src="/assets/top_photo.png"></div>
 			Photo
 		</li>
 		
 		<li>
-			<div class="relative"><img src="assets/top_quote.png"></div>
+			<div class="relative"><img src="/assets/top_quote.png"></div>
 			Quote
 		</li>
 		
 		<li>
-			<div class="relative"><img src="assets/top_link.png"></div>
+			<div class="relative"><img src="/assets/top_link.png"></div>
 			Link
 		</li>
 		
 		<li>
-			<div class="relative"><img src="assets/top_chat.png"></div>
+			<div class="relative"><img src="/assets/top_chat.png"></div>
 			Chat
 		</li>
 		
 		<li>
-			<div class="relative"><img src="assets/top_audio.png"></div>
+			<div class="relative"><img src="/assets/top_audio.png"></div>
 			Audio
 		</li>
 		
 		<li>
-			<div class="relative"><img src="assets/top_video.png"></div>
+			<div class="relative"><img src="/assets/top_video.png"></div>
 			Video
 		</li>
 	</ul>
 </div>
-
-<!-- <% if @posts %>
-	<ul>
-	<% @posts.each_with_index do |post, i| %>
-		<li>
-			User: <%= current_user.username %><br>
-			Title: <%= post.title %><br>
-			Body: <%= post.body %><br>
-			<a href="<%= edit_post_url(post.id) %>">Edit</a>
-			<%= button_to 'Delete', post_url(post.id), method: "delete" %>
-		</li>
-	<% end %>
-	</ul>
-<% end %> -->
-
 
 
 <% if @posts %>
@@ -62,7 +47,7 @@
 			<li class="<%= i==0 ? "first_post" : "post" %>">
 				
 				<!-- POSTS'S AVATAR -->
-				<div class="relative"><div class="post_my_avatar"></div></div>
+				<div class="relative"><div class="post_my_avatar"><div class="selector_left"></div></div></div>
 				
 				<!-- POST INFO -->
 				<div class="post_username">
@@ -80,17 +65,21 @@
 					
 					<div class="float_right">
 				
-						<!-- EDIT BUTTON -->
-						<div class="float_left"><a href="<%= edit_post_url(post.id) %>">Edit</a></div>
-				
-						<!-- DELETE BUTTON -->
-						<div class="float_left">
-							<form action="<%= post_url(post.id) %>" method="post">
-								<input type="hidden" name="_method" value="delete">
-								<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-								<button type="submit">Delete</button>
-							</form>
-							<%#= button_to 'Delete', post_url(post.id), method: "delete" %>
+						<div class="relative">
+							<button class="button_options"></button>
+							<div class="options_menu hidden">
+								
+								<!-- EDIT BUTTON -->
+								<a class="option_menu_list_item" href="<%= edit_post_url(post.id) %>">Edit</a>
+			
+								<!-- DELETE BUTTON -->
+								<form action="<%= post_url(post.id) %>" method="post">
+									<input type="hidden" name="_method" value="delete">
+									<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+									<input class="option_menu_list_item" type="submit" value="Delete">
+								</form>
+								
+							</div>
 						</div>
 					
 					
