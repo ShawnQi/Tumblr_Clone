@@ -40,14 +40,53 @@ module ApplicationHelper
     current_user.following.destroy_all
     current_user.likes.destroy_all
   
-    Post.create!({title: "Ninon de L'Enclos",
-                body: "The joy of the mind is the measure of its strength.",
-                draft: false,
-                user_id: 1})
-    Post.create!({title: "Tom Lehrer",
-                body: "Bad weather always looks worse through a window.",
-                draft: false,
-                user_id: 1})
+    Post.create!({title: "Michael Jordan",
+                  body: "I've missed more than 9000 shots in my career. I've lost almost 300 games. 26 times I've been trusted to take the game winning shot and missed. I've failed over and over and over again in my life. And that is why I succeed.",
+                  draft: false,
+                  user_id: 1})
+    Post.create!({title: "Mark Twain",
+                  body: "Twenty years from now you will be more disappointed by the things that you didn't do than by the ones you did do, so throw off the bowlines, sail away from safe harbor, catch the trade winds in your sails.  Explore, Dream, Discover.",
+                  draft: false,
+                  user_id: 1})
+    Post.create!({title: "Aristotle",
+                  body: "First, have a definite, clear practical ideal; a goal, an objective. Second, have the necessary means to achieve your ends; wisdom, money, materials, and methods. Third, adjust all your means to that end.",
+                  draft: false,
+                  user_id: 1})
+    Post.create!({title: "Albert Einstein",
+                  body: "Strive not to be a success, but rather to be of value.",
+                  draft: true,
+                  user_id: 1})
+    Post.create!({title: "Steve Jobs",
+                  body: "Your time is limited, so don't waste it living someone else's life.",
+                  draft: true,
+                  user_id: 1})
+                  
+                  
+    Following.create!({follower_id: 2, followed_id: 1})
+    Following.create!({follower_id: 3, followed_id: 1})
+    Following.create!({follower_id: 4, followed_id: 1})
+    Following.create!({follower_id: 5, followed_id: 1})
+    Following.create!({follower_id: 6, followed_id: 1})
+
+    Following.create!({follower_id: 1, followed_id: 2})
+    Following.create!({follower_id: 1, followed_id: 5})
+    
+    
+    
+    Like.create!({user_id: 1, post_id: 6})
+    Like.create!({user_id: 1, post_id: 8})
+    Like.create!({user_id: 1, post_id: 11})
+    
+    
+    
+    Activ.create!(sent_title: "", sent_user_id: 2, got_title: "crazieBlogger started following you", got_user_id: 1, created_at: "2012-01-20 20:00:13", updated_at: "2012-01-20 20:00:13")
+    Activ.create!(sent_title: "", sent_user_id: 3, got_title: "katkatkat started following you", got_user_id: 1, created_at: "2013-06-20 20:00:13", updated_at: "2013-06-20 20:00:13")
+    Activ.create!(sent_title: "", sent_user_id: 4, got_title: "crazycookie started following you", got_user_id: 1, created_at: "2014-01-01 20:00:13", updated_at: "2014-01-01 20:00:13")
+    Activ.create!(sent_title: "", sent_user_id: 5, got_title: "caviarwounds started following you", got_user_id: 1, created_at: "2014-02-20 20:00:13", updated_at: "2014-02-20 20:00:13")
+    Activ.create!(sent_title: "", sent_user_id: 6, got_title: "porkrice1284888 started following you", got_user_id: 1)
+
+    Activ.create!(sent_title: "", sent_user_id: 2, got_title: "crazieBlogger liked your post \"Michael Jordan\"", got_user_id: 1)
+    Activ.create!(sent_title: "", sent_user_id: 3, got_title: "katkatkat liked your post \"Aristotle\"", got_user_id: 1)
                   
   end
 end
