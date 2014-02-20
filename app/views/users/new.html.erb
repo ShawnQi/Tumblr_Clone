@@ -21,6 +21,7 @@
 					<% flash.now[:errors].each do |key, val| %>
 						<% unless history.include?(key) %>
 							<div class="auth_error"><%= key.capitalize %> <%= val.first %></div>
+							<% break %>
 							<% history << key %>
 						<% end %>
 					<% end %>
