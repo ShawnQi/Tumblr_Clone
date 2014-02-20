@@ -1,5 +1,6 @@
 * Public access to people's blog posts
 * Recommended blogs fix
+---
 * Options click add pointer
 * Login / Register Error messages
 * Side menu things count

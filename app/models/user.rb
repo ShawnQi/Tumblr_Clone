@@ -34,6 +34,18 @@ class User < ActiveRecord::Base
   has_many :likes, dependent: :destroy
   has_many :liked_posts, through: :likes, source: :post
   
+  def self.most_liked(except)
+    User.find_by_sql(
+    "SELECT users.*, COUNT(likes.id) AS count
+    FROM users
+    JOIN posts ON users.id = posts.user_id
+    JOIN likes ON posts.id = likes.post_id
+    WHERE users.id NOT IN (#{except.join(",")})
+    GROUP BY users.id
+    ORDER BY count DESC
+    LIMIT 3")
+  end
+  
   def password=(password)
     @password = password
     self.password_digest = BCrypt::Password.create(password)

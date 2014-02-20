@@ -18,7 +18,7 @@ module ApplicationHelper
   end
   
   def get_recommended
-    except = [current_user.id].concat(current_user.following_users)
-    @recommended = User.where("id NOT IN (?)", except).order("RANDOM()").limit(3)
+    except = [current_user.id].concat(current_user.following_users.pluck(:id))
+    @recommended = User.most_liked(except)
   end
 end
