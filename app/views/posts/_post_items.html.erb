@@ -1,0 +1,83 @@
+<% if @posts %>
+	<ul>
+		<% @posts.each_with_index do |post, i| %>
+			<li class="<%= i==0 ? "first_post" : "post" %>">
+				
+				<!-- POST AVATAR -->
+				<div class="relative"><div class="post_avatar"><div class="selector_left"></div></div></div>
+				
+				<!-- POST INFO -->
+				<div class="post_username">
+					<a href="<%= public_url(post.user.id) %>"><%= post.user.username %></a>
+				</div>
+				<div class="post_title">
+					<%= post.title %><br>
+				</div>
+				<div class="post_body">
+					<%= post.body %>
+				</div>
+				
+				
+				<div class="post_footer">
+					<div class="float_right">
+						
+						<% if post.user != current_user %>
+							<% if @liked_posts && @liked_posts.include?(post.id) %>
+					
+							<!-- UNLIKE BUTTON -->
+							<div class="float_left">
+								<form action="<%= unlike_url %>" method="post">
+									<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+									<input type="hidden" name="post_id" value="<%= post.id %>">
+									<input type="submit" class="button_unlike" value="">
+								</form>
+							</div>
+							
+							<% else %>
+					
+							<!-- LIKE BUTTON -->
+							<div class="float_left">
+								<form action="<%= like_url %>" method="post">
+									<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+									<input type="hidden" name="post_id" value="<%= post.id %>">
+									<input type="submit" class="button_like" value="">
+								</form>
+							</div>
+							
+							<% end %>
+
+						<% else %>
+						
+							<% if post.draft %>
+								<!-- PUBLISH BUTTON -->
+								<div class="float_left">
+									<a class="button_publish" href="<%= publish_url(post.id) %>">Publish</a>
+								</div>
+							<% end %>
+						
+							<div class="relative">
+								<button class="button_options"></button>
+								<div class="options_menu hidden">
+									
+									<!-- EDIT BUTTON -->
+									<a class="option_menu_list_item" href="<%= edit_post_url(post.id) %>">Edit</a>
+				
+									<!-- DELETE BUTTON -->
+									<form action="<%= post_url(post.id) %>" method="post">
+										<input type="hidden" name="_method" value="delete">
+										<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+										<input class="option_menu_list_item" type="submit" value="Delete">
+									</form>
+									
+								</div>
+							</div>
+						
+						<% end %>
+					
+					
+					</div>
+				</div>
+			</li>
+		<% end %>
+	</ul>
+<% end %>
