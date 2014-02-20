@@ -1,6 +1,6 @@
 class LikesController < ApplicationController
   before_filter :require_current_user!
-  before_filter :get_recommended
+  before_filter :get_menu_stats
   
   def index
     @posts = current_user.liked_posts.includes(:user)

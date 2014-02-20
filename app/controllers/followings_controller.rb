@@ -1,6 +1,6 @@
 class FollowingsController < ApplicationController
   before_filter :require_current_user!
-  before_filter :get_recommended
+  before_filter :get_menu_stats
   
   def followers
     @followings = current_user.following_users

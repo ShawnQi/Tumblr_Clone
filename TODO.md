@@ -1,10 +1,10 @@
 * Public access to people's blog posts
 * Recommended blogs fix
 * Options click add pointer
----
 * Login / Register Error messages
 * Side menu things count
 * Change 'find blogs' icon
+---
 * Demo account signin
 * Seed database
 * Take back to the same page
