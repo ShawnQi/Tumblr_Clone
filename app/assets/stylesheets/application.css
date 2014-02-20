@@ -437,10 +437,11 @@ input.option_menu_list_item {
 	position: absolute;
 	top: -48px;
 	left: 13px;
+	transition: 0.1s ease;
 }
 
-.new_post_menu img:hover {
-	top: -55px;
+.new_post_menu li:hover img {
+	top: -53px;
 }
 
 .new_post_container {
