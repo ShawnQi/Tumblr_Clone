@@ -10,7 +10,7 @@
 						<div class="avatar_40 float_left"></div>
 						
 						<div class="float_left" style="margin-left: 12px;">
-							<div class="following_username float_left"><%= following.username %></div>
+							<div class="following_username"><%= following.username %></div>
 							<% if following.posts.last %>
 								<div class="updated_info">
 									Updated <%= time_ago_in_words(following.posts.last.created_at) %> ago
