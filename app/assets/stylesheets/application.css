@@ -531,9 +531,18 @@ input.option_menu_list_item {
 .selector_top {
 	background-image: url('selector_blue_up.png');
 	width: 24px;
-	height: 11px;
+	height: 12px;
 	top: 45px;
-	left: 15px;
+	left: 14px;
+	position: absolute;
+}
+
+.selector_top_white {
+	background-image: url('selector_white_up.png');
+	width: 24px;
+	height: 12px;
+	top: -11px;
+	left: 51px;
 	position: absolute;
 }
 
