@@ -72,7 +72,8 @@
 					<% else %>
 					<a href="<%= posts_url %>">
 					<% end %>
-						<img src="/assets/sidebar_posts.png"></img>Posts
+						<img src="/assets/sidebar_posts.png"></img><span>Posts</span>
+						<span class="float_right"><%= @count_posts %></span>
 					</a>
 				</li>
 				
@@ -82,7 +83,8 @@
 					<% else %>
 					<a href="<%= followers_url %>">
 					<% end %>
-						<img src="/assets/sidebar_followers.png"></img>Followers
+						<img src="/assets/sidebar_followers.png"></img><span>Followers</span>
+						<span class="float_right"><%= @count_followers %></span>
 					</a>
 				</li>
 				
@@ -92,7 +94,8 @@
 					<% else %>
 					<a href="<%= activs_url %>">
 					<% end %>
-						<img src="/assets/sidebar_activity.png"></img>Acitivity
+						<div class="menu_activity"></div>
+						<img src="/assets/sidebar_activity.png"></img><span>Acitivity</span>
 					</a>
 				</li>
 				
@@ -102,7 +105,8 @@
 					<% else %>
 					<a href="<%= drafts_url %>">
 					<% end %>
-						<img src="/assets/sidebar_drafts.png"></img>Drafts
+						<img src="/assets/sidebar_drafts.png"></img><span>Drafts</span>
+						<span class="float_right"><%= @count_drafts %></span>
 					</a>
 				</li>
 			</ul>
@@ -115,7 +119,7 @@
 					<% else %>
 					<a href="<%= likes_url %>">
 					<% end %>
-						<img src="/assets/sidebar_liked.png"></img>Likes
+						<img src="/assets/sidebar_liked.png"></img><span>Liked <%= pluralize(@count_likes, 'post') %></span>
 					</a>
 				</li>
 				
@@ -125,7 +129,8 @@
 					<% else %>
 					<a href="<%= following_url %>">
 					<% end %>
-						<img src="/assets/sidebar_following.png"></img>Following
+						<div class="menu_pointer"></div>
+						<img src="/assets/sidebar_following.png"></img><span>Following <%= pluralize(@count_following, 'blog') %></span>
 					</a>
 				</li>
 				
@@ -135,7 +140,8 @@
 					<% else %>
 					<a href="<%= findblogs_url %>">
 					<% end %>
-						<img src="/assets/sidebar_findblogs.png"></img>Find blogs
+						<div class="menu_pointer"></div>
+						<img src="/assets/sidebar_findblogs.png"></img><span>Find blogs</span>
 					</a>
 				</li>
 			</ul>

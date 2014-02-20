@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_filter :require_current_user!, except: [:new, :create]
-  before_filter :get_recommended, except: [:new, :create]
+  before_filter :get_menu_stats, except: [:new, :create]
   layout "auth", only: [:new, :create]
   
   def new

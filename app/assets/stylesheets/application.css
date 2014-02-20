@@ -129,6 +129,12 @@ nav img:hover {
 	color: #94A2B0;
 	border-top: 1px solid #465E76;
 	position: relative;
+	font-weight: bold;
+	-webkit-font-smoothing: antialiased;
+}
+
+.menu li span {
+	font-weight: bold;
 }
 
 .menu li a img {
@@ -562,4 +568,20 @@ input.option_menu_list_item {
 	line-height: 30px;
 	padding-left: 20px;
 	color: salmon;
+}
+
+.menu_pointer {
+	width: 7px;
+	height: 36px;
+	position: absolute;
+	right: 10px;
+	background: url('/assets/menu_pointer.png');
+}
+
+.menu_activity {
+	width: 37px;
+	height: 36px;
+	position: absolute;
+	right: 10px;
+	background: url('/assets/menu_activity.png');
 }
