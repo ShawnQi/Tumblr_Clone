@@ -27,7 +27,8 @@ p, div, input, button, a {
 }
 
 .auth_bg {
-	background: #375876 url('auth_bg2.gif') no-repeat center center fixed;
+/*	background: url('_auth_bg2.gif') no-repeat center center fixed;*/
+	background-color: #375876;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -111,4 +112,20 @@ p, div, input, button, a {
 	font-size: 14px;
 	line-height: 16px;
 	font-weight: normal;
+}
+
+.button_demo_login {
+	position: absolute;
+	top: 20px;
+	left: 20px;
+	background: rgba(255,255,255,0.3);
+	color: #fff;
+	height: 45px;
+	text-align: center;
+	border: 0;
+	font-weight: bold;
+	padding: 0 10px;
+	border-radius: 2px;
+	cursor: pointer;
+	outline: none;
 }
