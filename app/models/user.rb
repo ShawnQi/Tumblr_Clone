@@ -18,7 +18,7 @@ class User < ActiveRecord::Base
   
   before_validation :ensure_session_token
   validates :username, :email, :blog_name, presence: true
-  validates :username, :email, :blog_name, length: 4..30
+  validates :username, :email, :blog_name, length: 4..40
   validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i }
   validates :username, uniqueness: true
   validates :email, uniqueness: true
