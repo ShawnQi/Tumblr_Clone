@@ -20,6 +20,7 @@
 				<ul>
 					<li>
 						<a href="<%= root_url %>">
+							<div class="selector_top"></div>
 							<img src="/assets/nav_dashboard.png">
 						</a>
 					</li>
@@ -71,7 +72,7 @@
 					<% else %>
 					<a href="<%= posts_url %>">
 					<% end %>
-						<img src="assets/sidebar_posts.png"></img>Posts
+						<img src="/assets/sidebar_posts.png"></img>Posts
 					</a>
 				</li>
 				
@@ -81,7 +82,7 @@
 					<% else %>
 					<a href="<%= followers_url %>">
 					<% end %>
-						<img src="assets/sidebar_followers.png"></img>Followers
+						<img src="/assets/sidebar_followers.png"></img>Followers
 					</a>
 				</li>
 				
@@ -91,7 +92,7 @@
 					<% else %>
 					<a href="<%= activs_url %>">
 					<% end %>
-						<img src="assets/sidebar_activity.png"></img>Acitivity
+						<img src="/assets/sidebar_activity.png"></img>Acitivity
 					</a>
 				</li>
 				
@@ -101,7 +102,7 @@
 					<% else %>
 					<a href="<%= drafts_url %>">
 					<% end %>
-						<img src="assets/sidebar_drafts.png"></img>Drafts
+						<img src="/assets/sidebar_drafts.png"></img>Drafts
 					</a>
 				</li>
 			</ul>
@@ -114,7 +115,7 @@
 					<% else %>
 					<a href="<%= likes_url %>">
 					<% end %>
-						<img src="assets/sidebar_liked.png"></img>Likes
+						<img src="/assets/sidebar_liked.png"></img>Likes
 					</a>
 				</li>
 				
@@ -124,7 +125,7 @@
 					<% else %>
 					<a href="<%= following_url %>">
 					<% end %>
-						<img src="assets/sidebar_following.png"></img>Following
+						<img src="/assets/sidebar_following.png"></img>Following
 					</a>
 				</li>
 				
@@ -134,7 +135,7 @@
 					<% else %>
 					<a href="<%= findblogs_url %>">
 					<% end %>
-						<img src="assets/sidebar_findblogs.png"></img>Find blogs
+						<img src="/assets/sidebar_findblogs.png"></img>Find blogs
 					</a>
 				</li>
 			</ul>
@@ -172,20 +173,32 @@
 		
 		<div id="left_column">
 			
-			<% if %w[/posts /drafts /likes /dashboard].include?(request.path) %>
-				<div id="posts">
-					<%= yield %>
-				</div>
+			<% found = false %>
+			<% %w[/posts /posts/ /drafts /likes /dashboard].each do |route| %>
+				<% found = true if (request.path).include?(route) %>
+			<% end %>
+			
+			<% if found %>
+			<div id="posts">
+				<%= yield %>
+			</div>
 			<% else %>
 				<%= yield %>
 			<% end %>
-			
 
 		</div>
 		
 		<div class="clearfix"></div>
 	</div>
 </div>
+
+<script>
+	$( document ).ready(function() {
+		$('.button_options').on('click', function() {
+			$(this).next('.options_menu').toggleClass('hidden');
+		})
+	});
+</script>
 
 </body>
 </html>
