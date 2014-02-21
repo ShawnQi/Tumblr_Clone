@@ -1,16 +1,10 @@
-* Public access to people's blog posts
-* Recommended blogs fix
-* Options click add pointer
-* Login / Register Error messages
-* Side menu things count
-* Change 'find blogs' icon
-* Demo account signin
-* Seed database
-* Change pluralization of the followers and following
 ---
-* Take back to the same page
-* Profile settings
-* Models rspec
+* Add clickable blog link everywhere
+* Add quotes to blogs name in findblogs and grey out username
+* Change activity menu to number
+* Change demo user's info/attributes on login
+* Add home pointer everywhere
 * Add avatars
+* Models rspec
 * Facebook auth
 * Anitamated new post

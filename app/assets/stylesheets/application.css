@@ -585,3 +585,34 @@ input.option_menu_list_item {
 	right: 10px;
 	background: url('/assets/menu_activity.png');
 }
+
+.profile_settings > input {
+	padding: 10px 12px;
+	width: 550px;
+	height: 18px;
+	border: 1px solid #E3E3E3;
+	border-radius: 3px;
+	font-size: 13px;
+	color: #444;
+	-webkit-font-smoothing: antialiased;
+	outline: none;
+}
+
+.profile_settings input[type="submit"] {
+	width: 70px;
+	height: 32px;
+	background-color: #4D9ECD;
+	color: #fff;
+	border-radius: 5px;
+	font-weight: bold;
+	-webkit-font-smoothing: antialiased;
+	cursor: pointer;
+	margin-top: 5px;
+}
+
+.profile_settings_error {
+	margin-top: 10px;
+	float: left;
+	line-height: 30px;
+	color: salmon;
+}

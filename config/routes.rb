@@ -5,9 +5,10 @@ TumblrClone::Application.routes.draw do
   post 'signin', to: 'sessions#create', as: 'signin'
   get 'signout', to: 'sessions#destroy', as: 'signout'
   
-  resources :users, only: [:new, :create, :show]
+  resources :users, only: [:new, :create, :show, :update]
   get 'dashboard', to: 'users#show', as: 'home'
   get 'findblogs', to: 'users#findblogs', as: 'findblogs'
+  get 'settings', to: 'users#edit', as: 'settings'
   get 'users/:id/public', to: 'users#public', as: 'public'
   
   resources :posts, except: [:show]

@@ -27,8 +27,7 @@ p, div, input, button, a {
 }
 
 .auth_bg {
-/*	background: url('_auth_bg2.gif') no-repeat center center fixed;*/
-	background-color: #375876;
+	background: #375876 url('auth_bg2.gif') no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;

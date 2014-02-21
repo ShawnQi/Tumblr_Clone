@@ -1,0 +1,35 @@
+<div id="white_pane">
+	<div class="title_and_controls">Profile Settings</div>
+
+	<form class="profile_settings" action="<%= user_url(current_user.id) %>" method="post">
+		<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+		<input type="hidden" name="_method" value="put">
+		<input type="hidden" name="back" value="<%= request.referrer %>">
+	
+		<input type="text" name="user[username]" value="<%= current_user.username %>" placeholder="Username">
+		<input type="text" name="user[email]" value="<%= current_user.email %>" placeholder="Email">
+		<input type="text" name="user[blog_name]" value="<%= current_user.blog_name %>" placeholder="Blog Name">
+
+		<% if flash.now[:errors] %>
+			<% history = [] %>
+			<% flash.now[:errors].each do |key, val| %>
+				<% unless history.include?(key) %>
+					<div class="profile_settings_error" style="float: none"><%= key.capitalize %> <%= val.first %></div>
+					<% break %>
+					<% history << key %>
+				<% end %>
+			<% end %>
+		<% end %>
+
+		<div style="margin-top: 10px">
+			<div class="float_left">
+				<input type="submit" value="Save">
+			</div>
+			<div>
+				<a class="float_right new_post_cancel" href="<%= request.referrer %>">Cancel</a>
+			</div>
+		</div>
+		<div style="clear:left"></div>
+	</form>
+
+</div>
