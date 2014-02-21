@@ -6,6 +6,8 @@
 * Add home pointer everywhere
 * flash messages
 * Changes posts to show newest to latest
+* Fix redirection issues
+* adds flash to settings
 ---
 * Add avatars
 * Models rspec

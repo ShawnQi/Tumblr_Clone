@@ -11,7 +11,7 @@ class UsersController < ApplicationController
     
     if @user.save
       signin(@user)
-      flash[:notice] = "You have been successfully registered"
+      flash[:main] = "You have been successfully registered"
       redirect_to root_url
     else
       flash.now[:errors] = @user.errors.messages
@@ -35,6 +35,7 @@ class UsersController < ApplicationController
     @referer = params[:back]
     
     if current_user.update_attributes(params[:user])
+      flash[:main] = "Your account has been updated"
       (params[:back].nil?) ? (redirect_to root_url) : (redirect_to params[:back])
     else
       flash.now[:errors] = current_user.errors.messages
