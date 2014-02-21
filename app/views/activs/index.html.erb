@@ -17,10 +17,15 @@
 					</div>
 					
 					<div class="activity_info">
-						<div class="avatar_25 float_left"></div>
-						<div class="activity_info_text float_left">
-							<%= activ.sent_user_id == current_user.id ? activ.sent_title : activ.got_title %>
-						</div>
+						<a href="<%= public_url(activ.sent_user_id) %>">
+							<div class="avatar_25 float_left"></div>
+						</a>
+						
+						<a href="<%= public_url(activ.sent_user_id) %>">
+							<div class="activity_info_text float_left">
+								<%= activ.sent_user_id == current_user.id ? activ.sent_title : activ.got_title %>
+							</div>
+						</a>
 					</div>
 
 				</li>

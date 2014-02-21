@@ -17,7 +17,7 @@ class FollowingsController < ApplicationController
                                followed_id: follower_id})
     
     if following.save
-      Activ.create({got_title: "#{current_user.username} started following you", got_user_id: follower_id})
+      Activ.create({sent_user_id: current_user.id, got_title: "#{current_user.username} started following you", got_user_id: follower_id})
       flash[:main] = "You started following this user"
     else
       flash[:main] = "Error in trying to follow a user"

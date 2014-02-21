@@ -7,10 +7,14 @@
 				<li class="following_list_items<%= " follower_list_darker_bg" if i%2 != 0 %>">
 					
 					<div class="float_left">
-						<div class="avatar_40 float_left"></div>
+						<a href="<%= public_url(following.id) %>">
+							<div class="avatar_40 float_left"></div>
+						</a>
 						
 						<div class="float_left" style="margin-left: 12px;">
-							<div class="following_username"><%= following.username %></div>
+							<a href="<%= public_url(following.id) %>">
+								<div class="following_username"><%= following.username %></div>
+							</a>
 							<% if following.posts.last %>
 								<div class="updated_info">
 									Updated <%= time_ago_in_words(following.posts.last.created_at) %> ago
