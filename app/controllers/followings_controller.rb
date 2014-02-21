@@ -15,12 +15,13 @@ class FollowingsController < ApplicationController
     follower_id = params[:follower_id]
     following = Following.new({follower_id: current_user.id,
                                followed_id: follower_id})
+    user = User.find(follower_id).username
     
     if following.save
       Activ.create({sent_user_id: current_user.id, got_title: "#{current_user.username} started following you", got_user_id: follower_id})
-      flash[:main] = "You started following this user"
+      flash[:main] = "You started following \"#{user}\""
     else
-      flash[:main] = "Error in trying to follow a user"
+      flash[:main] = "Error in trying to follow \"#{user}\""
     end
     
     (params[:back].nil?) ? (redirect_to root_url) : (redirect_to params[:back])
@@ -34,9 +35,9 @@ class FollowingsController < ApplicationController
     end
     
     if following.destroy
-      flash[:main] = "You unfollowed this user"
+      flash[:main] = "Removed from the following list"
     else
-      flash[:main] = "Error in trying to unfollow this user"
+      flash[:main] = "Error in trying to unfollow"
     end
     
     (params[:back].nil?) ? (redirect_to root_url) : (redirect_to params[:back])
