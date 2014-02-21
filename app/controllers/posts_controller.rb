@@ -19,7 +19,7 @@ class PostsController < ApplicationController
     
     if @post.save
       flash[:main] = "Your post has been saved"
-      redirect_to root_url
+      (params[:back].nil?) ? (redirect_to root_url) : (redirect_to params[:back])
     else
       flash.now[:errors] = @post.errors.messages
       render :new
@@ -36,7 +36,7 @@ class PostsController < ApplicationController
     
     if @post.update_attributes(params[:post])
       flash[:main] = "Your post has been updated"
-      redirect_to root_url
+      (params[:back].nil?) ? (redirect_to root_url) : (redirect_to params[:back])
     else
       flash.now[:errors] = @post.errors.messages
       render :edit
@@ -52,7 +52,7 @@ class PostsController < ApplicationController
       flash[:main] = "There was an error in deleting your post"
     end
     
-    redirect_to root_url
+    (params[:back].nil?) ? (redirect_to root_url) : (redirect_to params[:back])
   end
   
   def publish
@@ -61,10 +61,10 @@ class PostsController < ApplicationController
     if @draft
       @draft.update_attributes({draft: false})
       flash[:main] = "Your draft has been published"
-      redirect_to root_url
+      redirect_to request.referrer
     else
       flash[:main] = "There was an error in trying to publish your draft"
-      redirect_to root_url
+      redirect_to request.referrer
     end
   end
 end

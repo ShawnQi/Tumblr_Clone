@@ -6,6 +6,7 @@
 
 	<form class="new_post_form" action="<%= posts_url %>" method="post">
 		<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+		<input type="hidden" name="back" value="<%= request.referrer %>">
 	
 		<input type="text" name="post[title]" value="<%= @post.title %>" placeholder="Title">
 	
@@ -35,7 +36,7 @@
 				<input type="submit" value="Post">
 			</div>
 			<div>
-				<a class="float_right new_post_cancel" href="<%= home_url %>">Cancel</a>
+				<a class="float_right new_post_cancel" href="<%= request.referrer %>">Cancel</a>
 			</div>
 		</div>
 		
