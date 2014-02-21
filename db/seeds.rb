@@ -76,7 +76,6 @@ Post.create!({title: "Wayne Gretzky", body: "You miss 100% of the shots you don'
 Post.create!({title: "Albert Einstein", body: "I am thankful for all of those who said NO to me. Its because of them I'm doing it myself.", draft: false, user_id: 8})
 
 
-
 # FOLLOWINGS
 Following.create!({follower_id: 2, followed_id: 1})
 Following.create!({follower_id: 3, followed_id: 1})
