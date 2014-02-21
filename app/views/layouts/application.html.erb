@@ -7,9 +7,14 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+	
+	<% if flash[:main] %>
+		<div class="flash_messages hidden">
+			<%= flash[:main] %>
+		</div>
+	<% end %>
 
 <div id="container">
-	<%#= flash[:main] %>
 	<div id="header">
 		<a href="<%= root_url %>">
 			<img id="logo" src="/assets/white-logo.png" width="187px" height="40px">
@@ -20,7 +25,7 @@
 				<ul>
 					<li>
 						<a href="<%= root_url %>">
-							<% if request.path == "/dashboard" %>
+							<% if !%w[/settings].include?(request.path) %>
 								<div class="selector_top"></div>
 							<% end %>
 							<img src="/assets/nav_dashboard.png">
@@ -99,8 +104,8 @@
 					<% else %>
 					<a href="<%= activs_url %>">
 					<% end %>
-						<div class="menu_activity"></div>
 						<img src="/assets/sidebar_activity.png"></img><span>Acitivity</span>
+						<span class="float_right"><%= @count_activs %></span>
 					</a>
 				</li>
 				
@@ -160,12 +165,12 @@
 			<% @recommended.each do |user| %>
 				<li class="menu_has_follow_button">
 					
-					<a style="padding: 0" href="<%= public_url(user.id) %>">
+					<a style="padding: 0; opacity: 1" href="<%= public_url(user.id) %>">
 						<div class="recommended_avatar"></div>
 					</a>
 					
 					<!-- BLOG INFO -->
-					<a href="<%= public_url(user.id) %>">
+					<a style="opacity: 1" href="<%= public_url(user.id) %>">
 						<div class="recommended_blogs">
 							<%= user.username %><br>
 							<%= user.blog_name %>
@@ -212,6 +217,8 @@
 		$('.button_options').on('click', function() {
 			$(this).next('.options_menu').toggleClass('hidden');
 		});
+		
+		$('.flash_messages').fadeIn(100).delay(2000).fadeOut(1000);
 	});
 </script>
 

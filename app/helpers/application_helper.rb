@@ -11,6 +11,7 @@ module ApplicationHelper
   end
   
   def signout
+    reset_demo_account if current_user.id == 1
     session[:session_token] = nil
   end
   
@@ -23,6 +24,7 @@ module ApplicationHelper
     @recommended = User.most_liked(except)
     @count_posts = @current_user.posts.where(draft: false).count
     @count_followers = @current_user.followers_users.count
+    @count_activs = Activ.where('got_user_id = ? AND created_at >= ?', current_user.id, 1.week.ago).count
     @count_likes = @current_user.likes.count
     @count_following = @current_user.following_users.count
     @count_drafts = @current_user.posts.where(draft: true).count
@@ -39,6 +41,11 @@ module ApplicationHelper
     current_user.followers.destroy_all
     current_user.following.destroy_all
     current_user.likes.destroy_all
+    
+    User.find(1).update_attributes({email: "user@demo.com",
+                                    password: "password",
+                                    username: "demo_user",
+                                    blog_name: "My Demo Blog"})
   
     Post.create!({title: "Michael Jordan",
                   body: "I've missed more than 9000 shots in my career. I've lost almost 300 games. 26 times I've been trusted to take the game winning shot and missed. I've failed over and over and over again in my life. And that is why I succeed.",

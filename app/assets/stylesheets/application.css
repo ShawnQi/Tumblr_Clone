@@ -578,14 +578,6 @@ input.option_menu_list_item {
 	background: url('/assets/menu_pointer.png');
 }
 
-.menu_activity {
-	width: 37px;
-	height: 36px;
-	position: absolute;
-	right: 10px;
-	background: url('/assets/menu_activity.png');
-}
-
 .profile_settings > input {
 	padding: 10px 12px;
 	width: 550px;
@@ -615,4 +607,17 @@ input.option_menu_list_item {
 	float: left;
 	line-height: 30px;
 	color: salmon;
+}
+
+.flash_messages {
+	position: absolute;
+	left: 850px;
+	top: 18px;
+	max-width: 350px;
+	font-size: 12px;
+	padding: 8px 15px;
+	border: 2px solid #2aa315;
+	background: #248713;
+	color: white;
+	border-radius: 5px;
 }
