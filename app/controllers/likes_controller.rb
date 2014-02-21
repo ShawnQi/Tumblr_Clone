@@ -4,6 +4,7 @@ class LikesController < ApplicationController
   
   def index
     @posts = current_user.liked_posts.includes(:user)
+    @liked_posts = current_user.liked_posts.pluck(:id)
   end
   
   def create
@@ -13,10 +14,10 @@ class LikesController < ApplicationController
       Activ.create({got_title: "#{current_user.username} liked your post \"#{Post.find(params[:post_id]).title}\"",
                     got_user_id: Post.find(params[:post_id]).user.id })
       flash[:main] = "You liked this post"
-      redirect_to root_url
+      (params[:back].nil?) ? (redirect_to root_url) : (redirect_to params[:back])
     else
       flash[:main] = "Error in trying to like this post"
-      redirect_to root_url
+      (params[:back].nil?) ? (redirect_to root_url) : (redirect_to params[:back])
     end
   end
   
@@ -25,10 +26,10 @@ class LikesController < ApplicationController
     
     if like.destroy
       flash[:main] = "You unliked this post"
-      redirect_to root_url
+      (params[:back].nil?) ? (redirect_to root_url) : (redirect_to params[:back])
     else
       flash[:main] = "Error in trying to unlike this post"
-      redirect_to root_url
+      (params[:back].nil?) ? (redirect_to root_url) : (redirect_to params[:back])
     end
   end
 end

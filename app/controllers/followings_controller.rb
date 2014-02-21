@@ -19,11 +19,11 @@ class FollowingsController < ApplicationController
     if following.save
       Activ.create({got_title: "#{current_user.username} started following you", got_user_id: follower_id})
       flash[:main] = "You started following this user"
-      redirect_to root_url
     else
       flash[:main] = "Error in trying to follow a user"
-      redirect_to root_url
     end
+    
+    (params[:back].nil?) ? (redirect_to root_url) : (redirect_to params[:back])
   end
   
   def destroy
@@ -35,10 +35,10 @@ class FollowingsController < ApplicationController
     
     if following.destroy
       flash[:main] = "You unfollowed this user"
-      redirect_to root_url
     else
       flash[:main] = "Error in trying to unfollow this user"
-      redirect_to root_url
     end
+    
+    (params[:back].nil?) ? (redirect_to root_url) : (redirect_to params[:back])
   end
 end

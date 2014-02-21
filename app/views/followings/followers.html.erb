@@ -12,22 +12,29 @@
 						<div class="float_left" style="margin-left: 12px;">
 							<div class="following_username"><%= follower.username %></div>
 
-							<form action="unfollow" method="post">
+							<!-- IGNORE LINK -->
+							<form action="<%= unfollow_url %>" method="post">
 								<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
 								<input type="hidden" name="follower_id" value="<%= follower.id %>">
+								<input type="hidden" name="back" value="<%= request.url %>">
 								<input class="input_to_link ignore_link" type="submit" value="ignore">
 							</form>
+							
 						</div>
 					</div>
 					
 
 					<div class="float_right">
 						<% unless @followings.include?(follower) %>
-								<form action="follow" method="post" style="line-height: 40px">
+						
+								<!-- FOLLOW BUTTON -->
+								<form action="<%= follow_url %>" method="post" style="line-height: 40px">
 									<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
 									<input type="hidden" name="follower_id" value="<%= follower.id %>">
+									<input type="hidden" name="back" value="<%= request.url %>">
 									<input class="button_follow_blue_big" type="submit" value="Follow">
 								</form>
+								
 						<% end %>
 					</div>
 
