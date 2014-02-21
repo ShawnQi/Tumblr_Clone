@@ -32,6 +32,8 @@ class UsersController < ApplicationController
   end
   
   def update
+    @referer = params[:back]
+    
     if current_user.update_attributes(params[:user])
       (params[:back].nil?) ? (redirect_to root_url) : (redirect_to params[:back])
     else
