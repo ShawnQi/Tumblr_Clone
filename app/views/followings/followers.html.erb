@@ -1,5 +1,5 @@
 <div id="white_pane">
-	<div class="title_and_controls"><%= @followers.count %> people follow you</div>
+	<div class="title_and_controls"><%= pluralize(@followers.count, 'person') %> <%= @followers.count == 1 ? "follows" : "follow" %> you</div>
 
 	<% if @followers %>
 		<ul>
