@@ -1,3 +1,4 @@
+* Pluralize following and followers pages
 ---
 * Add clickable blog link everywhere
 * Add quotes to blogs name in findblogs and grey out username
