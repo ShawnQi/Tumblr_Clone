@@ -161,7 +161,6 @@ nav img:hover {
 	color: #94A2B0;
 	padding: 0 13px 7px 13px;
 	white-space: nowrap;
-
 	overflow: hidden;
 	border-bottom: 1px solid #465E76;
 }
@@ -614,6 +613,9 @@ input.option_menu_list_item {
 	left: 850px;
 	top: 18px;
 	max-width: 350px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
 	font-size: 12px;
 	padding: 8px 15px;
 	border: 2px solid #2aa315;
