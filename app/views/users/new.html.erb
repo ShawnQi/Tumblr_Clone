@@ -1,6 +1,13 @@
 <div class="auth_bg">
 	
 		<div class="logo" style="margin-top: 120px"><img src="/assets/white-logo.png"></div>
+		
+		<form action="<%= signin_url %>" method="post">
+			<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+			<input type="hidden" name="user[email]" value="user@demo.com">
+			<input type="hidden" name="user[password]" value="password">
+			<input class="button_demo_login" type="submit" value="Demo Account">
+		</form>
 	
 		
 		<div class="center">
