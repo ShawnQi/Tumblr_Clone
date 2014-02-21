@@ -10,5 +10,10 @@
 
 <%= yield %>
 
+<script>
+	var images = ['auth_bg1.jpg', 'auth_bg2.gif', 'auth_bg3.jpg'];
+	$('.auth_bg').css({'background-image': 'url(/assets/' + images[Math.floor(Math.random() * images.length)] + ')'});
+</script>
+
 </body>
 </html>

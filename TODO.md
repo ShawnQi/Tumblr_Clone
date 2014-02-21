@@ -4,12 +4,13 @@
 * Change activity menu to number
 * Change demo user's info/attributes on login
 * Add home pointer everywhere
-* flash messages
+* Flash messages
 * Changes posts to show newest to latest
 * Fix redirection issues
-* adds flash to settings
+* Add flash to settings
+* Add validation on the title length
 ---
 * Add avatars
-* Models rspec
 * Facebook auth
 * Anitamated new post
+* Models rspec
