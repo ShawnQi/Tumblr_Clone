@@ -11,7 +11,7 @@ class LikesController < ApplicationController
     like = Like.new({user_id: current_user.id, post_id: params[:post_id]})
     
     if like.save
-      Activ.create({got_title: "#{current_user.username} liked your post \"#{Post.find(params[:post_id]).title}\"",
+      Activ.create({sent_user_id: current_user.id, got_title: "#{current_user.username} liked your post \"#{Post.find(params[:post_id]).title}\"",
                     got_user_id: Post.find(params[:post_id]).user.id })
       flash[:main] = "You liked this post"
       (params[:back].nil?) ? (redirect_to root_url) : (redirect_to params[:back])

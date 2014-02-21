@@ -7,10 +7,14 @@
 				<li class="following_list_items<%= " follower_list_darker_bg" if i%2 != 0 %>">
 					
 					<div class="float_left">
-						<div class="avatar_40 float_left"></div>
+						<a href="<%= public_url(follower.id) %>">
+							<div class="avatar_40 float_left"></div>
+						</a>
 						
 						<div class="float_left" style="margin-left: 12px;">
-							<div class="following_username"><%= follower.username %></div>
+							<a href="<%= public_url(follower.id) %>">
+								<div class="following_username"><%= follower.username %></div>
+							</a>
 
 							<!-- IGNORE LINK -->
 							<form action="<%= unfollow_url %>" method="post">

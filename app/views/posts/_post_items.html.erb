@@ -4,7 +4,14 @@
 			<li class="<%= i==0 ? "first_post" : "post" %>">
 				
 				<!-- POST AVATAR -->
-				<div class="relative"><div class="post_avatar"><div class="selector_left"></div></div></div>
+				<div class="relative">
+					<a href="<%= public_url(post.user.id) %>">
+						<div class="post_avatar">
+							<div class="selector_left">			
+							</div>
+						</div>
+					</a>
+				</div>
 				
 				<!-- POST INFO -->
 				<div class="post_username">

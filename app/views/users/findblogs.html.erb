@@ -9,12 +9,16 @@
 				<li class="following_list_items<%= " follower_list_darker_bg" if i%2 != 0 %>">
 					
 					<div class="float_left">
-						<div class="avatar_40 float_left"></div>
+						<a href="<%= public_url(blog.id) %>">
+							<div class="avatar_40 float_left"></div>
+						</a>
 						
-						<div class="float_left" style="margin-left: 12px;">
-							<div class="following_username"><%= blog.username %></div>
-							<div class="following_username"><%= blog.blog_name %></div>
-						</div>
+						<a href="<%= public_url(blog.id) %>">
+							<div class="float_left" style="margin-left: 12px;">
+								<div class="following_username"><%= blog.username %></div>
+								<div class="following_username"><%= blog.blog_name %></div>
+							</div>
+						</a>
 					</div>
 					
 

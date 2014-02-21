@@ -160,13 +160,17 @@
 			<% @recommended.each do |user| %>
 				<li class="menu_has_follow_button">
 					
-					<div class="recommended_avatar"></div>
+					<a style="padding: 0" href="<%= public_url(user.id) %>">
+						<div class="recommended_avatar"></div>
+					</a>
 					
 					<!-- BLOG INFO -->
-					<div class="recommended_blogs">
-						<%= user.username %><br>
-						<%= user.blog_name %>
-					</div>
+					<a href="<%= public_url(user.id) %>">
+						<div class="recommended_blogs">
+							<%= user.username %><br>
+							<%= user.blog_name %>
+						</div>
+					</a>
 
 					<!-- FOLLOW BUTTON " + " -->
 					<form class="follow_button" action="follow" method="post">
