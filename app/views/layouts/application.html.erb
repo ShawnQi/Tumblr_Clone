@@ -178,8 +178,9 @@
 					</a>
 
 					<!-- FOLLOW BUTTON " + " -->
-					<form class="follow_button" action="follow" method="post">
+					<form class="follow_button" action="<%= follow_url %>" method="post">
 						<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+						<input type="hidden" name="back" value="<%= request.url %>">
 						<input type="hidden" name="follower_id" value="<%= user.id %>">
 						<!-- <input type="submit" value="Follow"> -->
 						<button type="submit">+</button>
