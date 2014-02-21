@@ -7,7 +7,7 @@ module ApplicationHelper
   def signin(user)
     @current_user = user
     session[:session_token] = user.reset_session_token!
-    reset_demo_account if @current_user.email == "user@demo.com"
+    reset_demo_account if @current_user.id == 1
   end
   
   def signout

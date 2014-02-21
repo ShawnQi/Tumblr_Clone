@@ -28,6 +28,18 @@ class UsersController < ApplicationController
     @liked_posts = current_user.liked_posts.pluck(:id)
   end
   
+  def edit
+  end
+  
+  def update
+    if current_user.update_attributes(params[:user])
+      (params[:back].nil?) ? (redirect_to root_url) : (redirect_to params[:back])
+    else
+      flash.now[:errors] = current_user.errors.messages
+      render :edit
+    end
+  end
+  
   def findblogs
     except = [current_user.id].concat(current_user.following_users)
     @blogs = User.where("id NOT IN (?)", except).order("RANDOM()").limit(20)

@@ -20,7 +20,9 @@
 				<ul>
 					<li>
 						<a href="<%= root_url %>">
-							<div class="selector_top"></div>
+							<% if request.path == "/dashboard" %>
+								<div class="selector_top"></div>
+							<% end %>
 							<img src="/assets/nav_dashboard.png">
 						</a>
 					</li>
@@ -37,10 +39,13 @@
 						<!-- </a> -->
 					</li>
 					
-					<li class="low_opacity">
-						<!-- <a href="#"> -->
+					<li>
+						<a href="<%= settings_url %>">
+							<% if request.path == "/settings" %>
+								<div class="selector_top"></div>
+							<% end %>
 							<img src="/assets/nav_settings.png">
-						<!-- </a> -->
+						</a>
 					</li>
 					
 					<li>
