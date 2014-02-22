@@ -215,13 +215,16 @@
 </div>
 
 <script>
-	$( document ).ready(function() {		
+	$( document ).ready(function() {
+		// OPTIONS BUTTON
 		$('.button_options').on('click', function() {
 			$(this).next('.options_menu').toggleClass('hidden');
 		});
 		
+		// TOP FLASH MESSAGES
 		$('.flash_messages').fadeIn(100).delay(2000).fadeOut(1000);
 		
+		// RED HEART BUTTON
 		$("form.red_like_button").on("submit", function(event) {
 	    event.preventDefault();
 	    var $form = $(this);
@@ -244,6 +247,7 @@
 	    })
 		});
 		
+		// GREY HEART BUTTON
 		$("form.grey_unlike_button").on("submit", function(event) {
 	    event.preventDefault();
 	    var $form = $(this);
@@ -262,6 +266,27 @@
 					$('.post_footer_flash[data-id=' + form_id + ']').css('color','#D22929');
 					$('.post_footer_flash[data-id=' + form_id + ']').html('Liked this post')
 																													.fadeIn(100).delay(1000).fadeOut(1000);
+	      }
+	    })
+		});
+		
+		// DELETE BUTTON
+		$("form.options_delete_button").on("submit", function(event) {
+	    event.preventDefault();
+	    var $form = $(this);
+			var form_id = $form.attr("data-id")
+	    $.ajax({
+	      url: $form.attr("action"),
+	      type: "DELETE",
+	      data: $form.serialize(),
+	      success: function(data) {
+					$('.options_menu[data-id=' + form_id + ']').toggleClass('hidden');
+					$('#container').prepend('<div class="flash_messages hidden"></div>');
+					$('.flash_messages').html(data);
+					$('.flash_messages').fadeIn(100).delay(1000).fadeOut(1000);
+					
+					$('li[data-id=' + form_id + ']').animate({opacity: 0}, 500, "linear");
+					$('li[data-id=' + form_id + ']').slideUp(500, "linear");
 	      }
 	    })
 		});

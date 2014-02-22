@@ -46,15 +46,21 @@ class PostsController < ApplicationController
   end
   
   def destroy
-    @post = current_user.posts.find(params[:id])
+    post = current_user.posts.find(params[:id])
     
-    if @post.destroy
-      flash[:main] = "Your post has been deleted"
+    if post.destroy
+      
+      if request.xhr?
+        render text: "Your post has been deleted"
+      else
+        flash[:main] = "Your post has been deleted"
+        (params[:back].nil?) ? (redirect_to root_url) : (redirect_to params[:back])
+      end
+      
     else
       flash[:main] = "There was an error in deleting your post"
+      (params[:back].nil?) ? (redirect_to root_url) : (redirect_to params[:back])
     end
-    
-    (params[:back].nil?) ? (redirect_to root_url) : (redirect_to params[:back])
   end
   
   def publish
