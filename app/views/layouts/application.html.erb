@@ -8,12 +8,13 @@
 </head>
 <body>
 	
-	<% if flash[:main] %>
-		<div class="flash_messages hidden">
-			<%= flash[:main] %>
-		</div>
-	<% end %>
-	
+<% if flash[:main] %>
+	<div class="flash_messages hidden">
+		<%= flash[:main] %>
+	</div>
+<% end %>
+
+<div class="dark-layer hidden"></div>
 
 <div id="container">
 	<div id="header">
@@ -217,12 +218,12 @@
 <script>
 	$( document ).ready(function() {
 		// OPTIONS BUTTON
-		$('.button_options').on('click', function() {
+		$(".button_options").on("click", function() {
 			$(this).next('.options_menu').toggleClass('hidden');
 		});
 		
 		// TOP FLASH MESSAGES
-		$('.flash_messages').fadeIn(100).delay(2000).fadeOut(1000);
+		$(".flash_messages").fadeIn(100).delay(2000).fadeOut(1000);
 		
 		// RED HEART BUTTON
 		$("form.red_like_button").on("submit", function(event) {
@@ -338,6 +339,20 @@
 					$('#menu_drafts_number').html(drafts_number - 1);
 	      }
 	    })
+		});
+		
+		// NEW POST BUTTON
+		$("#new_post_text_form").on("click", function(event) {
+	    event.preventDefault();
+			$('#posts ul, #header, .menu').animate({opacity: "0.2"})
+			$('.dark-layer').fadeIn(300);
+			$('.new_post_menu').css('position', 'relative');
+			$('.new_post_menu, .post_avatar_top').css('z-index', '2');
+			$('.new_post_menu ul').fadeOut(500, function() {
+				$('.new_post_menu').animate({height: "310px"}, 300, function() {
+					$(this).load("/posts/new .new_post_container");
+				});
+			});
 		});
 		
 	});
