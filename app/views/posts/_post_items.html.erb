@@ -70,14 +70,14 @@
 						
 							<div class="relative">
 								<button class="button_options"></button>
-								<div class="options_menu hidden">
+								<div class="options_menu hidden" data-id="<%= post.id %>">
 									<div class="selector_top_white"></div>
 									
 									<!-- EDIT BUTTON -->
 									<a class="option_menu_list_item" href="<%= edit_post_url(post.id) %>">Edit</a>
 				
 									<!-- DELETE BUTTON -->
-									<form action="<%= post_url(post.id) %>" method="post">
+									<form action="<%= post_url(post.id) %>" method="post" data-id="<%= post.id %>" class="options_delete_button">
 										<input type="hidden" name="_method" value="delete">
 										<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
 										<input type="hidden" name="back" value="<%= request.url %>">
