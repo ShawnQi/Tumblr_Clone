@@ -1,6 +1,6 @@
 class LikesController < ApplicationController
   before_filter :require_current_user!
-  before_filter :get_menu_stats
+  before_filter :get_menu_stats, except: [:create, :destroy]
   
   def index
     @posts = current_user.liked_posts.includes(:user)
@@ -14,8 +14,14 @@ class LikesController < ApplicationController
     if like.save
       Activ.create({sent_user_id: current_user.id, got_title: "#{current_user.username} liked your post \"#{post_title}\"",
                     got_user_id: Post.find(params[:post_id]).user.id })
-      flash[:main] = "Liked: \"#{post_title}\""
-      (params[:back].nil?) ? (redirect_to root_url) : (redirect_to params[:back])
+      
+      if request.xhr?
+        render text: "Liked: \"#{post_title}\""
+      else
+        flash[:main] = "Liked: \"#{post_title}\""
+        (params[:back].nil?) ? (redirect_to root_url) : (redirect_to params[:back])
+      end
+      
     else
       flash[:main] = "Error in trying to like this post"
       (params[:back].nil?) ? (redirect_to root_url) : (redirect_to params[:back])
@@ -27,8 +33,14 @@ class LikesController < ApplicationController
     post_title = like.post.title
     
     if like.destroy
-      flash[:main] = "Unliked: \"#{post_title}\""
-      (params[:back].nil?) ? (redirect_to root_url) : (redirect_to params[:back])
+         
+      if request.xhr?
+        render text: "Unliked: \"#{post_title}\""
+      else
+        flash[:main] = "Unliked: \"#{post_title}\""
+        (params[:back].nil?) ? (redirect_to root_url) : (redirect_to params[:back])
+      end
+
     else
       flash[:main] = "Error in trying to unlike this post"
       (params[:back].nil?) ? (redirect_to root_url) : (redirect_to params[:back])

@@ -1,7 +1,7 @@
 <% if @posts %>
 	<ul>
 		<% @posts.each_with_index do |post, i| %>
-			<li class="<%= i==0 ? "first_post" : "post" %>">
+			<li class="<%= i==0 ? "first_post" : "post" %>" data-id="<%= post.id %>">
 				
 				<!-- POST AVATAR -->
 				<div class="relative">
@@ -26,34 +26,38 @@
 				
 				
 				<div class="post_footer">
+					<div class="post_footer_flash" data-id="<%= post.id %>"></div>
 					<div class="float_right">
 						
 						<% if post.user != current_user %>
+						
 							<% if @liked_posts && @liked_posts.include?(post.id) %>
-					
-							<!-- UNLIKE BUTTON -->
-							<div class="float_left">
-								<form action="<%= unlike_url %>" method="post">
-									<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-									<input type="hidden" name="post_id" value="<%= post.id %>">
-									<input type="hidden" name="back" value="<%= request.url %>">
-									<input type="submit" class="button_unlike" value="">
-								</form>
-							</div>
-							
+								<% red_heart = "" %>
+								<% grey_heart = " hidden" %>
 							<% else %>
-					
-							<!-- LIKE BUTTON -->
-							<div class="float_left">
-								<form action="<%= like_url %>" method="post">
-									<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-									<input type="hidden" name="post_id" value="<%= post.id %>">
-									<input type="hidden" name="back" value="<%= request.url %>">
-									<input type="submit" class="button_like" value="">
-								</form>
-							</div>
-							
+								<% red_heart = " hidden" %>
+								<% grey_heart = "" %>
 							<% end %>
+								
+								<!-- UNLIKE BUTTON -->
+								<div class="float_left">
+									<form action="<%= unlike_url %>" method="post" data-id="<%= post.id %>" class="red_like_button<%= red_heart %>">
+										<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+										<input type="hidden" name="post_id" value="<%= post.id %>">
+										<input type="hidden" name="back" value="<%= request.url %>">
+										<input type="submit" class="button_unlike" value="">
+									</form>
+								</div> 								
+								
+								<!-- LIKE BUTTON -->
+								<div class="float_left">
+									<form action="<%= like_url %>" method="post" data-id="<%= post.id %>" class="grey_unlike_button<%= grey_heart %>">
+										<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+										<input type="hidden" name="post_id" value="<%= post.id %>">
+										<input type="hidden" name="back" value="<%= request.url %>">
+										<input type="submit" class="button_like" value="">
+									</form>
+								</div>
 
 						<% else %>
 						

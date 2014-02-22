@@ -10,6 +10,9 @@
 * Add flash to settings
 * Add validation on the title length
 ---
+* Add ajax to likes
+* Add ajax to delete
+* Add ajax to publish
 * Add avatars
 * Facebook auth
 * Anitamated new post
