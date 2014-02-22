@@ -623,3 +623,9 @@ input.option_menu_list_item {
 	color: white;
 	border-radius: 5px;
 }
+
+.post_footer_flash {
+	color: #2aa315;
+	line-height: 45px;
+	margin-left: 20px;
+}

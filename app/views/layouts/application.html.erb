@@ -13,6 +13,7 @@
 			<%= flash[:main] %>
 		</div>
 	<% end %>
+	
 
 <div id="container">
 	<div id="header">
@@ -220,6 +221,51 @@
 		});
 		
 		$('.flash_messages').fadeIn(100).delay(2000).fadeOut(1000);
+		
+		$("form.red_like_button").on("submit", function(event) {
+	    event.preventDefault();
+	    var $form = $(this);
+			var form_id = $form.attr("data-id")
+	    $.ajax({
+	      url: $form.attr("action"),
+	      type: "POST",
+	      data: $form.serialize(),
+	      success: function(data) {
+	        $form.toggleClass('hidden');
+					$('form.grey_unlike_button[data-id=' + form_id + ']').toggleClass('hidden');
+					$('#container').prepend('<div class="flash_messages hidden"></div>');
+					$('.flash_messages').html(data);
+					$('.flash_messages').fadeIn(100).delay(1000).fadeOut(1000);
+					
+					$('.post_footer_flash[data-id=' + form_id + ']').css('color','#7A7A7A');
+					$('.post_footer_flash[data-id=' + form_id + ']').html('Unliked this post')
+																													.fadeIn(100).delay(1000).fadeOut(1000);
+	      }
+	    })
+		});
+		
+		$("form.grey_unlike_button").on("submit", function(event) {
+	    event.preventDefault();
+	    var $form = $(this);
+			var form_id = $form.attr("data-id")
+	    $.ajax({
+	      url: $form.attr("action"),
+	      type: "POST",
+	      data: $form.serialize(),
+	      success: function(data) {
+	        $form.toggleClass('hidden');
+					$('form.red_like_button[data-id=' + form_id + ']').toggleClass('hidden');
+					$('#container').prepend('<div class="flash_messages hidden"></div>');
+					$('.flash_messages').html(data);
+					$('.flash_messages').fadeIn(100).delay(1000).fadeOut(1000);
+					
+					$('.post_footer_flash[data-id=' + form_id + ']').css('color','#D22929');
+					$('.post_footer_flash[data-id=' + form_id + ']').html('Liked this post')
+																													.fadeIn(100).delay(1000).fadeOut(1000);
+	      }
+	    })
+		});
+		
 	});
 </script>
 
