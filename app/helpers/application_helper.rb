@@ -79,12 +79,9 @@ module ApplicationHelper
     Following.create!({follower_id: 1, followed_id: 5})
     
     
-    
     Like.create!({user_id: 1, post_id: 6})
-    Like.create!({user_id: 1, post_id: 8})
     Like.create!({user_id: 1, post_id: 11})
-    
-    
+
     
     Activ.create!(sent_title: "", sent_user_id: 2, got_title: "crazieBlogger started following you", got_user_id: 1, created_at: "2012-01-20 20:00:13", updated_at: "2012-01-20 20:00:13")
     Activ.create!(sent_title: "", sent_user_id: 3, got_title: "katkatkat started following you", got_user_id: 1, created_at: "2013-06-20 20:00:13", updated_at: "2013-06-20 20:00:13")

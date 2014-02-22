@@ -629,3 +629,12 @@ input.option_menu_list_item {
 	line-height: 45px;
 	margin-left: 20px;
 }
+
+.dark-layer {
+	position: fixed;
+	background-color: #071638;
+	width: 100%;
+	height: 100%;
+	opacity: 0.3;
+	z-index: 1;
+}

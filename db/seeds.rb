@@ -89,7 +89,6 @@ Following.create!({follower_id: 1, followed_id: 5})
 
 # LIKES
 Like.create!({user_id: 1, post_id: 6})
-Like.create!({user_id: 1, post_id: 8})
 Like.create!({user_id: 1, post_id: 11})
 
 Like.create!({user_id: 2, post_id: 1})

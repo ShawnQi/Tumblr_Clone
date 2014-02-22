@@ -1,8 +1,10 @@
 * Add ajax to publish
 * Change drafts count on ajax publish request
 * Change drafts/posts count on ajax delete request
----
 * Change liked count on ajax request
+---
+* New post with jqeury
+* Edit post with jqeury
 * Add avatars
 * Buy domain
 * Setup automatic awakening of heroku
