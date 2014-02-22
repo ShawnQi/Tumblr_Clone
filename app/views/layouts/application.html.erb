@@ -117,7 +117,7 @@
 					<a href="<%= drafts_url %>">
 					<% end %>
 						<img src="/assets/sidebar_drafts.png"></img><span>Drafts</span>
-						<span class="float_right"><%= @count_drafts %></span>
+						<span class="float_right" id="menu_drafts_number"><%= @count_drafts %></span>
 					</a>
 				</li>
 			</ul>
@@ -287,6 +287,26 @@
 					
 					$('li[data-id=' + form_id + ']').animate({opacity: 0}, 500, "linear");
 					$('li[data-id=' + form_id + ']').slideUp(500, "linear");
+	      }
+	    })
+		});
+		
+		// PUBLISH BUTTON
+		$("a.button_publish").on("click", function(event) {
+	    event.preventDefault();
+			var form_id = $(event.target).attr("data-id");
+	    $.ajax({
+	      url: $(event.target).attr("href"),
+	      success: function(data) {
+					$('#container').prepend('<div class="flash_messages hidden"></div>');
+					$('.flash_messages').html("Your post has been published");
+					$('.flash_messages').fadeIn(100).delay(1000).fadeOut(1000);
+					
+					$('li[data-id=' + form_id + ']').animate({opacity: 0}, 500, "linear");
+					$('li[data-id=' + form_id + ']').slideUp(500, "linear");
+					
+					var drafts_number = $('#menu_drafts_number').html();
+					$('#menu_drafts_number').html(drafts_number - 1);
 	      }
 	    })
 		});

@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_filter :require_current_user!
-  before_filter :get_menu_stats
+  before_filter :get_menu_stats, except: [:publish]
   
   def index
     @posts = current_user.posts.where(draft: false).order("updated_at DESC")
@@ -64,12 +64,17 @@ class PostsController < ApplicationController
   end
   
   def publish
-    @draft = current_user.posts.where(draft: true).find(params[:id])
+    draft = current_user.posts.where(draft: true).find(params[:id])
     
-    if @draft
-      @draft.update_attributes({draft: false})
-      flash[:main] = "Your draft has been published"
-      redirect_to request.referer
+    if draft.update_attributes({draft: false})
+      
+      if request.xhr?
+        render text: "Published"
+      else
+        flash[:main] = "Your draft has been published"
+        redirect_to request.referer
+      end
+
     else
       flash[:main] = "There was an error in trying to publish your draft"
       redirect_to request.referer
