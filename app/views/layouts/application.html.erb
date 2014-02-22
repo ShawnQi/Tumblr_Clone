@@ -130,7 +130,7 @@
 					<% else %>
 					<a href="<%= likes_url %>">
 					<% end %>
-						<img src="/assets/sidebar_liked.png"></img><span>Liked <%= pluralize(@count_likes, 'post') %></span>
+						<img src="/assets/sidebar_liked.png"></img><span id="menu_liked_text">Liked <%= pluralize(@count_likes, 'post') %></span>
 					</a>
 				</li>
 				
@@ -243,6 +243,15 @@
 					$('.post_footer_flash[data-id=' + form_id + ']').css('color','#7A7A7A');
 					$('.post_footer_flash[data-id=' + form_id + ']').html('Unliked this post')
 																													.fadeIn(100).delay(1000).fadeOut(1000);
+																													
+					var likes_number = parseInt($('#menu_liked_text').html().match(/\d+/)[0]) - 1;
+					$("#menu_liked_text").text(function () {
+				    var text = $(this).text().replace(/\d+/, likes_number);
+
+						(likes_number == 1) ? (text = text.replace("posts", "post")) : (text = text.replace(/post$/, "posts"));
+						
+						return text;
+					});
 	      }
 	    })
 		});
@@ -266,6 +275,16 @@
 					$('.post_footer_flash[data-id=' + form_id + ']').css('color','#D22929');
 					$('.post_footer_flash[data-id=' + form_id + ']').html('Liked this post')
 																													.fadeIn(100).delay(1000).fadeOut(1000);
+																													
+					var likes_number = parseInt($('#menu_liked_text').html().match(/\d+/)[0]) + 1;
+					$("#menu_liked_text").text(function () {
+				    var text = $(this).text().replace(/\d+/, likes_number);
+
+						(likes_number == 1) ? (text = text.replace("posts", "post")) : (text = text.replace(/post$/, "posts"));
+
+						return text
+					});
+					
 	      }
 	    })
 		});
