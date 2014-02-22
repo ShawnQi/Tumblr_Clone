@@ -84,7 +84,7 @@
 					<a href="<%= posts_url %>">
 					<% end %>
 						<img src="/assets/sidebar_posts.png"></img><span>Posts</span>
-						<span class="float_right"><%= @count_posts %></span>
+						<span class="float_right" id="menu_posts_number"><%= @count_posts %></span>
 					</a>
 				</li>
 				
@@ -274,7 +274,8 @@
 		$("form.options_delete_button").on("submit", function(event) {
 	    event.preventDefault();
 	    var $form = $(this);
-			var form_id = $form.attr("data-id")
+			var form_id = $form.attr("data-id");
+			var if_draft = $form.attr("data-draft");
 	    $.ajax({
 	      url: $form.attr("action"),
 	      type: "DELETE",
@@ -287,6 +288,15 @@
 					
 					$('li[data-id=' + form_id + ']').animate({opacity: 0}, 500, "linear");
 					$('li[data-id=' + form_id + ']').slideUp(500, "linear");
+					
+					if (if_draft == "true") {
+						var drafts_number = $('#menu_drafts_number').html();
+						$('#menu_drafts_number').html(drafts_number - 1);
+					} else if (if_draft == "false") {
+						var posts_number = $('#menu_posts_number').html();
+						$('#menu_posts_number').html(posts_number - 1);
+					}
+					
 	      }
 	    })
 		});
