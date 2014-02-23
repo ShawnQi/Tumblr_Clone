@@ -2,8 +2,9 @@
 * Change drafts count on ajax publish request
 * Change drafts/posts count on ajax delete request
 * Change liked count on ajax request
----
 * New post with jqeury
+* Cancel button reverts animation back
+---
 * Edit post with jqeury
 * Add avatars
 * Buy domain
