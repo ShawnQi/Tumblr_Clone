@@ -355,12 +355,39 @@
 				$('.new_post_menu').animate({height: "310px"}, 100, "linear", function() {
 					$('#insert_here_new_form').load("/posts/new .new_post_container", function() {
 						
-						$('.new_post_form input[name="post[title]"]').on('keyup',function(){
-						  if ($(this).val().length) > 3) {
-						  	alert($(this).val());
-						  }
-						});
-					
+						// NEW FORM VALIDATE INPUT
+						(function() {
+							var on = function() {
+								$('form.new_post_form').off();
+								$('input[type="submit"]').css({color: '#fff', cursor: 'pointer'});
+							};
+						
+							var off = function() {
+								$('input[type="submit"]').css({color: '#A6CEE6', cursor: 'default'});
+								$('form.new_post_form').on("submit", function() { event.preventDefault(); });							
+							};
+						
+							off();
+
+							$('input[name="post[title]"]').keyup(function() {
+								var title = $(this).val();
+								$('textarea[name="post[body]"]').keyup(function() {
+									if (title.length > 0 && 
+											title.length <= 45 &&
+											$(this).val().length > 0) { on(); } else { off(); }
+								});
+							});
+
+							$('textarea[name="post[body]"]').keyup(function() {
+								var body = $(this).val();
+								$('input[name="post[title]').keyup(function() {
+									if (body.length > 0 &&
+										  $(this).val().length > 0 &&
+										  $(this).val().length <= 45) { on(); } else { off(); }
+								});
+							});
+						})();
+
 						// NEW POST CANCEL BUTTON
 						$(".new_post_cancel").on("click", function(event) {
 					    event.preventDefault();
@@ -381,7 +408,7 @@
 			});
 			
 		};
-		$("#new_post_text_form").on("click", newpost );
+		$("#new_post_text_form").on("click", newpost);
 		
 
 		
