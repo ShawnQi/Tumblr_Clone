@@ -23,7 +23,7 @@ class PostsController < ApplicationController
       (params[:back].nil?) ? (redirect_to root_url) : (redirect_to params[:back])
     else
       flash.now[:errors] = @post.errors.messages
-      render :new
+      render :new      
     end
   end
   
