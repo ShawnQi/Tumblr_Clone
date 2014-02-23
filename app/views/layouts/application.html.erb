@@ -217,6 +217,7 @@
 
 <script>
 	$( document ).ready(function() {
+		
 		// OPTIONS BUTTON
 		$(".button_options").on("click", function() {
 			$(this).next('.options_menu').toggleClass('hidden');
@@ -307,7 +308,7 @@
 					$('.flash_messages').fadeIn(100).delay(1000).fadeOut(1000);
 					
 					$('li[data-id=' + form_id + ']').animate({opacity: 0}, 500, "linear");
-					$('li[data-id=' + form_id + ']').slideUp(500, "linear");
+					$('li[data-id=' + form_id + ']').slideUp(100, "linear");
 					
 					if (if_draft == "true") {
 						var drafts_number = $('#menu_drafts_number').html();
@@ -409,8 +410,6 @@
 			
 		};
 		$("#new_post_text_form").on("click", newpost);
-		
-
 		
 	});
 </script>
