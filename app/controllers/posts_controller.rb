@@ -3,11 +3,11 @@ class PostsController < ApplicationController
   before_filter :get_menu_stats, except: [:publish]
   
   def index
-    @posts = current_user.posts.where(draft: false).order("updated_at DESC")
+    @posts = current_user.posts.where(draft: false).order("created_at DESC")
   end
   
   def drafts
-    @posts = current_user.posts.where(draft: true).order("updated_at DESC")
+    @posts = current_user.posts.where(draft: true).order("created_at DESC")
   end
   
   def new
