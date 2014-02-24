@@ -474,6 +474,26 @@
 	    })
 		});
 		
+		// IGNORE BUTTON
+		$("form.list_ignore_link").on("submit", function(event) {
+	    event.preventDefault();
+	    var $form = $(this);
+			var form_id = $form.attr("data-id");
+	    $.ajax({
+	      url: $form.attr("action"),
+	      type: "POST",
+	      data: $form.serialize(),
+	      success: function(data) {
+					$('.following_list_items[data-id="' + form_id + '"]').fadeOut(300);
+					$('#container').prepend('<div class="flash_messages hidden"></div>');
+					$('.flash_messages').html("Ignored");
+					$('.flash_messages').fadeIn(100).delay(1000).fadeOut(1000);
+					
+	      }
+	    })
+		});
+		
+		
 		
 	});
 </script>
