@@ -10,10 +10,12 @@
 #  session_token   :string(255)
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
+#  provider        :string(255)
+#  uid             :string(255)
 #
 
 class User < ActiveRecord::Base
-  attr_accessible :username, :email, :blog_name, :password
+  attr_accessible :username, :email, :blog_name, :password, :provider, :uid
   attr_reader :password
   
   before_validation :ensure_session_token
@@ -44,6 +46,22 @@ class User < ActiveRecord::Base
     GROUP BY users.id
     ORDER BY count DESC
     LIMIT 3")
+  end
+  
+  def self.find_or_create_by_auth(auth)
+    user = User.find_by_uid(auth['uid'])
+    
+    if user
+      return user
+    else
+      user = User.create!(
+        username: auth['info']['nickname'],
+        email: auth['info']['email'],
+        blog_name: auth['info']['name'],
+        password: auth['uid'],
+        provider: auth['provider'],
+        uid: auth['uid'])
+    end
   end
   
   def password=(password)
