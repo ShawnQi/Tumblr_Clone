@@ -142,7 +142,7 @@
 					<a href="<%= following_url %>">
 					<% end %>
 						<div class="menu_pointer"></div>
-						<img src="/assets/sidebar_following.png"></img><span>Following <%= pluralize(@count_following, 'blog') %></span>
+						<img src="/assets/sidebar_following.png"></img><span id="menu_following_text">Following <%= pluralize(@count_following, 'blog') %></span>
 					</a>
 				</li>
 				
@@ -426,14 +426,14 @@
 					$('.flash_messages').html(data);
 					$('.flash_messages').fadeIn(100).delay(1000).fadeOut(1000);
 																													
-					// var likes_number = parseInt($('#menu_liked_text').html().match(/\d+/)[0]) + 1;
-					// $("#menu_liked_text").text(function () {
-					// 				    var text = $(this).text().replace(/\d+/, likes_number);
-					// 
-					// 	(likes_number == 1) ? (text = text.replace("posts", "post")) : (text = text.replace(/post$/, "posts"));
-					// 
-					// 	return text
-					// });
+					var following_num = parseInt($('#menu_following_text').html().match(/\d+/)[0]) + 1;
+					$("#menu_following_text").text(function () {
+				    var text = $(this).text().replace(/\d+/, following_num);
+					
+						(following_num == 1) ? (text = text.replace("blogs", "blog")) : (text = text.replace(/blog$/, "blogs"));
+					
+						return text;
+					});
 					
 	      }
 	    })
