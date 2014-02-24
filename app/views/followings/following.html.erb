@@ -4,7 +4,7 @@
 	<% if @following %>
 		<ul>
 			<% @following.each_with_index do |following, i| %>
-				<li class="following_list_items<%= " follower_list_darker_bg" if i%2 != 0 %>">
+				<li class="following_list_items<%= " follower_list_darker_bg" if i%2 != 0 %>" data-id="<%= following.id %>">
 					
 					<div class="float_left">
 						<a href="<%= public_url(following.id) %>">
@@ -26,7 +26,7 @@
 					
 
 					<div class="float_right">
-							<form action="<%= unfollow_url %>" method="post" style="line-height: 40px">
+							<form action="<%= unfollow_url %>" method="post" style="line-height: 40px" data-id="<%= following.id %>" class="white_list_unfollow_button">
 								<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
 								<input type="hidden" name="followed_id" value="<%= following.id %>">
 								<input type="hidden" name="back" value="<%= request.url %>">
