@@ -455,13 +455,18 @@
 					$('#container').prepend('<div class="flash_messages hidden"></div>');
 					$('.flash_messages').html(data);
 					$('.flash_messages').fadeIn(100).delay(1000).fadeOut(1000);
-																													
+
 					var following_num = parseInt($('#menu_following_text').html().match(/\d+/)[0]) - 1;
 					$("#menu_following_text").text(function () {
-									    var text = $(this).text().replace(/\d+/, following_num);
-					
-						(following_num == 1) ? (text = text.replace("blogs", "blog")) : (text = text.replace(/blog$/, "blogs"));
-					
+				    var text = $(this).text().replace(/\d+/, following_num);
+						
+						if (following_num == 1) {
+							text = text.replace("blogs", "blog");
+						} else {
+							text = text.replace(/blog$/, "blogs");
+						}
+						
+						$(".title_and_controls").text(text);
 						return text;
 					});
 					
