@@ -165,7 +165,7 @@
 
 			<ul>
 			<% @recommended.each do |user| %>
-				<li class="menu_has_follow_button">
+				<li class="menu_has_follow_button" data-id="<%= user.id %>">
 					
 					<a style="padding: 0; opacity: 1" href="<%= public_url(user.id) %>">
 						<div class="recommended_avatar"></div>
@@ -180,7 +180,7 @@
 					</a>
 
 					<!-- FOLLOW BUTTON " + " -->
-					<form class="follow_button" action="<%= follow_url %>" method="post">
+					<form class="follow_button" action="<%= follow_url %>" method="post" data-id="<%= user.id %>">
 						<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
 						<input type="hidden" name="back" value="<%= request.url %>">
 						<input type="hidden" name="follower_id" value="<%= user.id %>">
@@ -412,7 +412,7 @@
 		$("#new_post_text_form").on("click", newpost);
 		
 		// FOLLOW BUTTON
-		$("form.follow_button").on("submit", function(event) {
+		$("form.blue_follow_button, form.follow_button").on("submit", function(event) {
 	    event.preventDefault();
 	    var $form = $(this);
 			var form_id = $form.attr("data-id");
@@ -422,6 +422,8 @@
 	      data: $form.serialize(),
 	      success: function(data) {
 	        $form.fadeOut(300);
+					$('form.blue_follow_button[data-id="' + form_id + '"]').fadeOut(300);
+					$('.menu_has_follow_button[data-id="' + form_id + '"]').fadeOut(300);
 					$('#container').prepend('<div class="flash_messages hidden"></div>');
 					$('.flash_messages').html(data);
 					$('.flash_messages').fadeIn(100).delay(1000).fadeOut(1000);

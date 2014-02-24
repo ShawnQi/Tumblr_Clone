@@ -32,7 +32,7 @@
 						<% unless @followings.include?(follower) %>
 						
 								<!-- FOLLOW BUTTON -->
-								<form action="<%= follow_url %>" method="post" style="line-height: 40px" data-id="<%= follower.id %>" class="follow_button">
+								<form action="<%= follow_url %>" method="post" style="line-height: 40px" data-id="<%= follower.id %>" class="blue_follow_button">
 									<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
 									<input type="hidden" name="follower_id" value="<%= follower.id %>">
 									<input type="hidden" name="back" value="<%= request.url %>">
