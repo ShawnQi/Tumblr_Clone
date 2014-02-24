@@ -42,11 +42,18 @@ class FollowingsController < ApplicationController
     end
     
     if following.destroy
-      flash[:main] = "Removed from the following list"
+      
+      if request.xhr?
+        render text: "Removed from the following list"
+      else
+        flash[:main] = "Removed from the following list"
+        (params[:back].nil?) ? (redirect_to root_url) : (redirect_to params[:back])        
+      end
+      
     else
       flash[:main] = "Error in trying to unfollow"
+      (params[:back].nil?) ? (redirect_to root_url) : (redirect_to params[:back])
     end
     
-    (params[:back].nil?) ? (redirect_to root_url) : (redirect_to params[:back])
   end
 end
