@@ -12,6 +12,7 @@ gem 'annotate'
 
 gem 'newrelic_rpm'
 gem 'figaro'
+gem 'omniauth'
 gem 'omniauth-facebook'
 
 group :assets do

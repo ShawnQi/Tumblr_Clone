@@ -175,6 +175,7 @@ DEPENDENCIES
   jquery-rails
   letter_opener
   newrelic_rpm
+  omniauth
   omniauth-facebook
   pg
   pry-rails
