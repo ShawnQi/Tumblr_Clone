@@ -5,10 +5,10 @@
 * jQuery followed count
 * Edit post with jqeury
 * Edit form fields validations
----
-* Add avatars
-* Buy domain
 * Setup automatic awakening of heroku
+---
+* Buy domain
+* Add avatars
 * Facebook auth
 * Inbound emails with sendgrid
 * Twilio text mesage post
