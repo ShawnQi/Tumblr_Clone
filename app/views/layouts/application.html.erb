@@ -441,6 +441,37 @@
 	    })
 		});
 		
+		// UNFOLLOW BUTTON
+		$("form.white_list_unfollow_button").on("submit", function(event) {
+	    event.preventDefault();
+	    var $form = $(this);
+			var form_id = $form.attr("data-id");
+	    $.ajax({
+	      url: $form.attr("action"),
+	      type: "POST",
+	      data: $form.serialize(),
+	      success: function(data) {
+	        $form.fadeOut(300);
+					$('form.blue_follow_button[data-id="' + form_id + '"]').fadeOut(300);
+					$('.menu_has_follow_button[data-id="' + form_id + '"]').fadeOut(300);
+					$('#container').prepend('<div class="flash_messages hidden"></div>');
+					$('.flash_messages').html(data);
+					$('.flash_messages').fadeIn(100).delay(1000).fadeOut(1000);
+																													
+					var following_num = parseInt($('#menu_following_text').html().match(/\d+/)[0]) + 1;
+					$("#menu_following_text").text(function () {
+				    var text = $(this).text().replace(/\d+/, following_num);
+					
+						(following_num == 1) ? (text = text.replace("blogs", "blog")) : (text = text.replace(/blog$/, "blogs"));
+					
+						return text;
+					});
+					
+	      }
+	    })
+		});
+		
+		
 	});
 </script>
 
