@@ -511,6 +511,7 @@
 			
 	    event.preventDefault();
 			var post_id = $(this).attr('data-id');
+			$(this).closest('.options_menu[data-id="'+ post_id +'"]').addClass('hidden');
 			var $original = $('.full_post_block[data-id="'+ post_id +'"]').html();
 			// console.log($original);
 		
@@ -557,19 +558,19 @@
 						// })();
 
 						// NEW POST CANCEL BUTTON
-						// $(".new_post_cancel").on("click", function(event) {
-						// 					    event.preventDefault();
-						// 	$('.new_post_container').fadeOut(500, function() {
-						// 		$('.new_post_menu').animate({height: "99px"}, 200, "linear", function() {
-						// 			$('.new_post_menu').html($original);
-						// 			$('.new_post_menu ul').fadeIn(200);
-						// 			$('.dark-layer').fadeOut(200);
-						// 			$('#posts ul, #header, .menu').animate({opacity: "1"}, 200);
-						// 			
-						// 			$("#new_post_text_form").on("click", newpost );
-						// 		});
-						// 	});
-						// });
+						$(".new_post_cancel").on("click", function(event) {
+					    event.preventDefault();
+							$('.new_post_container').fadeOut(500, function() {
+								// $('.new_post_menu').animate({height: "99px"}, 200, "linear", function() {
+									$('.full_post_block[data-id="'+ post_id +'"]').html($original);
+								// 	$('.new_post_menu ul').fadeIn(200);
+								// 	$('.dark-layer').fadeOut(200);
+								// 	$('#posts ul, #header, .menu').animate({opacity: "1"}, 200);
+								// 	
+									$("a.option_menu_list_item").on("click", editpost);
+								// });
+							});
+						});
 					
 					});					
 			// 	});
