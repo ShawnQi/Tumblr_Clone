@@ -1,35 +1,35 @@
 # USERS
-User.create!({email: "user@demo.com",
+User.create!({email: "user@example.com",
               password: "password",
               username: "demo_user",
               blog_name: "My Demo Blog"})
-User.create!({email: "user2@demo.com",
+User.create!({email: "user2@example.com",
               password: "password",
               username: "crazieBlogger",
               blog_name: "Life is beautiful"})
-User.create!({email: "user3@demo.com",
+User.create!({email: "user3@example.com",
               password: "password",
               username: "katkatkat",
               blog_name: "Cats and more"})
-User.create!({email: "user4@demo.com",
+User.create!({email: "user4@example.com",
               password: "password",
               username: "crazycookie",
               blog_name: "Life of a cookie"})
-User.create!({email: "user5@demo.com",
+User.create!({email: "user5@example.com",
               password: "password",
               username: "caviarwounds",
               blog_name: "Been there Done that!"})
-User.create!({email: "user6@demo.com",
+User.create!({email: "user6@example.com",
               password: "password",
               username: "porkrice1284888",
               blog_name: "My Blog My Life"})
                             
-User.create!({email: "user7@demo.com",
+User.create!({email: "user7@example.com",
               password: "password",
               username: "stack_tick_00_tock",
               blog_name: "The most amazing creature on the planet"})
               
-User.create!({email: "user8@demo.com",
+User.create!({email: "user8@example.com",
               password: "password",
               username: "doggy123dog",
               blog_name: "Dogs waiting for their humans"})

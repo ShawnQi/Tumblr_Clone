@@ -42,7 +42,7 @@ module ApplicationHelper
     current_user.following.destroy_all
     current_user.likes.destroy_all
     
-    User.find(1).update_attributes({email: "user@demo.com",
+    User.find(1).update_attributes({email: "user@example.com",
                                     password: "password",
                                     username: "demo_user",
                                     blog_name: "My Demo Blog"})
