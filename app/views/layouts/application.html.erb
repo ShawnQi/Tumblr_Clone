@@ -486,7 +486,7 @@
 	      success: function(data) {
 					$('.following_list_items[data-id="' + form_id + '"]').fadeOut(300);
 					$('#container').prepend('<div class="flash_messages hidden"></div>');
-					$('.flash_messages').html("Ignored");
+					$('.flash_messages').html("Removed yourself from being followed");
 					$('.flash_messages').fadeIn(100).delay(1000).fadeOut(1000);
 					
 					var follower_num = $('#menu_followers_number').html();
@@ -505,8 +505,6 @@
 	      }
 	    })
 		});
-		
-		
 		
 	});
 </script>
