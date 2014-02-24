@@ -506,6 +506,78 @@
 	    })
 		});
 		
+		// EDIT POST BUTTON & CANCEL BUTTON
+		var editpost = function() {
+			
+	    event.preventDefault();
+			var post_id = $(this).attr('data-id');
+			var $original = $('.full_post_block[data-id="'+ post_id +'"]').html();
+			// console.log($original);
+		
+			// $('#posts ul, #header, .menu').animate({opacity: "0.2"});
+			// $('.dark-layer').fadeIn(300);
+			// $('.new_post_menu').css('position', 'relative');
+			$('.post_avatar[data-id="'+ post_id +'"]').css('z-index', '2');
+			$('.full_post_content[data-id="'+ post_id +'"]').animate({opacity: '0'}, function() {
+			// 	$('.new_post_menu').animate({height: "310px"}, 100, "linear", function() {
+					$('.full_post_content[data-id="'+ post_id +'"]').load("/posts/"+post_id+"/edit .new_post_container", function() {
+						$(this).css('opacity', '1');
+						
+						// NEW FORM VALIDATE INPUT
+						// (function() {
+						// 	var on = function() {
+						// 		$('form.new_post_form').off();
+						// 		$('input[type="submit"]').css({color: '#fff', cursor: 'pointer'});
+						// 	};
+						// 
+						// 	var off = function() {
+						// 		$('input[type="submit"]').css({color: '#A6CEE6', cursor: 'default'});
+						// 		$('form.new_post_form').on("submit", function() { event.preventDefault(); });							
+						// 	};
+						// 
+						// 	off();
+						// 
+						// 	$('input[name="post[title]"]').keyup(function() {
+						// 		var title = $(this).val();
+						// 		$('textarea[name="post[body]"]').keyup(function() {
+						// 			if (title.length > 0 && 
+						// 					title.length <= 45 &&
+						// 					$(this).val().length > 0) { on(); } else { off(); }
+						// 		});
+						// 	});
+						// 
+						// 	$('textarea[name="post[body]"]').keyup(function() {
+						// 		var body = $(this).val();
+						// 		$('input[name="post[title]').keyup(function() {
+						// 			if (body.length > 0 &&
+						// 				  $(this).val().length > 0 &&
+						// 				  $(this).val().length <= 45) { on(); } else { off(); }
+						// 		});
+						// 	});
+						// })();
+
+						// NEW POST CANCEL BUTTON
+						// $(".new_post_cancel").on("click", function(event) {
+						// 					    event.preventDefault();
+						// 	$('.new_post_container').fadeOut(500, function() {
+						// 		$('.new_post_menu').animate({height: "99px"}, 200, "linear", function() {
+						// 			$('.new_post_menu').html($original);
+						// 			$('.new_post_menu ul').fadeIn(200);
+						// 			$('.dark-layer').fadeOut(200);
+						// 			$('#posts ul, #header, .menu').animate({opacity: "1"}, 200);
+						// 			
+						// 			$("#new_post_text_form").on("click", newpost );
+						// 		});
+						// 	});
+						// });
+					
+					});					
+			// 	});
+			});
+			
+		};
+		$("a.option_menu_list_item").on("click", editpost);
+				
 	});
 </script>
 

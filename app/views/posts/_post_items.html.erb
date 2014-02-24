@@ -1,17 +1,19 @@
 <% if @posts %>
 	<ul>
 		<% @posts.each_with_index do |post, i| %>
-			<li class="<%= i==0 ? "first_post" : "post" %>" data-id="<%= post.id %>">
+			<li class="<%= i==0 ? "first_post" : "post" %> full_post_block" data-id="<%= post.id %>">
 				
 				<!-- POST AVATAR -->
 				<div class="relative">
 					<a href="<%= public_url(post.user.id) %>">
-						<div class="post_avatar">
+						<div class="post_avatar" data-id="<%= post.id %>">
 							<div class="selector_left">			
 							</div>
 						</div>
 					</a>
 				</div>
+				
+				<div class="full_post_content" data-id="<%= post.id %>">
 				
 				<!-- POST INFO -->
 				<div class="post_username">
@@ -74,7 +76,7 @@
 									<div class="selector_top_white"></div>
 									
 									<!-- EDIT BUTTON -->
-									<a class="option_menu_list_item" href="<%= edit_post_url(post.id) %>">Edit</a>
+									<a class="option_menu_list_item" href="<%= edit_post_url(post.id) %>" data-id="<%= post.id %>">Edit</a>
 				
 									<!-- DELETE BUTTON -->
 									<form action="<%= post_url(post.id) %>" method="post" data-id="<%= post.id %>" data-draft="<%= post.draft %>" class="options_delete_button">
@@ -92,6 +94,9 @@
 					
 					</div>
 				</div>
+				
+				</div>
+				
 			</li>
 		<% end %>
 	</ul>
