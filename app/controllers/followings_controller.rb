@@ -19,12 +19,19 @@ class FollowingsController < ApplicationController
     
     if following.save
       Activ.create({sent_user_id: current_user.id, got_title: "#{current_user.username} started following you", got_user_id: follower_id})
-      flash[:main] = "You started following \"#{user}\""
+      
+      if request.xhr?
+        render text: "Started following \"#{user}\""
+      else
+        flash[:main] = "You started following \"#{user}\""
+        (params[:back].nil?) ? (redirect_to root_url) : (redirect_to params[:back])
+      end
+      
     else
       flash[:main] = "Error in trying to follow \"#{user}\""
+      (params[:back].nil?) ? (redirect_to root_url) : (redirect_to params[:back])
     end
     
-    (params[:back].nil?) ? (redirect_to root_url) : (redirect_to params[:back])
   end
   
   def destroy
