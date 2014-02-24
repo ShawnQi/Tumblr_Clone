@@ -411,6 +411,39 @@
 		};
 		$("#new_post_text_form").on("click", newpost);
 		
+		// FOLLOW BUTTON
+		$("form.follow_button").on("submit", function(event) {
+	    event.preventDefault();
+	    var $form = $(this);
+			var form_id = $form.attr("data-id");
+	    $.ajax({
+	      url: $form.attr("action"),
+	      type: "POST",
+	      data: $form.serialize(),
+	      success: function(data) {
+	        $form.toggleClass('hidden');
+					$('form.red_like_button[data-id=' + form_id + ']').toggleClass('hidden');
+					$('#container').prepend('<div class="flash_messages hidden"></div>');
+					$('.flash_messages').html(data);
+					$('.flash_messages').fadeIn(100).delay(1000).fadeOut(1000);
+					
+					$('.post_footer_flash[data-id=' + form_id + ']').css('color','#D22929');
+					$('.post_footer_flash[data-id=' + form_id + ']').html('Liked this post')
+																													.fadeIn(100).delay(1000).fadeOut(1000);
+																													
+					var likes_number = parseInt($('#menu_liked_text').html().match(/\d+/)[0]) + 1;
+					$("#menu_liked_text").text(function () {
+				    var text = $(this).text().replace(/\d+/, likes_number);
+
+						(likes_number == 1) ? (text = text.replace("posts", "post")) : (text = text.replace(/post$/, "posts"));
+
+						return text
+					});
+					
+	      }
+	    })
+		});
+		
 	});
 </script>
 
