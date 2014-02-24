@@ -96,7 +96,7 @@
 					<a href="<%= followers_url %>">
 					<% end %>
 						<img src="/assets/sidebar_followers.png"></img><span>Followers</span>
-						<span class="float_right"><%= @count_followers %></span>
+						<span class="float_right" id="menu_followers_number"><%= @count_followers %></span>
 					</a>
 				</li>
 				
@@ -489,6 +489,8 @@
 					$('.flash_messages').html("Ignored");
 					$('.flash_messages').fadeIn(100).delay(1000).fadeOut(1000);
 					
+					var follower_num = $('#menu_followers_number').html();
+					$('#menu_followers_number').html(follower_num - 1);
 	      }
 	    })
 		});
