@@ -14,24 +14,25 @@ class SessionsController < ApplicationController
       flash.now[:errors] = "Credentials were wrong"
       render :new
     end
-    
+  end
+  
+  def facebook_signin
     auth = request.env['omniauth.auth']
+    user = User.find_or_create_by_uid(auth[:uid])
     
-    user = User.find_by_uid(auth[:uid])
+    unless user
+      user = User.create!(
+        uid: auth[:uid],
+        first_name: auth[:info][:first_name],
+        last_name: auth[:info][:last_name],
+        email: auth[:info][:email],
+        image: auth[:info][:image]
+      )
+    end
     
-    # unless user
-    #   user = User.create!(
-    #     uid: auth[:uid],
-    #     first_name: auth[:info][:first_name],
-    #     last_name: auth[:info][:last_name],
-    #     email: auth[:info][:email],
-    #     image: auth[:info][:image]
-    #   )
-    # end
-    # 
-    # session[:user_id] = user.id
-    # 
-    # redirect_to root_url
+    session[:user_id] = user.id
+    
+    redirect_to root_url
   end
   
   def destroy
