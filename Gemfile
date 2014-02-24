@@ -12,6 +12,7 @@ gem 'annotate'
 
 gem 'newrelic_rpm'
 gem 'figaro'
+gem 'omniauth-facebook'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
