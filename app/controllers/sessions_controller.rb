@@ -20,8 +20,6 @@ class SessionsController < ApplicationController
     auth = request.env['omniauth.auth']
     user = User.find_or_create_by_auth(auth)
     signin(user)
-    
-    flash[:main] = "Logged in as \"#{user.username}\""
     redirect_to root_url
   end
   
