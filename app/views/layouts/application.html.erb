@@ -421,7 +421,7 @@
 	      type: "POST",
 	      data: $form.serialize(),
 	      success: function(data) {
-	        $form.toggleClass('hidden');
+	        $form.fadeOut(300);
 					$('#container').prepend('<div class="flash_messages hidden"></div>');
 					$('.flash_messages').html(data);
 					$('.flash_messages').fadeIn(100).delay(1000).fadeOut(1000);
