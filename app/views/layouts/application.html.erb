@@ -361,13 +361,13 @@
 						// NEW FORM VALIDATE INPUT
 						(function() {
 							var on = function() {
-								$('form.new_post_form').off();
-								$('input[type="submit"]').css({color: '#fff', cursor: 'pointer'});
+								$('.new_post_container form.new_post_form').off();
+								$('.new_post_container input[type="submit"]').css({color: '#fff', cursor: 'pointer'});
 							};
 						
 							var off = function() {
-								$('input[type="submit"]').css({color: '#A6CEE6', cursor: 'default'});
-								$('form.new_post_form').on("submit", function() { event.preventDefault(); });							
+								$('.new_post_container input[type="submit"]').css({color: '#A6CEE6', cursor: 'default'});
+								$('.new_post_container form.new_post_form').on("submit", function() { event.preventDefault(); });							
 							};
 						
 							off();
@@ -530,13 +530,13 @@
 					// NEW FORM VALIDATE INPUT
 					(function() {
 						var on = function() {
-							$('form.new_post_form').off();
-							$('input[type="submit"]').css({color: '#fff', cursor: 'pointer'});
+							$('.new_post_container form.new_post_form').off();
+							$('.new_post_container input[type="submit"]').css({color: '#fff', cursor: 'pointer'});
 						};
 					
 						var off = function() {
-							$('input[type="submit"]').css({color: '#A6CEE6', cursor: 'default'});
-							$('form.new_post_form').on("submit", function() { event.preventDefault(); });							
+							$('.new_post_container input[type="submit"]').css({color: '#A6CEE6', cursor: 'default'});
+							$('.new_post_container form.new_post_form').on("submit", function() { event.preventDefault(); });							
 						};
 					
 						$('input[name="post[title]"]').keyup(function() {
