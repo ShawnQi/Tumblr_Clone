@@ -10,8 +10,8 @@
 * Facebook auth
 * Add icon to facebook app
 * Setup facebook dev account
----
 * Style facebook login button
+---
 * Password reset / forgot
 * Add avatars
 * Inbound emails with sendgrid

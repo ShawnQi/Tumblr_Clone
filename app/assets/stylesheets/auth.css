@@ -120,6 +120,7 @@ p, div, input, button, a {
 	background: rgba(255,255,255,0.3);
 	color: #fff;
 	height: 45px;
+	width: 200px;
 	text-align: center;
 	border: 0;
 	font-weight: bold;
@@ -127,4 +128,22 @@ p, div, input, button, a {
 	border-radius: 2px;
 	cursor: pointer;
 	outline: none;
+}
+
+.omniauth_facebook {
+	position: absolute;
+	top: 70px;
+	left: 20px;
+	background: rgba(255,255,255,0.3);
+	color: #fff;
+	height: 45px;
+	width: 200px;
+	text-align: center;
+	line-height: 45px;
+	border: 0;
+	font-weight: bold;
+	border-radius: 2px;
+	cursor: pointer;
+	outline: none;
+	font-size: 14px;
 }
