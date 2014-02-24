@@ -491,6 +491,17 @@
 					
 					var follower_num = $('#menu_followers_number').html();
 					$('#menu_followers_number').html(follower_num - 1);
+					
+					var follower_num = parseInt($('.title_and_controls').html().match(/\d+/)[0]) - 1;
+					$(".title_and_controls").text(function () {
+				    var text = $(this).text().replace(/\d+/, follower_num);
+					
+						(follower_num == 1) ? (text = text.replace("people", "person")) : (text = text.replace("person", "people"));
+						(follower_num == 1) ? (text = text.replace("follow ", "follows ")) : (text = text.replace("follows ", "follow "));
+					
+						return text;
+					});
+					
 	      }
 	    })
 		});
