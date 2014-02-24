@@ -15,10 +15,10 @@ class SessionsController < ApplicationController
       render :new
     end
     
-    # auth = request.env['omniauth.auth']
-    # 
-    # user = User.find_by_uid(auth[:uid])
-    # 
+    auth = request.env['omniauth.auth']
+    
+    user = User.find_by_uid(auth[:uid])
+    
     # unless user
     #   user = User.create!(
     #     uid: auth[:uid],
