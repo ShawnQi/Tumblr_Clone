@@ -157,9 +157,6 @@
 					</a>
 				</li>
 			</ul>
-			
-			
-			<!-- <a class="menu" href="<%= new_post_url %>">New Post</a><br> -->
 
 			<div class="menu_divider">Recommended blogs</div>
 
@@ -168,7 +165,7 @@
 				<li class="menu_has_follow_button" data-id="<%= user.id %>">
 					
 					<a style="padding: 0; opacity: 1" href="<%= public_url(user.id) %>">
-						<div class="recommended_avatar"></div>
+							<%= image_tag user.avatar.url(:small), class: "recommended_avatar", style: "position: static; float: left; margin: 10px" %>
 					</a>
 					
 					<!-- BLOG INFO -->
@@ -184,7 +181,6 @@
 						<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
 						<input type="hidden" name="back" value="<%= request.url %>">
 						<input type="hidden" name="follower_id" value="<%= user.id %>">
-						<!-- <input type="submit" value="Follow"> -->
 						<button type="submit">+</button>
 					</form>
 					

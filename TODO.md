@@ -1,6 +1,7 @@
 * Password reset
 * Delete account
 * Add avatars
+* Style all the pages appropriately with avatars
 ---
 * Forgot password
 * Emails
