@@ -396,8 +396,7 @@ input.option_menu_list_item {
 	border-radius: 6px;
 }
 
-.post_my_avatar {
-	background-image: url('avatar_64_me.png');
+.post_my_avatar img {
 	width: 64px;
 	height: 64px;
 	background-color: #694777;
@@ -407,8 +406,7 @@ input.option_menu_list_item {
 	border-radius: 6px;
 }
 
-.post_avatar_top {
-	background-image: url('avatar_64_me.png');
+.post_avatar_top img {
 	width: 64px;
 	height: 64px;
 	background-color: #694777;
