@@ -40,7 +40,9 @@ class User < ActiveRecord::Base
   has_many :likes, dependent: :destroy
   has_many :liked_posts, through: :likes, source: :post
   
-  has_attached_file :avatar, :styles => {:big => "600x600>", :small => "100x100#"}
+  # PAPERCLIP
+  has_attached_file :avatar, styles: {big: "600x600>", small: "100x100#"}
+  validates_attachment_content_type :avatar, :content_type => %w(image/jpeg image/jpg image/png)
   
   def self.most_liked(except)
     User.find_by_sql(

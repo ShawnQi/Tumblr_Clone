@@ -49,16 +49,14 @@
 		<div style="clear:left"></div>
 	</form>
 	
+	<!-- AVATAR UPLOAD -->
 	<div class="word_divider">Avatar</div>
 	<form action="<%= avatarchange_url %>" method="post" enctype="multipart/form-data">
 		<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-		<input type="file" name="avatar" size="chars">
+		<input type="file" name="avatar">
 		<input type="submit" value="Upload">
 	</form>
 	
-	<!-- <%= form_for current_user do |f| %>
-	  <%= f.file_field :avatar %>
-	  <%= f.submit "Upload" %>
-	<% end %> -->
+	<%= image_tag current_user.avatar.url %>
 
 </div>
