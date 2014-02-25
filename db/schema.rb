@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140224214244) do
+ActiveRecord::Schema.define(:version => 20140225172743) do
 
   create_table "activs", :force => true do |t|
     t.string   "sent_title"
@@ -62,10 +62,14 @@ ActiveRecord::Schema.define(:version => 20140224214244) do
     t.string   "blog_name"
     t.string   "password_digest"
     t.string   "session_token"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
     t.string   "provider"
     t.string   "uid"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
