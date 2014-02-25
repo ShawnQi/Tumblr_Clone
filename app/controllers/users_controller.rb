@@ -34,9 +34,18 @@ class UsersController < ApplicationController
   def update
     @referer = params[:back]
     
-    if params[:user][:password].empty?
+    if (params[:user][:password].empty? || params[:user][:cpassword].empty?)
       params[:user].delete(:password)
+      params[:user].delete(:cpassword)
+    else
+      if params[:user][:password] != params[:user][:cpassword]
+        flash.now[:errors] = {"Passwords don't match" => ""}
+        render :edit
+        return
+      end
     end
+    
+    params[:user].delete(:cpassword)
     
     if current_user.update_attributes(params[:user])
       flash[:main] = "Your account has been updated"
