@@ -40,7 +40,7 @@ TumblrClone::Application.configure do
     :s3_credentials => {
       :bucket => ENV["AWS_BUCKET_DEV"],
       :access_key_id => ENV["AWS_KEY"],
-      :secret_access_key => ENV["AWS_SECRET"]
+      :secret_access_key => ENV["AWS_SECRET"],
       :s3_host_name => 's3.amazonaws.com'
     }
   }
