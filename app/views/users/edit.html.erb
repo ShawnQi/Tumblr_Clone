@@ -53,6 +53,7 @@
 	<div class="word_divider">Avatar</div>
 	<form action="<%= avatarchange_url %>" method="post" enctype="multipart/form-data">
 		<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+		<input type="hidden" name="back" value="<%= request.url %>">
 		<input type="file" name="avatar">
 		<input type="submit" value="Upload">
 	</form>
