@@ -24,8 +24,8 @@
 		<input type="text" name="user[blog_name]" value="<%= current_user.blog_name %>" placeholder="Blog Name">
 		
 		<div class="word_divider">Password Reset</div>
-		<input type="text" name="user[password]" placeholder="New Password">
-		<input type="text" name="user[cpassword]" placeholder="Confirm Password">
+		<input type="password" name="user[password]" placeholder="New Password">
+		<input type="password" name="user[cpassword]" placeholder="Confirm Password">
 
 		<% if flash.now[:errors] %>
 			<% history = [] %>

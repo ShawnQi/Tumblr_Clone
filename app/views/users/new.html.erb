@@ -21,7 +21,7 @@
 				<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
 	
 				<input type="text" class="auth_input" name="user[email]"  placeholder="Email" value="<%= @user && @user.email %>"><br>
-				<input type="text" class="auth_input" name="user[password]"  placeholder="Password" value="<%= @user && @user.password %>"><br>
+				<input type="password" class="auth_input" name="user[password]"  placeholder="Password" value="<%= @user && @user.password %>"><br>
 				<input type="text" class="auth_input" name="user[username]"  placeholder="Username" value="<%= @user && @user.username %>"><br>
 				<input type="text" class="auth_input" name="user[blog_name]"  placeholder="Blog name" value="<%= @user && @user.blog_name %>"><br>
 	
