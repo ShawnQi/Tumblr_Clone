@@ -48,5 +48,16 @@
 		</div>
 		<div style="clear:left"></div>
 	</form>
+	
+	<div class="word_divider">Avatar</div>
+	<form action="<%= avatarchange_url %>" method="post" enctype="multipart/form-data">
+		<input type="file" name="somename" size="chars">
+		<input type="submit" value="Upload">
+	</form>
+	
+	<!-- <%= form_for current_user do |f| %>
+	  <%= f.file_field :avatar %>
+	  <%= f.submit "Upload" %>
+	<% end %> -->
 
 </div>

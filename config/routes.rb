@@ -12,6 +12,7 @@ TumblrClone::Application.routes.draw do
   get 'findblogs', to: 'users#findblogs', as: 'findblogs'
   get 'settings', to: 'users#edit', as: 'settings'
   get 'users/:id/public', to: 'users#public', as: 'public'
+  post 'avatarchange', to: 'users#avatarchange', as: 'avatarchange'
   
   resources :posts, except: [:show]
   get 'drafts', to: 'posts#drafts', as: 'drafts'
