@@ -199,7 +199,7 @@ nav img:hover {
 }
 
 .menu_has_follow_button form {
-	float: left;
+/*	float: left;*/
 }
 
 .follow_button button {
@@ -221,13 +221,10 @@ nav img:hover {
 }
 
 .recommended_avatar {
-	background-image: url('avatar_37_default1.png');
-	float: left;
 	height: 37px;
 	width: 37px;
 	background-color: #6a4676;
 	border-radius: 3px;
-	margin: 8px 10px;
 }
 
 .post_username {
@@ -353,7 +350,6 @@ input.option_menu_list_item {
 	height: 35px;
 	width: 128px;
 	padding: 0 85px 10px 14px;
-/*	padding: 5px 25px 5px 14px;*/
 	margin: 0;
 	font-weight: bold;
 	font-size: 15px;
@@ -389,7 +385,7 @@ input.option_menu_list_item {
 .post_avatar img {
 	width: 64px;
 	height: 64px;
-	background-color: #694777;
+	background-color: #284764;
 	position: absolute;
 	left: -84px;
 	top: -15px;
@@ -399,7 +395,7 @@ input.option_menu_list_item {
 .post_my_avatar img {
 	width: 64px;
 	height: 64px;
-	background-color: #694777;
+	background-color: #284764;
 	position: absolute;
 	left: -84px;
 	top: -15px;
@@ -409,7 +405,7 @@ input.option_menu_list_item {
 .post_avatar_top img {
 	width: 64px;
 	height: 64px;
-	background-color: #694777;
+	background-color: #284764;
 	position: absolute;
 	left: -84px;
 	border-radius: 6px;
