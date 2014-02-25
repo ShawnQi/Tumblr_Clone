@@ -34,6 +34,10 @@ class UsersController < ApplicationController
   def update
     @referer = params[:back]
     
+    if params[:user][:password].empty?
+      params[:user].delete(:password)
+    end
+    
     if current_user.update_attributes(params[:user])
       flash[:main] = "Your account has been updated"
       (params[:back].nil?) ? (redirect_to root_url) : (redirect_to params[:back])
