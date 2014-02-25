@@ -1,4 +1,10 @@
-<div class="relative"><div class="post_avatar_top"><div class="selector_left"></div></div></div>
+<div class="relative">
+	<div class="post_avatar_top relative">
+		<%= image_tag current_user.avatar.url(:small) %>
+		<div class="selector_left">
+		</div>
+	</div>
+</div>
 
 <div class="new_post_menu">
 	<ul>
