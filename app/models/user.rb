@@ -15,7 +15,7 @@
 #
 
 class User < ActiveRecord::Base
-  attr_accessible :username, :email, :blog_name, :password, :provider, :uid
+  attr_accessible :username, :email, :blog_name, :password, :provider, :uid, :avatar
   attr_reader :password
   
   before_validation :ensure_session_token
@@ -35,6 +35,8 @@ class User < ActiveRecord::Base
   has_many :following_users, through: :following, source: :followed
   has_many :likes, dependent: :destroy
   has_many :liked_posts, through: :likes, source: :post
+  
+  has_attached_file :avatar, :styles => {:big => "600x600>", :small => "100x100#"}
   
   def self.most_liked(except)
     User.find_by_sql(
