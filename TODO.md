@@ -1,7 +1,7 @@
 * Password reset
 * Delete account
----
 * Add avatars
+---
 * Forgot password
 * Emails
 * FAQ

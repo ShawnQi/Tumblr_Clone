@@ -386,8 +386,7 @@ input.option_menu_list_item {
 	display: none;
 }
 
-.post_avatar {
-	background-image: url('avatar_64_default1.png');
+.post_avatar img {
 	width: 64px;
 	height: 64px;
 	background-color: #694777;
