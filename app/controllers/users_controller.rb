@@ -71,6 +71,16 @@ class UsersController < ApplicationController
   end
   
   def destroy
+    if current_user.id == 1
+      flash[:main] = "Can't delete demo account"
+      (params[:back].nil?) ? (redirect_to root_url) : (redirect_to params[:back])
+    end
     
+    if current_user.destroy
+      redirect_to root_url
+    else
+      flash[:main] = "Error in deleting your account"
+      (params[:back].nil?) ? (redirect_to root_url) : (redirect_to params[:back])
+    end
   end
 end
