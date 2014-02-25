@@ -83,4 +83,8 @@ class UsersController < ApplicationController
       (params[:back].nil?) ? (redirect_to root_url) : (redirect_to params[:back])
     end
   end
+  
+  def avatarchange
+    fail
+  end
 end
