@@ -18,7 +18,7 @@
 					
 					<div class="activity_info">
 						<a href="<%= public_url(activ.sent_user_id) %>">
-							<div class="avatar_25 float_left"></div>
+							<%= image_tag activ.sent_user.avatar.url(:small), class: "avatar_25 float_left" %>
 						</a>
 						
 						<a href="<%= public_url(activ.sent_user_id) %>">
