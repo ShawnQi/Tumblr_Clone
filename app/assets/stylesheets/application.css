@@ -643,3 +643,7 @@ input.option_menu_list_item {
 	margin: 30px 0 10px 0;
 	color: #444444;
 }
+
+.word_divider:first-of-type {
+	margin-top: 0;
+}
