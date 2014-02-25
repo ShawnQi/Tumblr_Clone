@@ -43,6 +43,7 @@ class User < ActiveRecord::Base
   # PAPERCLIP
   has_attached_file :avatar, styles: {small: "100x100>"}, default_url: "/assets/avatar_64_default1.png"
   validates_attachment_content_type :avatar, :content_type => %w[image/jpeg image/jpg image/png]
+  validates_attachment :avatar, allow_nil: true, :size => { :in => 0..1000.kilobytes }
   
   def self.most_liked(except)
     User.find_by_sql(
