@@ -1,5 +1,15 @@
 <div id="white_pane">
-	<div class="title_and_controls">Profile Settings</div>
+	<div class="title_and_controls group">
+		<div class="profile_settings_title">Profile Settings</div>
+		
+		<!-- DELETE ACCOUNT BUTTON -->
+		<form action="<%= user_url(current_user.id) %>" method="post">
+			<input type="hidden" name="_method" value="delete">
+			<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+			<input type="hidden" name="back" value="<%= request.url %>">
+			<input class="button_delete_account" type="submit" value="Delete Account">
+		</form>
+	</div>
 
 	<form class="profile_settings" action="<%= user_url(current_user.id) %>" method="post">
 		<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">

@@ -7,13 +7,15 @@
 }
 
 .title_and_controls {
-	width: 569px;
 	height: 56px;
-	overflow: hidden;
+}
+
+.profile_settings_title {
 	font-size: 26px;
 	font-weight: bold;
 	-webkit-font-smoothing: antialiased;
 	color: #444;
+	float: left;
 }
 
 .following_list_items {
@@ -153,4 +155,19 @@
 
 .fingblogs_username {
 	color: #93A2B0;
+}
+
+.button_delete_account {
+	float: right;
+	height: 32px;
+	padding: 0 15px;
+	line-height: 32px;
+	margin-top: 5px;
+	background-color: #b5310d;
+	color: #fff;
+	text-align: center;
+	border-radius: 5px;
+	font-weight: bold;
+	-webkit-font-smoothing: antialiased;
+	cursor: pointer;
 }
