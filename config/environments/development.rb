@@ -35,7 +35,6 @@ TumblrClone::Application.configure do
   # Expands the lines which load the assets
   config.assets.debug = true
   
-  # Paperclip.options[:command_path] = "/Users/Administrator/library/ImageMagick-6.8.8/bin/"
   config.paperclip_defaults = {
     :storage => :s3,
     :s3_credentials => {

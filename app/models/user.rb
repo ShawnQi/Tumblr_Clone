@@ -21,7 +21,7 @@
 class User < ActiveRecord::Base
   attr_accessible :username, :email, :blog_name, :password, :provider, :uid, :avatar
   attr_reader :password
-  
+    
   before_validation :ensure_session_token
   validates :username, :email, :blog_name, presence: true
   validates :username, :email, :blog_name, length: 4..40
@@ -41,8 +41,8 @@ class User < ActiveRecord::Base
   has_many :liked_posts, through: :likes, source: :post
   
   # PAPERCLIP
-  has_attached_file :avatar, styles: {big: "600x600>", small: "100x100#"}
-  validates_attachment_content_type :avatar, :content_type => %w(image/jpeg image/jpg image/png)
+  has_attached_file :avatar, styles: {small: "100x100>"}, default_url: "/assets/avatar_64_default1.png"
+  validates_attachment_content_type :avatar, :content_type => %w[image/jpeg image/jpg image/png]
   
   def self.most_liked(except)
     User.find_by_sql(
