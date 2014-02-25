@@ -1,8 +1,9 @@
----
-* Password reset / forgot
+* Password reset
 * Delete account
+---
 * Add avatars
-* Inbound emails with sendgrid
+* Forgot password
+* Emails
 * FAQ
 * Messages
 * Twilio text mesage post
