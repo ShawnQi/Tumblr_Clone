@@ -7,6 +7,7 @@
 				<div class="relative">
 					<a href="<%= public_url(post.user.id) %>">
 						<div class="post_avatar" data-id="<%= post.id %>">
+							<%= image_tag post.user.avatar.url(:small) %>
 							<div class="selector_left">			
 							</div>
 						</div>
