@@ -5,6 +5,6 @@ class ActivsController < ApplicationController
   def index
     @activs = Activ.where('got_user_id=?', current_user.id)
                    .order("created_at DESC")
-                   .limit(20)
+                   .limit(20).includes(:sent_user)
   end
 end
