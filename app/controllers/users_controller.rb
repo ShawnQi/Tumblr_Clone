@@ -87,6 +87,6 @@ class UsersController < ApplicationController
   def avatarchange
     current_user.avatar = params[:avatar]
     current_user.save
-    redirect_to root_url
+    (params[:back].nil?) ? (redirect_to root_url) : (redirect_to params[:back])
   end
 end
