@@ -8,7 +8,8 @@
 					
 					<div class="float_left">
 						<a href="<%= public_url(follower.id) %>">
-							<div class="avatar_40 float_left"></div>
+							<%= image_tag follower.avatar.url(:small), class: "avatar_40 float_left" %>
+							<!-- <div class="avatar_40 float_left"></div> -->
 						</a>
 						
 						<div class="float_left" style="margin-left: 12px;">
