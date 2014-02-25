@@ -69,4 +69,8 @@ class UsersController < ApplicationController
     
     @liked_posts = current_user.liked_posts.pluck(:id)
   end
+  
+  def destroy
+    
+  end
 end

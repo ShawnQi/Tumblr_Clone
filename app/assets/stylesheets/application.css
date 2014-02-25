@@ -647,3 +647,9 @@ input.option_menu_list_item {
 .word_divider:first-of-type {
 	margin-top: 0;
 }
+
+.group:after {
+	content: "";
+	display: block;
+	clear: both;
+}
