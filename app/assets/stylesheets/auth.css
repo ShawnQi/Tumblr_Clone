@@ -147,3 +147,17 @@ p, div, input, button, a {
 	outline: none;
 	font-size: 14px;
 }
+
+.button_forgot_password {
+	position: absolute;
+	top: 65px;
+	right: 15px;
+	color: black;
+	text-align: center;
+	font-size: 12px;
+	font-weight: bold;
+}
+
+.relative {
+	position: relative;
+}
