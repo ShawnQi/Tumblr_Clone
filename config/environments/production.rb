@@ -75,4 +75,6 @@ TumblrClone::Application.configure do
       :s3_host_name => 's3.amazonaws.com'
     }
   }
+  
+  config.action_mailer.default_url_options = { host: "www.tumblr-clone.com" }
 end
