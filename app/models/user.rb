@@ -2,20 +2,22 @@
 #
 # Table name: users
 #
-#  id                  :integer          not null, primary key
-#  username            :string(255)
-#  email               :string(255)
-#  blog_name           :string(255)
-#  password_digest     :string(255)
-#  session_token       :string(255)
-#  created_at          :datetime         not null
-#  updated_at          :datetime         not null
-#  provider            :string(255)
-#  uid                 :string(255)
-#  avatar_file_name    :string(255)
-#  avatar_content_type :string(255)
-#  avatar_file_size    :integer
-#  avatar_updated_at   :datetime
+#  id                     :integer          not null, primary key
+#  username               :string(255)
+#  email                  :string(255)
+#  blog_name              :string(255)
+#  password_digest        :string(255)
+#  session_token          :string(255)
+#  created_at             :datetime         not null
+#  updated_at             :datetime         not null
+#  provider               :string(255)
+#  uid                    :string(255)
+#  avatar_file_name       :string(255)
+#  avatar_content_type    :string(255)
+#  avatar_file_size       :integer
+#  avatar_updated_at      :datetime
+#  password_reset_token   :string(255)
+#  password_reset_sent_at :datetime
 #
 
 class User < ActiveRecord::Base
@@ -95,6 +97,8 @@ class User < ActiveRecord::Base
   end
   
   def send_password_reset
-    
+    self.password_reset_token = SecureRandom.urlsafe_base64(16)
+    self.password_reset_sent_at = Time.zone.now
+    self.save!
   end
 end
