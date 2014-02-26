@@ -8,8 +8,8 @@ TumblrClone::Application.routes.draw do
   get 'login', to: 'sessions#new', as: 'login'
   post 'signin', to: 'sessions#create', as: 'signin'
   get 'signout', to: 'sessions#destroy', as: 'signout'
-  match '/auth/facebook/callback' => 'sessions#facebook_signin'
-  match '/auth/failure', :to => 'sessions#new'
+  match '/auth/facebook/callback', to: 'sessions#facebook_signin'
+  match '/auth/failure', to: 'sessions#new'
   
   resources :users, only: [:new, :create, :show, :update, :destroy]
   get 'dashboard', to: 'users#show', as: 'home'
@@ -17,6 +17,7 @@ TumblrClone::Application.routes.draw do
   get 'settings', to: 'users#edit', as: 'settings'
   get 'users/:id/public', to: 'users#public', as: 'public'
   post 'avatarchange', to: 'users#avatarchange', as: 'avatarchange'
+  match '/faq', to: 'users#faq'
   
   resources :posts, except: [:show]
   get 'drafts', to: 'posts#drafts', as: 'drafts'
