@@ -89,11 +89,10 @@ class PostsController < ApplicationController
       
       from_number = params[:number_to_send_to]
       @twilio_client = Twilio::REST::Client.new ENV["TWILIO_SID"], ENV["TWILIO_TOKEN"]
-      @twilio_client.account.sms.messages.create(
-        :from => ENV["TWILIO_NUMBER"],
-        :to => from_number,
-        :body => "Successfully posted!"
-      )
+      @twilio_client.account.messages.create({
+        from: ENV["TWILIO_NUMBER"],
+        to: from_number,
+        body: "Successfully posted!"})
     end
     
     redirect_to root_url
