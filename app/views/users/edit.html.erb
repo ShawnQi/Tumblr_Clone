@@ -12,6 +12,19 @@
 			</form>
 		<% end %>
 	</div>
+	
+	<!-- AVATAR UPLOAD -->
+	<div class="avatar_section">
+		<div class="word_divider">Avatar</div>
+		<%= image_tag current_user.avatar.url(:small), class: "settings_page_avatar" %>
+		<form action="<%= avatarchange_url %>" method="post" enctype="multipart/form-data">
+			<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+			<input type="hidden" name="back" value="<%= request.url %>">
+			<div class="new_choose_file">Choose File</div><input id="old_choose_file" type="file" name="avatar">
+			<input class="file_upload_button" type="submit" value="Upload">
+		</form>
+	</div>
+	<!--  -->
 
 	<form class="profile_settings" action="<%= user_url(current_user.id) %>" method="post">
 		<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
@@ -48,16 +61,13 @@
 		</div>
 		<div style="clear:left"></div>
 	</form>
-	
-	<!-- AVATAR UPLOAD -->
-	<div class="word_divider">Avatar</div>
-	<form action="<%= avatarchange_url %>" method="post" enctype="multipart/form-data">
-		<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-		<input type="hidden" name="back" value="<%= request.url %>">
-		<input type="file" name="avatar">
-		<input type="submit" value="Upload">
-	</form>
-	
-	<%= image_tag current_user.avatar.url(:small) %>
 
 </div>
+
+<script>
+$(document).ready(function(){
+	$('.new_choose_file').bind("click" , function () {
+	  $('#old_choose_file').click();
+  });
+});
+</script>
