@@ -27,7 +27,7 @@
 				<ul>
 					<li>
 						<a href="<%= root_url %>">
-							<% if !%w[/settings].include?(request.path) %>
+							<% if !%w[/settings /faq].include?(request.path) %>
 								<div class="selector_top"></div>
 							<% end %>
 							<img src="/assets/nav_dashboard.png">
@@ -40,10 +40,13 @@
 						<!-- </a> -->
 					</li>
 					
-					<li class="low_opacity">
-						<!-- <a href="#"> -->
+					<li>
+						<a href="<%= faq_url %>">
+							<% if request.path == "/faq" %>
+								<div class="selector_top"></div>
+							<% end %>
 							<img src="/assets/nav_faq.png">
-						<!-- </a> -->
+						</a>
 					</li>
 					
 					<li>

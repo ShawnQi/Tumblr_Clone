@@ -633,6 +633,6 @@ input.option_menu_list_item {
 
 .group:after {
 	content: "";
-	display: block;
+	display: inline-block;
 	clear: both;
 }

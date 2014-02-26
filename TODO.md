@@ -1,7 +1,7 @@
 * Forgot password
 * Emails
----
 * FAQ
+---
 * Messages
 * Twilio text mesage post
 * Models rspec
