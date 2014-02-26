@@ -88,9 +88,11 @@ class PostsController < ApplicationController
       Post.create!({body: params["Body"], title: "Sms Post", draft: false, user_id: user.id})
       
       from_number = params[:number_to_send_to]
+      to_number = ENV["TWILIO_NUMBER"]
+      
       @twilio_client = Twilio::REST::Client.new ENV["TWILIO_SID"], ENV["TWILIO_TOKEN"]
       @twilio_client.account.messages.create({
-        from: ENV["TWILIO_NUMBER"],
+        from: "+1#{to_number}",
         to: from_number,
         body: "Successfully posted!"})
     end
