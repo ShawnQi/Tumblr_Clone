@@ -3,6 +3,7 @@ TumblrClone::Application.routes.draw do
   
   get 'password-reset-view', to: 'sessions#password_reset_view', as: 'password_reset_view'
   post 'password-reset', to: 'sessions#password_reset', as: 'password_reset'
+  post 'edit_password_reset', to: 'sessions#edit_password_reset', as: 'edit_password_reset'
   get 'login', to: 'sessions#new', as: 'login'
   post 'signin', to: 'sessions#create', as: 'signin'
   get 'signout', to: 'sessions#destroy', as: 'signout'
