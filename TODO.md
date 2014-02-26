@@ -1,11 +1,10 @@
----
 * Forgot password
 * Emails
+---
 * FAQ
 * Messages
 * Twilio text mesage post
 * Models rspec
-* Google map
 
 * cursor change on image upload
 * add images to posts
