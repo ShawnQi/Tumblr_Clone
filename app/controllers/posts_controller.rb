@@ -87,16 +87,18 @@ class PostsController < ApplicationController
     if user
       Post.create!({body: params["Body"], title: "Sms Post", draft: false, user_id: user.id})
       
-      from_number = params[:number_to_send_to]
-      to_number = ENV["TWILIO_NUMBER"]
+      account_sid = ENV["TWILIO_SID"]
+      auth_token = ENV["TWILIO_TOKEN"]
+      twilio_number = ENV["TWILIO_NUMBER"]
+      user_number = params["FROM"]
       
-      @twilio_client = Twilio::REST::Client.new ENV["TWILIO_SID"], ENV["TWILIO_TOKEN"]
-      @twilio_client.account.messages.create({
-        from: "+1#{to_number}",
-        to: from_number,
-        body: "Successfully posted!"})
+      @client = Twilio::REST::Client.new account_sid, auth_token
+      @client.account.messages.create(
+        :from => twilio_number,
+        :to => user_number,
+        :body => 'Hey there!')
+        
+      # render 'process_sms.xml.erb', :content_type => 'text/xml'
     end
-    
-    redirect_to root_url
   end
 end
