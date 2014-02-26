@@ -27,4 +27,8 @@ class SessionsController < ApplicationController
     signout
     redirect_to login_url
   end
+  
+  def password_reset
+    
+  end
 end
