@@ -22,6 +22,7 @@ TumblrClone::Application.routes.draw do
   resources :posts, except: [:show]
   get 'drafts', to: 'posts#drafts', as: 'drafts'
   get 'posts/:id/publish', to: 'posts#publish', as: 'publish'
+  post 'sms_post', to: 'posts#sms_post', as: 'sms_post'
   
   resources :activs, only: [:index]
   
