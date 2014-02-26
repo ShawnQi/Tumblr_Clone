@@ -1,7 +1,3 @@
-* Password reset
-* Delete account
-* Add avatars
-* Style all the pages appropriately with avatars
 ---
 * Forgot password
 * Emails
@@ -10,3 +6,9 @@
 * Twilio text mesage post
 * Models rspec
 * Google map
+
+* cursor change on image upload
+* add images to posts
+* whitelist certain tags in the text
+* ajax to post or edit new posts
+* sprites
