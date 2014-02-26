@@ -69,5 +69,22 @@ $(document).ready(function(){
 	$('.new_choose_file').bind("click" , function () {
 	  $('#old_choose_file').click();
   });
+	
+	$('.file_upload_button').on("click", function() {
+		event.preventDefault();
+	});
+	
+	$('#old_choose_file').change(function(){
+		if ( $(this).val() == "" ) {
+			console.log($(this))
+			$('.file_upload_button').removeClass('activ_upload');
+			$('.file_upload_button').on("click", function() {
+				event.preventDefault();
+			});
+		} else {
+			$('.file_upload_button').addClass('activ_upload');
+			$('.file_upload_button').off();
+		}
+	})
 });
 </script>
