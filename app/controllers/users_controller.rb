@@ -89,4 +89,7 @@ class UsersController < ApplicationController
     current_user.save
     (params[:back].nil?) ? (redirect_to root_url) : (redirect_to params[:back])
   end
+  
+  def faq
+  end
 end
