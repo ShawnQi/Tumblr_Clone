@@ -90,13 +90,10 @@ class PostsController < ApplicationController
       account_sid = ENV["TWILIO_SID"]
       auth_token = ENV["TWILIO_TOKEN"]
       twilio_number = ENV["TWILIO_NUMBER"]
-      user_number = params["FROM"]
+      user_number = params["From"]
       
       @client = Twilio::REST::Client.new account_sid, auth_token
-      @client.account.messages.create(
-        :from => twilio_number,
-        :to => user_number,
-        :body => 'Hey there!')
+      @client.account.messages.create( :from => twilio_number, :to => user_number, :body => 'Hey there!')
         
       # render 'process_sms.xml.erb', :content_type => 'text/xml'
     end
