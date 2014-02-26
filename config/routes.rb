@@ -1,7 +1,8 @@
 TumblrClone::Application.routes.draw do
   root to: redirect('/dashboard')
   
-  get 'password-reset', to: 'sessions#password_reset', as: 'password_reset'
+  get 'password-reset-view', to: 'sessions#password_reset_view', as: 'password_reset_view'
+  post 'password-reset', to: 'sessions#password_reset', as: 'password_reset'
   get 'login', to: 'sessions#new', as: 'login'
   post 'signin', to: 'sessions#create', as: 'signin'
   get 'signout', to: 'sessions#destroy', as: 'signout'

@@ -28,7 +28,13 @@ class SessionsController < ApplicationController
     redirect_to login_url
   end
   
+  def password_reset_view
+  end
+  
   def password_reset
-    
+    user = User.find_by_email(params[:user][:email])
+    user.send_password_reset if user
+    flash[:main] = "Email sent with password reset instructions"
+    redirect_to root_url
   end
 end
