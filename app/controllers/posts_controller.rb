@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
-  before_filter :require_current_user!
-  before_filter :get_menu_stats, except: [:publish]
+  before_filter :require_current_user!, except: [:sms_post]
+  before_filter :get_menu_stats, except: [:publish, :sms_post]
   
   def index
     @posts = current_user.posts.where(draft: false).order("created_at DESC")
@@ -79,5 +79,23 @@ class PostsController < ApplicationController
       flash[:main] = "There was an error in trying to publish your draft"
       redirect_to request.referer
     end
+  end
+  
+  def sms_post
+    user = User.find_by_phonenumber(params["From"])
+    
+    if user
+      Post.create!({body: params["Body"], title: "Sms Post", draft: false, user_id: user.id})
+      
+      from_number = params[:number_to_send_to]
+      @twilio_client = Twilio::REST::Client.new ENV["TWILIO_SID"], ENV["TWILIO_TOKEN"]
+      @twilio_client.account.sms.messages.create(
+        :from => ENV["TWILIO_NUMBER"],
+        :to => from_number,
+        :body => "Successfully posted!"
+      )
+    end
+    
+    redirect_to root_url
   end
 end

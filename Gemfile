@@ -14,8 +14,9 @@ gem 'newrelic_rpm'
 gem 'figaro'
 gem 'omniauth'
 gem 'omniauth-facebook'
-gem "paperclip"
-gem "aws-sdk"
+gem 'paperclip'
+gem 'aws-sdk'
+gem 'twilio-ruby'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
