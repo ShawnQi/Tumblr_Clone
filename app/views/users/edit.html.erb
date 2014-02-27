@@ -42,6 +42,19 @@
 		<div class="word_divider">Password Reset</div>
 		<input type="password" name="user[password]" placeholder="New Password">
 		<input type="password" name="user[cpassword]" placeholder="Confirm Password">
+		
+		<div class="word_divider">Facebook Signin</div>
+		<% if current_user.provider %>
+			<div class="group">
+				<div class="float_left stronger">Your facebook account is connected</div>
+				<div class="float_left"><a href="<%= facebook_destroy_url %>">Disconnect</a></div>
+			</div>
+		<% else %>
+			<div class="group">
+				<div class="float_left stronger">Connect your facebook account</div>
+				<div class="float_left"><a href="/auth/facebook">Connect</a></div>
+			</div>		
+		<% end %>
 
 		<% if flash.now[:errors] %>
 			<% history = [] %>

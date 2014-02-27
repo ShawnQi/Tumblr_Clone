@@ -60,24 +60,30 @@ class User < ActiveRecord::Base
     LIMIT 3")
   end
   
-  def self.find_or_create_by_auth(auth)
+  def self.find_or_create_by_auth(auth, current_user)
     user = User.find_by_uid(auth['uid'])
     return user if user
       
     user = User.find_by_email(auth['info']['email'])
+    
     if user
       user.update_attributes({provider: auth['provider'], uid: auth['uid']})
       return user
-    else
-      user = User.create!(
-        username: auth['info']['nickname'],
-        email: auth['info']['email'],
-        blog_name: auth['info']['name'],
-        password: auth['uid'],
-        provider: auth['provider'],
-        uid: auth['uid'])
-      return user
     end
+    
+    if current_user
+      current_user.update_attributes({provider: auth['provider'], uid: auth['uid']})
+      return current_user
+    end
+
+    user = User.create!(
+      username: auth['info']['nickname'],
+      email: auth['info']['email'],
+      blog_name: auth['info']['name'],
+      password: auth['uid'],
+      provider: auth['provider'],
+      uid: auth['uid'])
+    return user
   end
   
   def password=(password)

@@ -10,6 +10,7 @@ TumblrClone::Application.routes.draw do
   get 'signout', to: 'sessions#destroy', as: 'signout'
   match '/auth/facebook/callback', to: 'sessions#facebook_signin'
   match '/auth/failure', to: 'sessions#new'
+  get 'facebook-destroy', to: 'sessions#facebook_destroy', as: 'facebook_destroy'
   
   resources :users, only: [:new, :create, :show, :update, :destroy]
   get 'dashboard', to: 'users#show', as: 'home'
