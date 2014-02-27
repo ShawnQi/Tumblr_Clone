@@ -602,8 +602,28 @@
 			
 		};
 		$("a.option_menu_list_item").on("click", editpost);
+		
+		// SPIN HOUSE ANIMATION
+		// $('.empty_page_house').animate({rotation: 360},{duration: 2000, step: function(now, fx) {
+		//       $(this).css({"transform": "rotate("+now+"deg)"});
+		//     }
+		
+		
+		
+		
+		$(function() {
+	    var $elie = $('.spinner'), degree = 0, timer;
+	    rotate();
+	    function rotate() {
+        
+        $elie.css({ WebkitTransform: 'rotate(' + degree + 'deg)'});  
+        $elie.css({ '-moz-transform': 'rotate(' + degree + 'deg)'});                      
+        timer = setTimeout(function() { ++degree; rotate(); }, 40); }
+		}); 
 
-	});
+		
+		
+});
 </script>
 
 </body>

@@ -670,3 +670,27 @@ input.option_menu_list_item {
 .tag_link {
 	background: url('/assets/tag_link.png');
 }
+
+.empty_page_house {
+	background: url('/assets/house.png');
+	background-size: 54px;
+	width: 54px;
+	height: 58px;
+	display: inline-block;
+}
+
+.spinner {
+	background: url('/assets/spinner.png');
+	background-size: 139px;
+	width: 139px;
+	height: 139px;
+	display: inline-block;
+	position: absolute;
+	top: -42px;
+	left: -43px;
+}
+
+.center_empty_page {
+	width: 500px;
+	padding: 100px 245px;
+}

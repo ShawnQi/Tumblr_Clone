@@ -102,4 +102,11 @@
 			</li>
 		<% end %>
 	</ul>
+		
+<% end %>
+
+<% if @posts.empty? %>
+	<div class="center_empty_page">
+		<div class="empty_page_house relative"><div class="spinner"></div></div>
+	</div>
 <% end %>
