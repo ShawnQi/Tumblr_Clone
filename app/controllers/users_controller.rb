@@ -49,7 +49,7 @@ class UsersController < ApplicationController
     params[:user].delete(:cpassword)
     
     if current_user.update_attributes(params[:user])
-      if send_sms
+      if ((send_sms) && (current_user.phonenumber != nil) && (current_user.phonenumber != ""))
         to = current_user.phonenumber
         body = 'To post directly from your cellphone, send text messages to this number.'
         send_sms(to, body)
