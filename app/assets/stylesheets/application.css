@@ -636,3 +636,18 @@ input.option_menu_list_item {
 	display: inline-block;
 	clear: both;
 }
+
+.html_tags_bar {
+	height: 28px;
+	line-height: 28px;
+	border: 1px solid #E3E3E3;
+}
+
+.tags_bar_el {
+	display: inline-block;
+	padding: 0 10px;
+}
+
+.tags_bar_el:hover {
+	cursor: pointer;
+}
