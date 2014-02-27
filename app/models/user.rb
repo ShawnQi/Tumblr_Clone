@@ -62,8 +62,11 @@ class User < ActiveRecord::Base
   
   def self.find_or_create_by_auth(auth)
     user = User.find_by_uid(auth['uid'])
-    
+    return user if user
+      
+    user = User.find_by_email(auth['info']['email'])
     if user
+      user.update_attributes({provider: auth['provider'], uid: auth['uid']})
       return user
     else
       user = User.create!(
@@ -73,6 +76,7 @@ class User < ActiveRecord::Base
         password: auth['uid'],
         provider: auth['provider'],
         uid: auth['uid'])
+      return user
     end
   end
   
