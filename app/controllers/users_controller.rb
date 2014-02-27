@@ -33,6 +33,7 @@ class UsersController < ApplicationController
   
   def update
     @referer = params[:back]
+    send_sms = true if (params[:user][:phonenumber] && params[:user][:phonenumber] != current_user.phonenumber)
     
     if (params[:user][:password].empty? || params[:user][:cpassword].empty?)
       params[:user].delete(:password)
@@ -48,6 +49,11 @@ class UsersController < ApplicationController
     params[:user].delete(:cpassword)
     
     if current_user.update_attributes(params[:user])
+      if send_sms
+        to = current_user.phonenumber
+        body = 'To post directly from your cellphone, send text messages to this number.'
+        send_sms(to, body)
+      end
       flash[:main] = "Your account has been updated"
       (params[:back].nil?) ? (redirect_to root_url) : (redirect_to params[:back])
     else
