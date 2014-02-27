@@ -33,7 +33,7 @@ class UsersController < ApplicationController
   
   def update
     @referer = params[:back]
-    send_sms = params[:user][:phonenumber] != current_user.phonenumber)
+    send_sms = params[:user][:phonenumber] != current_user.phonenumber
     
     if (params[:user][:password].empty? || params[:user][:cpassword].empty?)
       params[:user].delete(:password)
