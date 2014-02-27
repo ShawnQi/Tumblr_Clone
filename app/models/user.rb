@@ -22,7 +22,7 @@
 #
 
 class User < ActiveRecord::Base
-  attr_accessible :username, :email, :blog_name, :password, :provider, :uid, :avatar
+  attr_accessible :username, :email, :blog_name, :password, :provider, :uid, :avatar, :phonenumber
   attr_reader :password
     
   before_validation :ensure_session_token
