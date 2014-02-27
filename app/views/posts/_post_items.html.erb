@@ -24,7 +24,8 @@
 					<%= post.title %><br>
 				</div>
 				<div class="post_body">
-					<%= post.body.gsub(/(\<script\>)|(width)|(height)|(position)|(display)/, "").html_safe %>
+					<% body = post.body.gsub(/\r\n/, "<br>") %>
+					<%= sanitize body, :tags => %w(strong b i br img) %>
 				</div>
 				
 				
