@@ -10,6 +10,12 @@
 	
 		<input type="text" name="post[title]" value="<%= @post.title %>" placeholder="Title">
 	
+		<div class="html_tags_bar">
+			<div class="tags_bar_el tag_bold">Bold</div>
+			<div class="tags_bar_el tag_italic">Italic</div>
+			<div class="tags_bar_el tag_link">Link</div>
+		</div>
+		
 		<textarea name="post[body]" placeholder="Body"><%= @post.body %></textarea>
 	
 		<div style="height: 30px">
