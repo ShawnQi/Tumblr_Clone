@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+  before_filter :require_current_user!, only: [:facebook_destroy]
   layout 'auth'
   
   def new
@@ -18,8 +19,15 @@ class SessionsController < ApplicationController
   
   def facebook_signin
     auth = request.env['omniauth.auth']
-    user = User.find_or_create_by_auth(auth)
+    user = User.find_or_create_by_auth(auth, current_user)
     signin(user)
+    redirect_to root_url
+  end
+  
+  def facebook_destroy
+    if current_user.uid
+      current_user.update_attributes({provider: nil, uid: nil})
+    end
     redirect_to root_url
   end
   
