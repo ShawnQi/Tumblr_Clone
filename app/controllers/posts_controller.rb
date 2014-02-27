@@ -35,15 +35,8 @@ class PostsController < ApplicationController
     @post = current_user.posts.find(params[:id])
     @post.draft = false unless params[:post][:draft]
     @referer = params[:back]
-    send_sms = true if (params[:user][:phonenumber] && params[:user][:phonenumber] != current_user.phonenumber)
     
     if @post.update_attributes(params[:post])
-      if send_sms
-        to = current_user.phonenumber
-        body = 'To post directly from your cellphone, send text messages to this number.'
-        send_sms(to, body)
-      end
-      
       flash[:main] = "Your post has been updated"
       (params[:back].nil?) ? (redirect_to root_url) : (redirect_to params[:back])
     else
