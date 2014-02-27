@@ -348,8 +348,8 @@
 					$('.flash_messages').html("Your post has been published");
 					$('.flash_messages').fadeIn(100).delay(1000).fadeOut(1000);
 					
-					$('li[data-id=' + form_id + ']').animate({opacity: 0}, 500, "linear");
-					$('li[data-id=' + form_id + ']').slideUp(500, "linear");
+					$('li[data-id=' + form_id + ']').animate({opacity: 0}, 300, "linear");
+					$('li[data-id=' + form_id + ']').slideUp(100, "linear");
 					
 					var drafts_number = $('#menu_drafts_number').html();
 					$('#menu_drafts_number').html(drafts_number - 1);
@@ -368,7 +368,7 @@
 			$('.new_post_menu').css('position', 'relative');
 			$('.new_post_menu, .post_avatar_top').css('z-index', '2');
 			$('.new_post_menu ul').fadeOut(100, "linear", function() {
-				$('.new_post_menu').animate({height: "540px"}, 100, "linear", function() {
+				$('.new_post_menu').animate({height: "440px"}, 100, "linear", function() {
 					$('#insert_here_new_form').load("/posts/new .new_post_container", function() {
 						// HTML TAGS
 						$(".tag_bold").on("click", tag_bold);
@@ -542,7 +542,7 @@
 			$('.full_post_content[data-id="'+ post_id +'"]').animate({'opacity': '0'}, function() {
 				$('.full_post_content[data-id="'+ post_id +'"]').load("/posts/"+post_id+"/edit .new_post_container", function() {
 					$(this).css('opacity', '1');
-					$('.new_post_container').css({'padding-top':'0', 'padding-bottom':'0','height':'510px'});
+					$('.new_post_container').css({'padding-top':'0', 'padding-bottom':'0','height':'410px'});
 					
 					// HTML TAGS
 					$(".tag_bold").on("click", tag_bold);
