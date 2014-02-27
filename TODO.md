@@ -1,7 +1,7 @@
 * Fix signin with facebook uniq email
 * Place and style connect/disconnect facebook buttons on the settins page
----
 * Tags in the posts
+---
 * Add upload images to posts
 * Empty main page animation
 * Find a user by email
