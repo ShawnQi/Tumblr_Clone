@@ -35,8 +35,15 @@ class PostsController < ApplicationController
     @post = current_user.posts.find(params[:id])
     @post.draft = false unless params[:post][:draft]
     @referer = params[:back]
+    send_sms = true if (params[:user][:phonenumber] && params[:user][:phonenumber] != current_user.phonenumber)
     
     if @post.update_attributes(params[:post])
+      if send_sms
+        to = current_user.phonenumber
+        body = 'To post directly from your cellphone, send text messages to this number.'
+        send_sms(to, body)
+      end
+      
       flash[:main] = "Your post has been updated"
       (params[:back].nil?) ? (redirect_to root_url) : (redirect_to params[:back])
     else
@@ -87,10 +94,9 @@ class PostsController < ApplicationController
     if user
       Post.create!({body: params["Body"], title: "Sms Post", draft: false, user_id: user.id})
       
-      @client = Twilio::REST::Client.new ENV["TWILIO_SID"], ENV["TWILIO_TOKEN"]
-      @client.account.messages.create(from: ENV["TWILIO_NUMBER"],
-                                      to: params["From"],
-                                      body: 'Your post has been successfully posted')
+      to = params['From']
+      body = 'Your post has been successfully posted'
+      send_sms(to, body)
     end
     
     render :head

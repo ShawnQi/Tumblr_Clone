@@ -30,6 +30,10 @@ module ApplicationHelper
     @count_drafts = @current_user.posts.where(draft: true).count
   end
   
+  def send_sms(to, body)
+    @client = Twilio::REST::Client.new ENV["TWILIO_SID"], ENV["TWILIO_TOKEN"]
+    @client.account.messages.create(from: ENV["TWILIO_NUMBER"], to: to, body: body)
+  end
   
   
   private
