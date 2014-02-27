@@ -1,9 +1,10 @@
 * Forgot password
 * Emails
 * FAQ
----
-* Messages
 * Twilio text mesage post
+---
+* Add phone number to the settings page
+* Messages
 * Models rspec
 
 * cursor change on image upload

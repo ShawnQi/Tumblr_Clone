@@ -30,11 +30,14 @@
 		<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
 		<input type="hidden" name="_method" value="put">
 		<input type="hidden" name="back" value="<%= @referer ||= request.referer %>">
-	
+			
 		<div class="word_divider">Basic Info</div>
 		<input type="text" name="user[username]" value="<%= current_user.username %>" placeholder="Username">
 		<input type="text" name="user[email]" value="<%= current_user.email %>" placeholder="Email">
 		<input type="text" name="user[blog_name]" value="<%= current_user.blog_name %>" placeholder="Blog Name">
+		
+		<div class="word_divider">Cell Phone</div>
+		<input type="text" name="user[phonenumber]" value="<%= current_user.phonenumber %>" placeholder="Your cell phone number to post from ( e.x.: +15554447777 )">
 		
 		<div class="word_divider">Password Reset</div>
 		<input type="password" name="user[password]" placeholder="New Password">
