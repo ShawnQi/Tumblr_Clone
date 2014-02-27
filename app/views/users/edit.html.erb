@@ -79,7 +79,6 @@ $(document).ready(function(){
 	
 	$('#old_choose_file').change(function(){
 		if ( $(this).val() == "" ) {
-			console.log($(this))
 			$('.file_upload_button').removeClass('activ_upload');
 			$('.file_upload_button').on("click", function() {
 				event.preventDefault();
