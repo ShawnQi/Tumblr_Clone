@@ -218,16 +218,17 @@
 	$( document ).ready(function() {
 		// HTML TAGS IN THE NEW POST FORM
 		var tag_bold = function() {
-			var body = $('textarea[name="post[body]"]').val();
-			$('textarea[name="post[body]"]').html(body + '<b></b>');
+			var $body = $('textarea[name="post[body]"]');
+			body = $body.val() + "<b></b>";
+			$('textarea[name="post[body]"]').val(body);
 		};
 		var tag_italic = function() {
 			var body = $('textarea[name="post[body]"]').val();
-			$('textarea[name="post[body]"]').html(body + '<i></i>');
+			$('textarea[name="post[body]"]').val(body + '<i></i>');
 		};
 		var tag_link = function() {
 			var body = $('textarea[name="post[body]"]').val();
-			$('textarea[name="post[body]"]').html(body + '<img src="">');
+			$('textarea[name="post[body]"]').val(body + '<img src="">');
 		};
 		
 		// OPTIONS BUTTON
