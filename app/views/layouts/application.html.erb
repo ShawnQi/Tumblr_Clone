@@ -368,7 +368,7 @@
 			$('.new_post_menu').css('position', 'relative');
 			$('.new_post_menu, .post_avatar_top').css('z-index', '2');
 			$('.new_post_menu ul').fadeOut(100, "linear", function() {
-				$('.new_post_menu').animate({height: "310px"}, 100, "linear", function() {
+				$('.new_post_menu').animate({height: "340px"}, 100, "linear", function() {
 					$('#insert_here_new_form').load("/posts/new .new_post_container", function() {
 						// HTML TAGS
 						$(".tag_bold").on("click", tag_bold);
@@ -542,7 +542,12 @@
 			$('.full_post_content[data-id="'+ post_id +'"]').animate({'opacity': '0'}, function() {
 				$('.full_post_content[data-id="'+ post_id +'"]').load("/posts/"+post_id+"/edit .new_post_container", function() {
 					$(this).css('opacity', '1');
-					$('.new_post_container').css({'padding-top': '0', 'padding-bottom': '0'});
+					$('.new_post_container').css({'padding-top':'0', 'padding-bottom':'0','height':'310px'});
+					
+					// HTML TAGS
+					$(".tag_bold").on("click", tag_bold);
+					$(".tag_italic").on("click", tag_italic);
+					$(".tag_link").on("click", tag_link);
 					
 					// NEW FORM VALIDATE INPUT
 					(function() {

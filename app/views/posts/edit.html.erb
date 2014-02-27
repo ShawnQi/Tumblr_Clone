@@ -10,6 +10,12 @@
 		<input type="hidden" name="back" value="<%= @referer ||= request.referer %>">
 	
 		<input type="text" name="post[title]" value="<%= @post.title %>" placeholder="Title">
+		
+		<div class="html_tags_bar">
+			<div class="tags_bar_el tag_bold"></div>
+			<div class="tags_bar_el tag_italic"></div>
+			<div class="tags_bar_el tag_link"></div>
+		</div>
 	
 		<textarea name="post[body]" placeholder="Body"><%= @post.body %></textarea>
 	

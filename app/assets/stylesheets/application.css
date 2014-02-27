@@ -85,7 +85,7 @@ nav img:hover {
 #content {
 	background-color: #2A4763;
 	width: 860px;
-	padding: 20px;
+	padding: 20px 20px 200px 20px;
 	border-radius: 15px;
 }
 
@@ -462,7 +462,7 @@ input.option_menu_list_item {
 	padding: 10px 12px;
 	width: 475px;
 	border: 1px solid #E3E3E3;
-	border-radius: 3px;
+/*	border-radius: 3px;*/
 	font-size: 13px;
 	color: #444;
 	-webkit-font-smoothing: antialiased;
@@ -612,7 +612,7 @@ input.option_menu_list_item {
 	padding: 8px 15px;
 	border: 2px solid #2aa315;
 	background: #248713;
-	color: white;
+	color: #fff;
 	border-radius: 5px;
 }
 
@@ -638,16 +638,35 @@ input.option_menu_list_item {
 }
 
 .html_tags_bar {
+	width: 499px;
 	height: 28px;
 	line-height: 28px;
-	border: 1px solid #E3E3E3;
+	background: #F7F7F7;
+	border-left: 1px solid #E3E3E3;
+	border-right: 1px solid #E3E3E3;
 }
 
 .tags_bar_el {
-	display: inline-block;
-	padding: 0 10px;
+	background-size: 20px;
+	width: 20px;
+	height: 20px;
+	display: block;
+	float: left;
+	margin: 4px 7px 0 7px;
 }
 
 .tags_bar_el:hover {
 	cursor: pointer;
+}
+
+.tag_bold {
+	background: url('/assets/tag_bold.png');
+}
+
+.tag_italic {
+	background: url('/assets/tag_italic.png');
+}
+
+.tag_link {
+	background: url('/assets/tag_link.png');
 }
