@@ -21,14 +21,16 @@ class SessionsController < ApplicationController
     auth = request.env['omniauth.auth']
     user = User.find_or_create_by_auth(auth, current_user)
     signin(user)
-    redirect_to root_url
+    flash[:main] = "Your facebook account is now connected"
+    redirect_to settings_url
   end
   
   def facebook_destroy
     if current_user.uid
       current_user.update_attributes({provider: nil, uid: nil})
+      flash[:main] = "Your facebook account has been disconnected"
     end
-    redirect_to root_url
+    redirect_to settings_url
   end
   
   def destroy

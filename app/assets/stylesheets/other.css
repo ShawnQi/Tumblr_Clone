@@ -276,3 +276,50 @@
 .inline_logo:hover {
 	opacity: 1;
 }
+
+.facebook_connect {
+	text-align: center;
+	min-width: 105px;
+	color: #444;
+	background: #fff;
+	float: left;
+	border: 1px solid #E3E3E3;
+	border-radius: 5px;
+	margin-left: 40px;
+	padding: 10px 5px 10px 35px;
+	margin-top: 13px;
+}
+
+.facebook_connect:hover {
+	color: #fff;
+	background: #4dcd7c;
+}
+
+.facebook_disconnect {
+	text-align: center;
+	min-width: 105px;
+	color: #444;
+	background: #fff;
+	float: left;
+	border: 1px solid #E3E3E3;
+	border-radius: 5px;
+	margin-left: 40px;
+	padding: 10px 5px 10px 35px;
+	margin-top: 13px;
+}
+
+.facebook_disconnect:hover {
+	color: #fff;
+	background: #b5310d;
+}
+
+.facebook_logo {
+	position: absolute;
+	background: #E3E3E3 url('/assets/logo_facebook.png');
+	background-size: 30px;
+	width: 30px;
+	height: 30px;
+	top: 5px;
+	left: 5px;
+	border-radius: 3px;
+}

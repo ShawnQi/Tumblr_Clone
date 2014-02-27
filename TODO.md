@@ -1,10 +1,14 @@
+* Fix signin with facebook uniq email
+* Place and style connect/disconnect facebook buttons on the settins page
 ---
-* signin with facebook uniq email fix
-* tags in the posts
-* add images to posts
-* whitelist certain tags in the text
-* ajax to post or edit new posts
-* sprites
+* Tags in the posts
+* Add upload images to posts
+* Empty main page animation
+* Find a user by email
+* Ajax to post or edit new posts
+* Add show a small blog info on hover
+* Sprites
 
 * Models rspec
+* Refactor
 * Messages
