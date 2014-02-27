@@ -366,7 +366,8 @@
 	    event.preventDefault();
 			var $original = $('.new_post_menu').html();
 		
-			$('#posts ul, #header, .menu').animate({opacity: "0.2"})
+			$('#posts ul, #header, .menu').animate({opacity: "0.2"});
+			$('#full_empty_page_anime').animate({opacity: "0"});
 			$('.dark-layer').fadeIn(300);
 			$('.new_post_menu').css('position', 'relative');
 			$('.new_post_menu, .post_avatar_top').css('z-index', '2');
@@ -420,6 +421,7 @@
 									$('.new_post_menu ul').fadeIn(200);
 									$('.dark-layer').fadeOut(200);
 									$('#posts ul, #header, .menu').animate({opacity: "1"}, 200);
+									$('#full_empty_page_anime').animate({opacity: "1"});
 									
 									$("#new_post_text_form").on("click", newpost );
 								});
@@ -604,13 +606,6 @@
 		$("a.option_menu_list_item").on("click", editpost);
 		
 		// SPIN HOUSE ANIMATION
-		// $('.empty_page_house').animate({rotation: 360},{duration: 2000, step: function(now, fx) {
-		//       $(this).css({"transform": "rotate("+now+"deg)"});
-		//     }
-		
-		
-		
-		
 		$(function() {
 	    var $elie = $('.spinner'), degree = 0, timer;
 	    rotate();
@@ -621,8 +616,6 @@
         timer = setTimeout(function() { ++degree; rotate(); }, 40); }
 		}); 
 
-		
-		
 });
 </script>
 
