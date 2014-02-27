@@ -216,7 +216,7 @@
 
 <script>
 	$( document ).ready(function() {
-		// HTML TAGS IN THE NEW POST FORM
+		// HTML TAGS IN THE POST FORM
 		var tag_bold = function() {
 			var $body = $('textarea[name="post[body]"]');
 			body = $body.val() + "<b></b>";
@@ -348,11 +348,14 @@
 					$('.flash_messages').html("Your post has been published");
 					$('.flash_messages').fadeIn(100).delay(1000).fadeOut(1000);
 					
-					$('li[data-id=' + form_id + ']').animate({opacity: 0}, 300, "linear");
+					$('li[data-id=' + form_id + ']').animate({opacity: 0}, 500, "linear");
 					$('li[data-id=' + form_id + ']').slideUp(100, "linear");
 					
 					var drafts_number = $('#menu_drafts_number').html();
 					$('#menu_drafts_number').html(drafts_number - 1);
+					
+					var posts_number = parseInt( $('#menu_posts_number').html() );
+					$('#menu_posts_number').html(posts_number + 1);
 	      }
 	    })
 		});
@@ -599,7 +602,7 @@
 			
 		};
 		$("a.option_menu_list_item").on("click", editpost);
-						
+
 	});
 </script>
 
