@@ -25,6 +25,7 @@ TumblrClone::Application.routes.draw do
   get 'drafts', to: 'posts#drafts', as: 'drafts'
   get 'posts/:id/publish', to: 'posts#publish', as: 'publish'
   post 'sms_post', to: 'posts#sms_post', as: 'sms_post'
+  get 'preview/:id', to: 'posts#preview', as: 'preview'
   
   resources :activs, only: [:index]
   

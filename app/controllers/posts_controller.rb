@@ -94,4 +94,11 @@ class PostsController < ApplicationController
     
     render :head
   end
+  
+  def preview
+    # ONLY FOR AJAX REQUESTS
+    user = User.find(params[:id])
+    posts = user.posts.limit(3)
+    render json: posts
+  end
 end
