@@ -20,8 +20,13 @@ class SessionsController < ApplicationController
   def facebook_signin
     auth = request.env['omniauth.auth']
     user = User.find_or_create_by_auth(auth, current_user)
-    signin(user)
-    flash[:main] = "Your facebook account is now connected"
+    if user
+      flash[:main] = "Your facebook account is now connected" if current_user
+      signin(user)
+    else
+      flash[:main] = "Your facebook account is already attached to another account"
+    end
+    
     redirect_to settings_url
   end
   

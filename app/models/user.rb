@@ -62,7 +62,13 @@ class User < ActiveRecord::Base
   
   def self.find_or_create_by_auth(auth, current_user)
     user = User.find_by_uid(auth['uid'])
-    return user if user
+    if user
+      if current_user && user != current_user
+        return false
+      else
+        return user
+      end
+    end
       
     user = User.find_by_email(auth['info']['email'])
     
