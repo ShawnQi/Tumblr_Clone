@@ -642,7 +642,7 @@
 						success: function(data) {
 							$insertHere.html('<div class="wrapper"><div>')
 							data.forEach(function(el) {
-								$insertHere.find('.wrapper').append('<div class="float_left" style="width:140px; padding:5px; overflow:hidden; text-overflow:ellipsis;"><div style="color:#444; text-align:center;">' + el.title + '</div><div style="font-size:12px">' + el.body + '</div></div>')
+								$insertHere.find('.wrapper').append('<div class="float_left" style="width:140px; padding:5px; overflow:hidden; text-overflow:ellipsis;"><div style="color:#444; text-align:center;">' + el.title + '</div><div style="font-size:12px">' + el.body.replace(/\<.+?\>/,'') + '</div></div>')
 							})
 						}
 					})
