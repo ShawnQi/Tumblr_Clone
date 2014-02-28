@@ -179,6 +179,7 @@ GEM
     uglifier (2.4.0)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
+    underscore-rails (1.5.2)
     uuidtools (2.1.4)
 
 PLATFORMS
@@ -206,3 +207,4 @@ DEPENDENCIES
   sass-rails (~> 3.2.3)
   twilio-ruby
   uglifier (>= 1.0.3)
+  underscore-rails

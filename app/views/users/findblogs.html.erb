@@ -1,10 +1,19 @@
 <div id="white_pane">
+	
+	<div>
+		<form action="<%= search_url %>" method="post">
+			<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+			<input type="text" name="email" class="search_input" placeholder="Find a user by email" autocomplete="off">
+		</form>
+		<div id="search_results"></div>
+	</div>
+	
 	<div class="title_and_controls">
 		<a class="button_generate" href="<%= findblogs_url %>">Generate random</a>
 	</div>
 
 	<% if @blogs %>
-		<ul>
+		<ul class="random_blogs_list">
 			<% @blogs.each_with_index do |blog, i| %>
 				<li class="following_list_items<%= " follower_list_darker_bg" if i%2 != 0 %>">
 					
@@ -37,3 +46,34 @@
 		</ul>
 	<% end %>
 </div>
+
+<script>
+	$( document ).ready(function() {
+		
+		// SEARCH BOX
+		$('.search_input').keyup(function() {
+	    var $val = $(this).val();
+			if ($val) {
+		    $.ajax({
+		      url: '/search',
+		      type: "POST",
+		      data: 'email=' + $val,
+		      success: function(data) {
+						if (data && data != "Not Found") {
+							$('#search_results').html('');
+							$('#search_results').css({'margin-bottom':'50px','padding-left':'10px'});
+							data.forEach(function (el) {
+								$('#search_results').append('<a class="search_result_line" href="/users/' + el.id + '/public">' + el.email + '<form action="/follow" method="post" style="display:inline;"><input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>"><input type="hidden" name="back" value="/findblogs"><input type="hidden" name="follower_id" value="' + el.id + '"><input class="button_follow_blue_big float_right" type="submit" value="Follow"></form></a>');
+							})
+						} else {
+							$('#search_results').html('<div>Not Found</div>');
+						}
+		      }
+		    });
+			} else {
+				$('#search_results').html('');
+			}
+		});
+		
+	});
+</script>

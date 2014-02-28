@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_filter :require_current_user!, except: [:new, :create]
-  before_filter :get_menu_stats, except: [:new, :create]
+  before_filter :get_menu_stats, except: [:new, :create, :search]
   layout "auth", only: [:new, :create]
   
   def new
@@ -101,5 +101,23 @@ class UsersController < ApplicationController
   end
   
   def faq
+  end
+  
+  def search
+    # ONLY FOR AJAX
+    if request.xhr?
+      followings = [].concat(current_user.following.pluck(:followed_id))
+      user = User.find_by_sql("SELECT * FROM users
+                               WHERE id != #{current_user.id}
+                               AND id NOT IN (#{followings.join(',')})
+                               AND users.email LIKE '%#{params[:email]}%'
+                               LIMIT 5")
+      user = [].concat(user)
+      unless user.empty?
+        render json: user
+      else
+        render text: "Not Found"
+      end
+    end
   end
 end

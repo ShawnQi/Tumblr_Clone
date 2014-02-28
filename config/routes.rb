@@ -19,6 +19,7 @@ TumblrClone::Application.routes.draw do
   get 'users/:id/public', to: 'users#public', as: 'public'
   post 'avatarchange', to: 'users#avatarchange', as: 'avatarchange'
   match '/faq', to: 'users#faq'
+  post 'search', to: 'users#search', as: 'search'
   
   resources :posts, except: [:show]
   get 'drafts', to: 'posts#drafts', as: 'drafts'
