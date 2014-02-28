@@ -6,6 +6,7 @@
 				<!-- POST AVATAR -->
 				<div class="relative">
 					<a href="<%= public_url(post.user.id) %>">
+						<div class="hover_over_content hidden" data-id="<%= post.id %>"></div>
 						<div class="post_avatar" data-id="<%= post.id %>">
 							<%= image_tag post.user.avatar.url(:small) %>
 							<div class="selector_left">			

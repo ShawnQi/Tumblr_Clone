@@ -727,3 +727,16 @@ input.option_menu_list_item {
 	width: 300px;
 	display: block;
 }
+
+.hover_over_content {
+	height: 200px;
+	width: 440px;
+	background: #fff;
+	position: absolute;
+	left: -130px;
+	top: 60px;
+	z-index: 1;
+	border-radius: 5px;
+	border: 1px solid #ACACAC;
+	box-shadow: 5px 5px 20px 0 #222;
+}
