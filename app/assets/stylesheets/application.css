@@ -676,7 +676,8 @@ input.option_menu_list_item {
 	background-size: 54px;
 	width: 54px;
 	height: 58px;
-	display: inline-block;
+	display: block;
+	margin: 0 auto;
 }
 
 .spinner {
@@ -692,8 +693,10 @@ input.option_menu_list_item {
 }
 
 .center_empty_page {
-	width: 500px;
-	padding: 100px 0 0 245px;
+	width: 300px;
+/*	padding: 100px 0 0 245px;*/
+	padding-top: 200px;
+	margin: auto;
 }
 
 .empty_page_text {
@@ -717,4 +720,10 @@ input.option_menu_list_item {
 	  linear, left top, left bottom, from( rgba(40, 71, 100, 0) ),
 	  to( rgba(40, 71, 100, 1) )
 	);
+}
+
+.center {
+	margin: auto;
+	width: 300px;
+	display: block;
 }

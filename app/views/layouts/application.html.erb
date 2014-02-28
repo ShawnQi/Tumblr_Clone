@@ -204,6 +204,17 @@
 			<div id="posts">
 				<%= yield %>
 			</div>
+			
+			<% if @posts && @posts.empty? %>
+				<div id="full_empty_page_anime" style="margin-top:<%= request.path == "/likes" ? "0" : "-119px" %>">
+					<div class="center_empty_page">
+						<div class="empty_page_house relative"><div class="spinner"></div></div>
+					</div>
+					<div class="empty_page_shadow"></div>
+					<div class="empty_page_text">There is no activity <br>on this page</div>
+				</div>
+			<% end %>
+			
 			<% else %>
 				<%= yield %>
 			<% end %>
@@ -212,6 +223,7 @@
 		
 		<div class="clearfix"></div>
 	</div>
+	
 </div>
 
 <script>

@@ -1,7 +1,8 @@
+<% unless @following.empty? %>
 <div id="white_pane">
 	<div class="title_and_controls">Following <%= pluralize(@following.count, 'blog') %></div>
 
-	<% if @following %>
+
 		<ul>
 			<% @following.each_with_index do |following, i| %>
 				<li class="following_list_items<%= " follower_list_darker_bg" if i%2 != 0 %>" data-id="<%= following.id %>">
@@ -37,5 +38,17 @@
 				</li>
 			<% end %>
 		</ul>
-	<% end %>
 </div>
+<% end %>
+
+<% if @following.empty? %>
+	<div id="full_empty_page_anime">
+		<div class="center">
+		<div class="center_empty_page">
+			<div class="empty_page_house relative"><div class="spinner"></div></div>
+		</div>
+		<div class="empty_page_shadow"></div>
+		<div class="empty_page_text">There is no activity <br>on this page</div>
+	</div>
+	</div>
+<% end %>
