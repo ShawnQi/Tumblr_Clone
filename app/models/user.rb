@@ -119,4 +119,8 @@ class User < ActiveRecord::Base
     self.save!
     UserMailer.password_reset(self).deliver
   end
+  
+  def src_small
+    avatar? ? avatar.url : "No"
+  end
 end

@@ -345,7 +345,7 @@
 .search_result_line {
 	height: 30px;
 	line-height: 30px;
-	padding: 5px 16px 5px 0;
+	padding: 15px 16px 15px 0;
 	border-top: 1px solid #EFEFEF;
 	display: block;
 }
