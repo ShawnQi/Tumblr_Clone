@@ -640,9 +640,9 @@
 					$.ajax({
 						url: "/preview/" + id,
 						success: function(data) {
-							$insertHere.html('<div class="wrapper"><div>')
+							$insertHere.html('<div class="wrapper relative"><div class="selector_top_white_avatar"></div><div>')
 							data.forEach(function(el) {
-								$insertHere.find('.wrapper').append('<div class="float_left" style="width:140px; padding:5px; overflow:hidden; text-overflow:ellipsis;"><div style="color:#444; text-align:center;">' + el.title + '</div><div style="font-size:12px;overflow:hidden;">' + el.body.replace(/http\:\/\//,'') + '</div></div>')
+								$insertHere.find('.wrapper').append('<div class="float_left" style="width:120px; padding:15px; overflow:hidden; text-overflow:ellipsis;"><div style="color:#444; text-align:center;">' + el.title + '</div><div style="font-size:12px; overflow:hidden; height:145px">' + el.body.replace(/(\<.*?\>)/gi,'') + '</div></div>')
 							})
 						}
 					})

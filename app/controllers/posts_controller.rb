@@ -98,7 +98,7 @@ class PostsController < ApplicationController
   def preview
     # ONLY FOR AJAX REQUESTS
     user = User.find(params[:id])
-    posts = user.posts.limit(3)
+    posts = user.posts.order("created_at DESC").limit(3)
     render json: posts
   end
 end

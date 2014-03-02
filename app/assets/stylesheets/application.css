@@ -733,9 +733,19 @@ input.option_menu_list_item {
 	background: #fff;
 	position: absolute;
 	left: -130px;
-	top: 60px;
+	top: 70px;
 	z-index: 1;
 	border-radius: 5px;
 	border: 1px solid #ACACAC;
 	box-shadow: 5px 5px 20px 0 #222;
+}
+
+.selector_top_white_avatar {
+	background-image: url('selector_white_up.png');
+	display: block;
+	width: 24px;
+	height: 12px;
+	top: -12px;
+	left: 66px;
+	position: absolute;
 }
