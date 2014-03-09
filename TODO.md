@@ -1,5 +1,4 @@
----
 * Sprites
-* Models rspec
+* Tests for models' associations
 * Refactor
-* Messages
+* Add messaging
