@@ -1,5 +1,4 @@
-###Tumblr Clone
-_by Raman Sycheuski_
+##Tumblr Clone _by Raman Sycheuski_
 
 Live at [www.tumblr-clone.com](http://www.tumblr-clone.com)
 
